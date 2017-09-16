@@ -1,0 +1,2040 @@
+[ 2017-07-19T13:34:35+08:00 ] 127.0.0.1 127.0.0.1 GET /backend/setting/clear.html
+[ log ] tpframe.com/backend/setting/clear.html [运行时间：0.106006s][吞吐率：9.43req/s] [内存消耗：3,543.44kb] [文件加载：84]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.034002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'backend',
+    1 => 'setting',
+    2 => 'clear',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/backend/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\backend\controller\Setting->clear[ E:\web\tpframe\application\backend\controller\Setting.php ]
+[ info ] [ VIEW ] E:\web\tpframe\coreframe\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:38+08:00 ] 127.0.0.1 127.0.0.1 GET /backend/index/main.html
+[ log ] tpframe.com/backend/index/main.html [运行时间：0.152009s][吞吐率：6.58req/s] [内存消耗：3,411.10kb] [文件加载：80]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.060003s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.022001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'backend',
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/backend/setting/clear.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\backend\controller\Index->main[ E:\web\tpframe\application\backend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/backend/index\main.html [ array (
+  0 => 'server_info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_menu` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_menu` WHERE  `display` = 1 ORDER BY sort ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] select VERSION() as version [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:38+08:00 ] 127.0.0.1 127.0.0.1 GET /backend/index/__PUBLIC__/js/common.js
+[ log ] tpframe.com/backend/index/__PUBLIC__/js/common.js [运行时间：0.077004s][吞吐率：12.99req/s] [内存消耗：3,327.70kb] [文件加载：80]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.030001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'backend',
+    1 => 'index',
+    2 => '__PUBLIC__',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://tpframe.com/backend/index/main.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'js' => 'common.js',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_menu` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_menu` WHERE  `display` = 1 ORDER BY sort ASC [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:41+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/1
+[ log ] tpframe.com/frontend/posts/index/cid/1 [运行时间：0.147008s][吞吐率：6.80req/s] [内存消耗：3,790.89kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.035002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:42+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/1
+[ log ] tpframe.com/frontend/posts/index/cid/1 [运行时间：0.137008s][吞吐率：7.30req/s] [内存消耗：3,790.83kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 0,10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:43+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/1
+[ log ] tpframe.com/frontend/posts/index/cid/1 [运行时间：0.207012s][吞吐率：4.83req/s] [内存消耗：3,790.83kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.039002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.018001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 0,10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:44+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/2
+[ log ] tpframe.com/frontend/posts/index/cid/2 [运行时间：0.177010s][吞吐率：5.65req/s] [内存消耗：3,762.60kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.042003s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.015000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '2',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2) ) LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:46+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/3
+[ log ] tpframe.com/frontend/posts/index/cid/3 [运行时间：0.114006s][吞吐率：8.77req/s] [内存消耗：3,682.89kb] [文件加载：91]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.029002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '3',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (3) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (3) ) LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:46+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/4
+[ log ] tpframe.com/frontend/posts/index/cid/4 [运行时间：0.131007s][吞吐率：7.63req/s] [内存消耗：3,755.81kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.028002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '4',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (4) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (4) ) LIMIT 0,10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:47+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/5
+[ log ] tpframe.com/frontend/posts/index/cid/5 [运行时间：0.148008s][吞吐率：6.76req/s] [内存消耗：3,749.00kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.035002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.013001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '5',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (5) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (5) ) LIMIT 0,10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:49+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/6
+[ log ] tpframe.com/frontend/posts/index/cid/6 [运行时间：0.127007s][吞吐率：7.87req/s] [内存消耗：3,682.89kb] [文件加载：91]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.028001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.012001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/5',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '6',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (6) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (6) ) LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:50+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/index/cid/1
+[ log ] tpframe.com/frontend/posts/index/cid/1 [运行时间：0.153008s][吞吐率：6.54req/s] [内存消耗：3,790.77kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.036003s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.012000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/6',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:54+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/1
+[ log ] tpframe.com/frontend/posts/show/id/1 [运行时间：0.145008s][吞吐率：6.90req/s] [内存消耗：3,550.63kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.037002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.012001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) and id<1 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) and id>1 ) ORDER BY id asc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:34:57+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/2
+[ log ] tpframe.com/frontend/posts/show/id/2 [运行时间：0.187011s][吞吐率：5.35req/s] [内存消耗：3,550.60kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.037002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.016001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,2) and id<2 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,2) and id>2 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:00+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/3
+[ log ] tpframe.com/frontend/posts/show/id/3 [运行时间：0.170010s][吞吐率：5.88req/s] [内存消耗：3,550.64kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.034002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.013001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '3',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,3) and id<3 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,3) and id>3 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:02+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/2
+[ log ] tpframe.com/frontend/posts/show/id/2 [运行时间：0.164009s][吞吐率：6.10req/s] [内存消耗：3,550.60kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.035002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.014001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,2) and id<2 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,2) and id>2 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:08+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/4
+[ log ] tpframe.com/frontend/posts/show/id/4 [运行时间：0.170010s][吞吐率：5.88req/s] [内存消耗：3,550.64kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.039002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.017001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,4) and id<4 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,4) and id>4 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:10+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/5
+[ log ] tpframe.com/frontend/posts/show/id/5 [运行时间：0.174010s][吞吐率：5.75req/s] [内存消耗：3,550.62kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.040002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.016001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,5) and id<5 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,5) and id>5 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:10+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/6
+[ log ] tpframe.com/frontend/posts/show/id/6 [运行时间：0.157009s][吞吐率：6.37req/s] [内存消耗：3,550.62kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.038002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.015001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/5',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '6',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,6) and id<6 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,6) and id>6 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:11+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/7
+[ log ] tpframe.com/frontend/posts/show/id/7 [运行时间：0.186010s][吞吐率：5.38req/s] [内存消耗：3,550.62kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.039002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.014001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/6',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,7) and id<7 ) ORDER BY id desc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,7) and id>7 ) ORDER BY id asc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:11+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/8
+[ log ] tpframe.com/frontend/posts/show/id/8 [运行时间：0.154009s][吞吐率：6.49req/s] [内存消耗：3,550.60kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.038002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.014001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/show/id/7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '8',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,8) and id<8 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,8) and id>8 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:49+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ log ] tpframe.com/ [运行时间：0.149009s][吞吐率：6.71req/s] [内存消耗：3,650.98kb] [文件加载：88]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.014001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/posts/index/cid/1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->index[ E:\web\tpframe\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\index.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Slide->getSlide[ E:\web\tpframe\application\frontend\logic\Slide.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide_cat` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `slide_pic`,`slide_url` FROM `tpf_slide` WHERE  (  slide_cid=( SELECT `cid` FROM `tpf_slide_cat` WHERE  `cat_idname` = 'banner' ) ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=7 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:53+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/index/about
+[ log ] tpframe.com/frontend/index/about [运行时间：0.171010s][吞吐率：5.85req/s] [内存消耗：3,406.03kb] [文件加载：81]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.044002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.021002s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->about[ E:\web\tpframe\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\about.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:35:53+08:00 ] 127.0.0.1 127.0.0.1 GET /theme/frontend/default/assets/images/contactbg.jpg
+[ log ] tpframe.com/theme/frontend/default/assets/images/contactbg.jpg [运行时间：0.048003s][吞吐率：20.83req/s] [内存消耗：2,735.24kb] [文件加载：61]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.020001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'theme',
+    1 => 'frontend',
+    2 => 'default',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/theme/frontend/default/assets/css/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'assets' => 'images',
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:36:00+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/index/cases/cid/7
+[ log ] tpframe.com/frontend/index/cases/cid/7 [运行时间：0.126008s][吞吐率：7.94req/s] [内存消耗：3,725.23kb] [文件加载：90]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.026002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.011001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/index/about',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\web\tpframe\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 0,3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:36:04+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ log ] tpframe.com/ [运行时间：0.130008s][吞吐率：7.69req/s] [内存消耗：3,650.78kb] [文件加载：88]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.012000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/index/cases/cid/7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->index[ E:\web\tpframe\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\index.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Slide->getSlide[ E:\web\tpframe\application\frontend\logic\Slide.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide_cat` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `slide_pic`,`slide_url` FROM `tpf_slide` WHERE  (  slide_cid=( SELECT `cid` FROM `tpf_slide_cat` WHERE  `cat_idname` = 'banner' ) ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=7 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:36:05+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/index/cases/cid/7/
+[ log ] tpframe.com/frontend/index/cases/cid/7/ [运行时间：0.108007s][吞吐率：9.26req/s] [内存消耗：3,725.16kb] [文件加载：90]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.028002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.012000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\web\tpframe\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 0,3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:36:09+08:00 ] 127.0.0.1 127.0.0.1 GET /frontend/posts/show/id/3
+[ log ] tpframe.com/frontend/posts/show/id/3 [运行时间：0.141008s][吞吐率：7.09req/s] [内存消耗：3,550.58kb] [文件加载：87]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.022001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.014001s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'show',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '3',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->show[ E:\web\tpframe\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\show.html [ array (
+  0 => 'id',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\web\tpframe\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->updateView[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPostById[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->preNextPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\web\tpframe\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\web\tpframe\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=TPFrame;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_addon` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `tpf_addon` WHERE  `status` = 1  AND `name` IN ('Editor') [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] UPDATE `tpf_posts`  SET `view`=view+1  WHERE  `id` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,3) and id<3 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,3) and id>3 ) ORDER BY id asc LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-07-19T13:39:50+08:00 ] 127.0.0.1 127.0.0.1 GET /install
+[ log ] tpframe.com/install [运行时间：0.045003s][吞吐率：22.22req/s] [内存消耗：1,924.36kb] [文件加载：53]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.001000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.000000s ]
+[ info ] [ LANG ] E:\web\tpframe\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://tpframe.com/frontend/index/cases/cid/7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=bjonscls62m36ompflf98l8u73',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\install\controller\Index->index[ E:\web\tpframe\application\install\controller\Index.php ]
+[ info ] [ VIEW ] .\theme\install\\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
