@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('Member/userinfo')}">修改信息</a></li>
+			<li><a href="{:url('Member/uppwd')}">修改密码</a></li>
+		</ul>
+		<form class="form-horizontal" method="post" action="">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="input-user_nicename">昵称</label>
+					<div class="controls">
+						<input type="hidden" name="id" value="1">
+						<input type="text" id="input-user_nicename" name="nickname" value="{$list.nickname}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input-gender">性别</label>
+					<div class="controls">
+						<select name="gender" id="input-gender">
+							<option value="0" {if condition="$list.gender eq 0"} selected {/if}>保密</option>								
+							<option value="1" {if condition="$list.gender eq 1"} selected {/if}>男</option>								
+							<option value="2" {if condition="$list.gender eq 2"} selected {/if}>女</option>						
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input-birthday">生日</label>
+					<div class="controls">
+						<input class="js-date date" type="text" id="input-birthday" placeholder="{$list.birthday}" name="birthday" value="{$list.birthday}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input-user_url">个人网址</label>
+					<div class="controls">
+						<input type="text" id="input-user_url" placeholder="http://tpframe.com" name="url" value="{$list.url}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input-signature">个性签名</label>
+					<div class="controls">
+						<textarea id="input-signature" placeholder="个性签名" name="signature">{$list.signature}</textarea>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">保存</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+		<script src="__THEMES__/js/common.js"></script>
+	</body>
+
+</html>

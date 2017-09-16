@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="wrap js-check-wrap">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="{:url('links/index')}">友情链接</a>
+				</li>
+				<li>
+					<a href="{:url('links/add')}">添加友情链接</a>
+				</li>
+			</ul>
+			<form method="post" class="js-ajax-form" action="/index.php?g=admin&m=link&a=listorders">
+				<div class="table-actions">
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit">
+						排序
+					</button>
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit"
+					data-action="/index.php?g=admin&m=link&a=toggle&display=1" data-subcheck="true">
+						显示
+					</button>
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit"
+					data-action="/index.php?g=admin&m=link&a=toggle&hide=1" data-subcheck="true">
+						隐藏
+					</button>
+				</div>
+				<table class="table table-hover table-bordered table-list">
+					<thead>
+						<tr>
+							<th width="16">
+								<label>
+									<input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+								</label>
+							</th>
+							<th width="50">排序</th>
+							<th width="50">ID</th>
+							<th>链接名称</th>
+							<th>链接地址</th>
+							<th width="45">状态</th>
+							<th width="120">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{volist name="list" id="vo"}
+						<tr>
+							<td>
+								<input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x"
+								name="ids[]" value="{$vo.id}">
+							</td>
+							<td>
+								<input name='listorders[1]' class="input input-order mr5" type='text'
+								size='3' value='{$vo.id}'>
+							</td>
+							<td>
+								{$vo.id}
+							</td>
+							<td>
+								{$vo.name}
+							</td>
+							<td>
+								<a href="http://www.thinkcmf.com" target="_blank">
+									{$vo.url}
+								</a>
+							</td>
+							<td>
+								显示
+							</td>
+							<td>
+								<a href="{:url('Links/edit',['id'=>$vo.id])}">
+									编辑
+								</a>
+								|
+								<a href="{:url("links/del",["id"=>$vo.id])}">
+									删除
+								</a>
+							</td>
+						</tr>
+						{/volist}
+					</tbody>
+					<tfoot>
+						<tr>
+							<th width="16">
+								<label>
+									<input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+								</label>
+							</th>
+							<th width="50">
+								排序
+							</th>
+							<th width="50">
+								ID
+							</th>
+							<th>
+								链接名称
+							</th>
+							<th>
+								链接地址
+							</th>
+							<th width="45">
+								状态
+							</th>
+							<th width="120">
+								操作
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+				<div class="table-actions">
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit">
+						排序
+					</button>
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit"
+					data-action="/index.php?g=admin&m=link&a=toggle&display=1" data-subcheck="true">
+						显示
+					</button>
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit"
+					data-action="/index.php?g=admin&m=link&a=toggle&hide=1" data-subcheck="true">
+						隐藏
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="box-footer clearfix text-center">
+      		{$list->render()}
+  		</div>
+		<script src="__THEMES__/js/common.js"></script>
+	</body>
+
+</html>

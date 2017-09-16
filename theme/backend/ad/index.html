@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+	</head>
+</head>
+<body>
+<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('Ad/index')}">网站广告</a></li>
+			<li><a href="{:url('Ad/add')}">添加广告</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form" action="term/listorders">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="50">ID</th>
+						<th>广告名称</th>
+						<th>调用代码</th>
+						<th width="120">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					{foreach name="ad" item="vo"}
+					<tr>
+						<td>{$vo.ad_id}</td>
+						<td>{$vo.ad_name}</td>
+						<td>{$vo.ad_content}</td>
+						<td>
+							<a href="{:url('Ad/edit',['ad_id'=>$vo['ad_id']])}">修改</a>|
+							<a href="{:url('Ad/del',['ad_id'=>$vo['ad_id']])}" class="js-ajax-delete">删除</a>
+						</td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

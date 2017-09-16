@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+		<script src="__THEMES__/kindedit/kindeditor-min.js"></script>
+		<link href="__THEMES__/kindedit/default.css" rel="stylesheet">
+	</head>
+<script>
+	KindEditor.ready(function(K) {
+		var uploadbutton = K.uploadbutton({
+			button : K('#uploadButton')[0],
+			fieldName : 'imgFile',
+			url : '{:url("Slide/upload")}',
+			afterUpload : function(data) {
+				if (data.error === 0) {
+					var url = K.formatUrl(data.url, 'absolute');
+							K('#url').val(url);
+							$('#show_thumb').attr('src',url).show();
+						} else {
+							alert(data.message);
+						}
+					},
+					afterError : function(str) {
+						alert('自定义错误信息: ' + str);
+					}
+			});
+			uploadbutton.fileBox.change(function(e) {
+			uploadbutton.submit();
+		});
+	});
+</script>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('Ad/index')}">网站广告</a></li>
+			<li class="active"><a href="{:url('Ad/add')}">添加广告</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:url('Ad/add')}">
+			<fieldset>
+				
+				<div class="control-group">
+					<label class="control-label">广告名称</label>
+					<div class="controls">
+						<input type="text" name="ad_name">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">广告代码</label>
+					<div class="controls">
+						<textarea name="ad_content" rows="5" cols="57"></textarea>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">添加</button>
+				<a class="btn" href="javascript:history.back(-1);">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- 案例 -->
+<div class="mycontainer bgwhite clearfix p20 pB40" style="margin-top:20px;">
+    <h1 class="rowonetitle">累计超过{$list->total()}个产品设计</h1>
+    <p class="text-center gray">移动应用，微信公众号，智能终端，各种二次开发</p>
+    <div class="casebox">
+        <ul>
+           {volist name="list" id="vo"}
+            <li>
+                <a target="_blank" href="javascript:;"><img class="xh-flipInY" src="{empty name="vo.thumb"}/data/assets/images/case_thumb.jpg{else/}{$vo.thumb}{/empty}" alt="叮叮早餐" /></a>
+                <h4><a target="_blank" href="javascript:;">{$vo.title|StringHelper::msubstr=0,10}</a></h4>
+                <p class="mT10">{:StringHelper::msubstr($vo.content,0,100)}</p>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+<div class="clearfix">
+    <nav class="text-center">
+        <div>{$list->render()}</div>
+    </nav>
+</div>

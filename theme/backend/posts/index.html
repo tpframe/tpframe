@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head><head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+	</head>
+</head>
+<body>
+<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('Posts/index')}">文章管理</a></li>
+			<li><a href="{:url('Posts/add')}">添加文章</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form" action="term/listorders">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="50">ID</th>
+						<th>文章标题</th>
+						<th>所属分类</th>
+						<th>浏览量</th>
+						<th>来源</th>
+						<th>缩略图</th>
+						<th>作者</th>
+						<th>发布时间</th>
+						<th>状态</th>
+						<th>文章类型</th>
+						<th width="120">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="list"}
+					<td colspan="11">没有数据</td>
+					{else/}
+					{foreach name="list" item="vo"}
+					<tr>
+						<td>{$vo.id}</td>
+						<td>{$vo.title}</td>
+						<td>{$vo.cateid}</td>
+						<td>{$vo.view}</td>
+						<td>{$vo.source}</td>
+						<td>
+							{empty name="vo.thumb"}----
+							{else/}
+							<img src="{$vo.thumb}" style="max-height:100px; width:auto; "/>
+							{/empty}
+						</td>
+						<td>{$vo.author}</td>
+						<td>{$vo.updatetime}</td>
+						<td>
+							{if condition="$vo.ischeck eq 1"}已审核{else/}未审核{/if}<br/>
+							{if condition="$vo.istop eq 1"}置顶{/if}<br/>
+							{if condition="$vo.isrecommend eq 1"}推荐{/if}<br/>
+						</td>
+						<td>{$vo.type}</td>
+						<td>
+							<a href="{:url('Posts/edit',['parentid'=>$vo['cateid'],'cid'=>$vo['id']])}">修改</a>|
+							<a href="{:url('Posts/del',['id'=>$vo['id']])}" class="js-ajax-delete">删除</a>
+						</td>
+					</tr>
+					{/foreach}
+					{/empty}
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?php
+use tpfcore\Core;
+?>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="__THEMES__/js/treeTable/treeTable.css?v=">
+	</head>
+	<body>
+		<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('Category/index')}">分类管理</a></li>
+			<li><a href="{:url('Category/add')}">添加分类</a></li>
+		</ul>
+		<form class="js-ajax-form" action="/index.php?g=Admin&amp;m=Category&amp;a=listorders" method="post">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit">排序</button>
+			</div>
+			<table class="table table-hover table-bordered table-list treeTable" id="Categorys-table">
+				<thead>
+					<tr>
+						<th width="80">排序</th>
+						<th width="50">ID</th>
+						<th>菜单名称</th>
+						<th>是否导航显示</th>
+						<th width="80">状态</th>
+						<th width="180">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{$categorys}			
+				</tbody>
+			</table>
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit">排序</button>
+			</div>
+		</form>
+		<!-- <textarea name="content"></textarea> -->
+		<!-- {:Core::hook('ArticleEditor',['name'=>'content'])} -->
+	</div>
+	<script src="__THEMES__/js/common.js"></script>
+	</body>
+
+</html>

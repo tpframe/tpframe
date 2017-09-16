@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('NavCat/index')}">菜单分类</a></li>
+			<li class="active"><a href="{:url('NavCat/add')}">添加分类</a></li>
+		</ul>
+		<form method="post" class="form-horizontal" action="">
+			<input type="hidden" name="id" value="{$list[0]->id}"/>
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">分类名称</label>
+					<div class="controls">
+						<input type="text" name="name" value="{$list[0]->name}">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">描述</label>
+					<div class="controls">
+						<textarea name="remark" rows="5" cols="57">{$list[0]->remark}</textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="active">主菜单</label>
+					<div class="controls">
+						<input type="checkbox" name="active" id="active" value="1" {if condition="$list[0]->active eq 1"}checked{/if}>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">确认操作</button>
+				<a class="btn" href="javascript:history.back(-1);">返回</a>
+			</div>
+		</form>
+	</div>
+		<script src="__THEMES__/js/common.js"></script>
+	</body>
+
+</html>
