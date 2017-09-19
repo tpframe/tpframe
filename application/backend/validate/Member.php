@@ -39,6 +39,6 @@ class Member extends AdminBase
     protected $scene = [
         'update'  =>  ['old_password','password','repassword'],
         'upinfo'  =>  ['nickname'],
-        'add'     =>  ['username','password','email']
+        'add'     =>  ['username','password','email','repassword']
     ];
 }

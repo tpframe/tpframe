@@ -24,6 +24,6 @@ class User extends AdminBase
     }
     protected function setPrivsAttr($value)
     {
-        return implode(",", $value);
+        return empty($value)?$value:implode(",", $value);
     }
 }
