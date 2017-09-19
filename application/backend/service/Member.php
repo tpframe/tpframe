@@ -34,4 +34,7 @@ class Member extends AdminServiceBase
 	public function editUser($data){
 		return Core::loadModel($this->name)->editUser($data);
 	}
+	public function del($data){
+		return Core::loadModel($this->name)->del($data);
+	}
 }

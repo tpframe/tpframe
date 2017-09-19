@@ -76,6 +76,18 @@ class Member extends AdminBase
 			return [RESULT_ERROR, '操作失败', url('Member/admin')];
 		}
 	}
+	public function del($data){
+		$validate=\think\Loader::validate("Member");
+		$validate_result = $validate->scene('del')->check($data);
+        if (!$validate_result) {    
+            return [RESULT_ERROR, $validate->getError(), null];
+        }
+        if(self::deleteObject($data,true)){
+        	return [RESULT_SUCCESS, '操作成功', url('Member/admin')];
+        }else{
+        	return [RESULT_ERROR, '操作失败', url('Member/admin')];
+        }
+	}
 	public function ban($data){
 		self::saveObject($data);
 		return [RESULT_SUCCESS, '操作成功', null];

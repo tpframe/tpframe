@@ -59,6 +59,9 @@ class Member extends AdminBase
 			"list"=>Core::loadModel($this->name)->getUserList($this->param)
 		]);
 	}
+	public function del(){
+		$this->jump(Core::loadModel($this->name)->del($this->param));
+	}
 	/*
 		拉黑用户操作
 	*/

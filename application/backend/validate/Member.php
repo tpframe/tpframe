@@ -4,7 +4,7 @@
 // +----------------------------------------------------------------------
 
 namespace app\backend\validate;
-
+use think\Db;
 /**
  * 基础验证器
  */
@@ -17,7 +17,8 @@ class Member extends AdminBase
         'password'                  => 'require|length:3,30|different:old_password',
         'repassword'                => 'require|confirm:password',
         'nickname'                  => 'require|length:3,30',
-        'email'                     => 'email'
+        'email'                     => 'email',
+        'id'                        => 'require|checkId'
         // |unique:usrname,password='.$data['account']'
     ];
 
@@ -37,9 +38,16 @@ class Member extends AdminBase
 
     // 应用场景
     protected $scene = [
-        'update'  =>  ['old_password','password','repassword'],
-        'upinfo'  =>  ['nickname'],
-        'add'     =>  ['username','password','email','repassword'],
-        'edit'     => ['password','email','repassword']
+        'update'    =>  ['old_password','password','repassword'],
+        'upinfo'    =>  ['nickname'],
+        'add'       =>  ['username','password','email','repassword'],
+        'edit'      =>  ['password','email','repassword'],
+        'del'       =>  ['id']
     ];
+    protected function checkId($value){
+        if(Db::name("user")->where("id=$value")->count()==0){
+            return "非法的ID";
+        }
+        return true;
+    }
 }
