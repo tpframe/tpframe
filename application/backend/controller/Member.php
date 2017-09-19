@@ -50,6 +50,16 @@ class Member extends AdminBase
 		return $this->fetch("add");
 	}
 	/*
+		编辑管理员
+	*/
+	public function edit(){
+		IS_POST && $this->jump(Core::loadModel($this->name)->editUser($this->param));
+		return $this->fetch("edit",[
+			'id'=>$this->param['id'],
+			"list"=>Core::loadModel($this->name)->getUserList($this->param)
+		]);
+	}
+	/*
 		拉黑用户操作
 	*/
 	public function ban(){

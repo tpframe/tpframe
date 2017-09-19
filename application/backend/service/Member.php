@@ -31,4 +31,7 @@ class Member extends AdminServiceBase
 	public function priv($data){
 		return Core::loadModel($this->name)->priv($data);
 	}
+	public function editUser($data){
+		return Core::loadModel($this->name)->editUser($data);
+	}
 }
