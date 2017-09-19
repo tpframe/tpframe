@@ -60,4 +60,41 @@ class StringHelper extends BaseStringHelper
 		}
 		return $output;
 	}
+	/**
+     * 将$param中的__TABLE_NAME__字符串替换成带前缀的表名（小写）
+     * @access public
+     * @param string $sql sql语句
+     * @return string
+     */
+	public static function parseStrTable($param=null){
+		$prefix=DB_PREFIX;
+		if(gettype($param)=="string" && false !== strpos($param, '__')){
+			$param    = preg_replace_callback("/__([A-Z0-9_-]+)__/sU", function ($match) use ($prefix) {
+                return $prefix . strtolower($match[1]);
+            }, $param);
+		}
+
+		if(gettype($param)=="array"){
+			foreach ($param as $key => $value) {
+				if(false !== strpos($key, '__')){
+					unset($param[$key]);
+					$key    = preg_replace_callback("/__([A-Z0-9_-]+)__/sU", function ($match) use ($prefix) {
+		                return $prefix . strtolower($match[1]);
+		            }, $key);
+				}
+				if(gettype($value)=="array"){
+					$param[$key]=self::parseStrTable($value);
+				}
+
+				if(gettype($value)=="string" || gettype($value)=="integer"){
+					$value    = preg_replace_callback("/__([A-Z0-9_-]+)__/sU", function ($match) use ($prefix) {
+		                return $prefix . strtolower($match[1]);
+		            }, $value);
+		            $param[$key]=$value;
+				}
+
+			}
+		}
+		return $param;
+	}
 }

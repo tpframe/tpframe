@@ -3,7 +3,7 @@ namespace app\common\model;
 
 use think\Model;
 use think\Db;
-#use think\Cache;
+use tpfcore\helpers\StringHelper;
 use tpfcore\web\Cache;
 /*	
 *	模型基类
@@ -63,7 +63,8 @@ class ModelBase extends Model
     final protected function addObject($data = [], $getLastInsID = true,$sequence = null)
     { 
         Cache::set_cache_version($this->name);
-        return $this->insert($data, false, $getLastInsID,$sequence = null);
+
+        return $this->allowField(true)->isUpdate(false)->save($data, $where=[], $sequence);
     }
     
     /**
@@ -77,7 +78,7 @@ class ModelBase extends Model
     {
 
         Cache::set_cache_version($this->name);
-        // return $this->allowField(true)->update($data,$where);
+
         return $this->allowField(true)->isUpdate(true)->save($data, $where, $sequence);
     }
     
@@ -181,7 +182,10 @@ class ModelBase extends Model
     * @param string $field   字段名
     * @param string|array $order 排序字段
     * @param array $paginate   分布处理参数
-    * @param array $join   联合查询参数
+    * @param array $join   联合查询参数    
+    * ["join"=>["__CATEGORY__","__USER__"],"condition"=>["__CATEGORY__.id=__POSTS__.cateid","__USER__.id=__POSTS__.uid"],"type"=>["left","left"]]
+    * 或["join"=>["__CATEGORY__"],"condition"=>["__CATEGORY__.id=__POSTS__.cateid"],"type"=>["left"]]
+    * 或["join"=>"__CATEGORY__","condition"=>"__CATEGORY__.id=__POSTS__.cateid","type"=>"left"]
     * @param array $group   分组查询参数
     * @param mixed $limit   查询条数
     * @param mixed $data   数据集
@@ -190,6 +194,12 @@ class ModelBase extends Model
     final protected function getObject($where = [], $field = true, $order = '', $paginate = array('rows' => null, 'simple' => false, 'config' => []), $join = array('join' => null, 'condition' => null, 'type' => 'INNER'), $group = array('group' => '', 'having' => ''), $limit = null, $data = null)
     {
         
+        $where=StringHelper::parseStrTable($where);
+        
+        $field=StringHelper::parseStrTable($field);
+ 
+        $join=StringHelper::parseStrTable($join);
+
         $paginate['simple'] = empty($paginate['simple']) ? false   : $paginate['simple'];
         
         $paginate['config'] = empty($paginate['config']) ? []      : $paginate['config'];
@@ -201,8 +211,24 @@ class ModelBase extends Model
         $group['having']    = empty($group['having'])    ? ''      : $group['having'];
         
         self::$ob_query = $this->where($where)->order($order);
-        
-        !empty($join['join'])     && self::$ob_query = self::$ob_query->join($join['join'], $join['condition'], $join['type']);
+
+        if(!empty($join['join'])){
+
+            if(is_array($join['join'])){
+
+                foreach ($join['join'] as $key => $value) {
+
+                    self::$ob_query = self::$ob_query->join($join['join'][$key], $join['condition'][$key], $join['type'][$key]);
+
+                }
+
+            }else{
+
+                self::$ob_query = self::$ob_query->join($join['join'], $join['condition'], $join['type']);
+
+            }
+
+        }
         
         self::$ob_query = self::$ob_query->field($field);
         
@@ -220,7 +246,7 @@ class ModelBase extends Model
             
         } else {
             $result_data = !empty($paginate['rows']) ? self::$ob_query->paginate($paginate['rows'], $paginate['simple'], $paginate['config']) : self::$ob_query->select($data);
-            
+
             \think\Cache::tag($cache_tag)->set($cache_key, serialize($result_data)) && Cache::set_cache_tag($cache_tag);
             
             return $result_data;

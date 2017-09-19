@@ -38,7 +38,6 @@
 		<script src="__THEMES__/js/jquery.js"></script>
 		<script src="__THEMES__/js/wind.js"></script>
 		<script src="__THEMES__/js/bootstrap.min.js"></script>
-		</script>
 	</head>
 	<body>
 <div class="wrap">
@@ -67,11 +66,31 @@
 			</ul>
 		</div>
 	</div>
-	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__THEMES__/js/common.js"></script>
 	<?php
 		$lang_set=defined('LANG_SET')?LANG_SET:'';
 		$tpframe_version=defined('THINKCMF_VERSION')?THINKCMF_VERSION:'';
 	?>
+	<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"http://www.tpframe.com/frontend/notice/tips",
+			type:"post",
+			dataType:"json",
+			success:function(data){
+				if(data.length==0){
+					$("#tpframe_notices").html('<li>暂时没有公告</li>');
+				}
+				else{
+					$("#tpframe_notices").empty();
+					$.each(data,function(k,v){
+						$("#tpframe_notices").append('<li>'+v.content+'</li>');
+					});
+				}
+			}
+		});
+	});
+	</script>
 </body>
 
 </html>
