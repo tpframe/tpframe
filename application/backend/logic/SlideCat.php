@@ -28,7 +28,7 @@ class SlideCat extends AdminBase
 	    }
 	}
     public function delSlideCat($data){
-		return self::deleteObject($data,true)?[RESULT_SUCCESS, '删除成功', url('Slidecat/index')]:[RESULT_ERROR, '删除失败', url('Slidecat/index')];
+		return self::deleteObject($data,true)?[RESULT_SUCCESS, '删除成功', url('SlideCat/index')]:[RESULT_ERROR, '删除失败', url('SlideCat/index')];
 	}
 	public function editSlideCat($data){
 	    $validate=\think\Loader::validate($this->name);
