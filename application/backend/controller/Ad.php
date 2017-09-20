@@ -17,7 +17,14 @@ class Ad extends AdminBase
         return $this->fetch('add');
     }
     public function edit(){
-        
+        IS_POST && $this->jump(Core::loadModel($this->name)->editAd($this->param));
+        return $this->fetch('edit',[
+            'id'=>$this->param['ad_id'],
+            'list'=>Core::loadModel($this->name)->getAdList($this->param)
+        ]);
+    }
+    public function del(){
+        $this->jump(Core::loadModel($this->name)->del($this->param));
     }
 }
 ?>

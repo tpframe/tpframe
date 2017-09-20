@@ -16,9 +16,27 @@ class Ad extends AdminBase
 	    return self::getObject($where ,$field, $order, $paginate_data);
     }
     public function addAd($data){
-        $last_id=self::addObject($data);
+        $last_id=self::saveObject($data);
         if($last_id){
             return [RESULT_SUCCESS, '添加成功', url('Ad/index')];
+        }else{
+            return [RESULT_ERROR, '操作失败', url('Ad/index')];
+        }
+    }
+    public function editAd($data){
+        $last_id=self::saveObject($data);
+        if($last_id){
+            return [RESULT_SUCCESS, '操作成功', url('Ad/index')];
+        }else{
+            return [RESULT_ERROR, '操作失败', url('Ad/index')];
+        }
+    }
+    public function del($data){
+        $result=self::deleteObject($data,true);
+        if($result){
+            return [RESULT_SUCCESS, '操作成功', url('Ad/index')];
+        }else{
+            return [RESULT_ERROR, '操作失败', url('Ad/index')];
         }
     }
 }

@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 <head>
 		<meta charset="utf-8">
 		<!-- Set render engine for 360 browser -->
@@ -22,21 +23,13 @@
 		<!--[if IE 7]>
 			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
 		<![endif]-->
-		<script type="text/javascript">
-			//全局变量
-			var GV = {
-				WEB_ROOT:"",
-				DIMAUB: "/",
-				JS_ROOT: "/theme/backend/assets/js/",
-				TOKEN: ""
-			};
-		</script>
+
 		<!-- Le javascript==================================================-
 		-> <!-- Placed at the end of the document so the pages load faster -->
 		<script src="__THEMES__/js/jquery.js"></script>
 		<script src="__THEMES__/js/wind.js"></script>
 		<script src="__THEMES__/js/bootstrap.min.js"></script>
-	<script src="__THEMES__/kindedit/kindeditor-min.js"></script>
+		<script src="__THEMES__/kindedit/kindeditor-min.js"></script>
 		<link href="__THEMES__/kindedit/default.css" rel="stylesheet">
 	</head>
 <script>
@@ -66,53 +59,30 @@
 <body>
 	<div class="wrap">
 		<ul class="nav nav-tabs">
-			<li><a href="{:url('slide/index')}">幻灯片管理</a></li>
-			<li><a href="{:url('slide/add')}">添加幻灯片</a></li>
-			<li class="active"><a href="{:url('slide/edit')}">编辑幻灯片</a></li>
+			<li><a href="{:url('Ad/index')}">网站广告</a></li>
+			<li class="active"><a href="{:url('Ad/edit',['ad_id'=>$id])}">编辑广告</a></li>
 		</ul>
-		<form method="post" class="form-horizontal js-ajax-form" action="{:url('Slide/edit')}">
-		<input type="hidden" name="slide_id" value="{$edit_slide.slide_id}"/>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:url('Ad/edit')}">
+			<input type="hidden" name="ad_id" value="{$list[0]->ad_id}"/>
 			<fieldset>
+				
 				<div class="control-group">
-					<label class="control-label">分类名称</label>
+					<label class="control-label">广告名称</label>
 					<div class="controls">
-						<input type="text" name="slide_name" value="{$edit_slide.slide_name}">
+						<input type="text" name="ad_name" value="{$list[0]->ad_name}">
 						<span class="form-required">*</span>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label">链接</label>
+					<label class="control-label">广告代码</label>
 					<div class="controls">
-						<input type="text" name="slide_url" value="{$edit_slide.slide_url}">
-						<span class="form-required">*</span>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label">缩略图</label>
-					<div class="controls">
-						<input class="ke-input-text" type="text" id="url" value="" name='slide_pic' readonly="readonly" /> 
-						<input type="button" id="uploadButton" value="上传缩略图" />
-						<img src="{$edit_slide.slide_pic}" style="width:50px;height:50px;" id="show_thumb"/>
-						<span class="form-required">*</span>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label">幻灯片内容</label>
-					<div class="controls">
-						<textarea name="slide_content" rows="5" cols="57">{$edit_slide.slide_content}</textarea>
-						<span class="form-required">*</span>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label">描述</label>
-					<div class="controls">
-						<textarea name="slide_des" rows="5" cols="57">{$edit_slide.slide_des}</textarea>
+						<textarea name="ad_content" rows="5" cols="57">{$list[0]->ad_content}</textarea>
 					</div>
 				</div>
 			</fieldset>
 			<div class="form-actions">
-				<button class="btn btn-primary js-ajax-submit" type="submit">修改</button>
-				<a class="btn" href="javascript:history.back(-1);">取消</a>
+				<button class="btn btn-primary js-ajax-submit" type="submit">添加</button>
+				<a class="btn" href="javascript:history.back(-1);">返回</a>
 			</div>
 		</form>
 	</div>
