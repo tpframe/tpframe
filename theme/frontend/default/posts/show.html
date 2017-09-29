@@ -21,9 +21,9 @@
         <div class="blogc-right">
             <div><i class="fa fa-list"></i> 资讯分类</div>
             <ul class="blogmenu">
-                <li><a class="active" href="/frontend/posts/index/cid/1">全部 ({:Core::loadAction("Posts/countPost",["id"=>1])})</a></li>
+                <li><a class="active" href="{:url('Posts/index',['cid'=>1])}">全部 ({:Core::loadAction("Posts/countPost",["id"=>1])})</a></li>
                 {volist name="listChild" id="vo"}
-                <li><a href="/frontend/posts/index/cid/{$vo.id}">{$vo.title}</a><span>({$vo.num})</span></li>
+                <li><a href="{:url('Posts/index',['cid'=>$vo.id])}">{$vo.title}</a><span>({$vo.num})</span></li>
                 {/volist}
             </ul>
         </div>

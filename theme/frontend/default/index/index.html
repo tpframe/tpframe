@@ -109,7 +109,7 @@
                 {/volist}
             </ul>
             <div class="p20 text-center">
-                <a href="/frontend/index/cases/cid/7/" class="more2 xh-zoomIn">全部案例</a>
+                <a href="{:url('index/cases',['cid'=>7])}" class="more2 xh-zoomIn">全部案例</a>
             </div>
         </section>
     </div>
@@ -132,7 +132,7 @@
         <div class="bloghome mT20">
             {volist name=':Core::loadAction("Posts/getPosts",["limit"=>3,"where"=>"cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6"])' id="vo"}
             <div class="thumbnail">
-                <a target="_blank" href="/frontend/posts/show/id/{$vo.id}">
+                <a target="_blank" href="{:url('posts/show',['id'=>$vo.id])}">
                     <img class="img-responsive" title="{$vo.title|StringHelper::msubstr=0,10}" alt="{$vo.title|StringHelper::msubstr=0,10}" src="{$vo.thumb}">
                 </a>
                 <div class="blog-time">
@@ -141,7 +141,7 @@
                 </div>
                 <div class="caption">
                     <h4>
-					<a target="_blank" href="/frontend/posts/show/id/{$vo.id}">{$vo.title|StringHelper::msubstr=0,10}</a>
+					<a target="_blank" href="{:url('posts/show',['id'=>$vo.id])}">{$vo.title|StringHelper::msubstr=0,10}</a>
 				</h4>
                     <p class="text-left">{$vo.content|StringHelper::msubstr=0,50}</p>
                 </div>
@@ -149,6 +149,6 @@
             {/volist}
         </div>
         <div class="p20 text-center">
-            <a href="/frontend/posts/index/cid/1" class="more2 xh-zoomIn" target="_blank">全部博客</a>
+            <a href="{:url('posts/index',['cid'=>1])}" class="more2 xh-zoomIn" target="_blank">全部博客</a>
         </div>
     </div>
