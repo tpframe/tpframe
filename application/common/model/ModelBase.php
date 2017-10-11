@@ -47,8 +47,6 @@ class ModelBase extends Model
         
         $pk = $this->getPk();
         
-        Cache::set_cache_version($this->name);
-        
         return empty($data[$pk]) ? $this->allowField(true)->isUpdate(false)->save($data, $where, $sequence) : $this->updateObject($where, $data,$sequence);
     }
     
@@ -62,9 +60,9 @@ class ModelBase extends Model
      */
     final protected function addObject($data = [], $getLastInsID = true,$sequence = null)
     { 
-        Cache::set_cache_version($this->name);
 
         return $this->allowField(true)->isUpdate(false)->save($data, $where=[], $sequence);
+
     }
     
     /**
@@ -77,9 +75,8 @@ class ModelBase extends Model
     final protected function updateObject($where = [], $data = [],$sequence = null)
     {
 
-        Cache::set_cache_version($this->name);
-
         return $this->allowField(true)->isUpdate(true)->save($data, $where, $sequence);
+
     }
     
      /**
@@ -104,7 +101,6 @@ class ModelBase extends Model
      */
     final protected function opObjects($data_list = [], $replace = false)
     {
-        Cache::set_cache_version($this->name);
         
         return $this->saveAll($data_list, $replace);
     }
@@ -131,7 +127,6 @@ class ModelBase extends Model
      */
     final protected function deleteObject($where = [], $is_true = false)
     { 
-        Cache::set_cache_version($this->name);
         return $is_true ? $this->where($where)->delete() : $this->setFieldValue($where, DATA_STATUS, DATA_DELETE);
     }
     
@@ -171,8 +166,7 @@ class ModelBase extends Model
     */
     final protected function getOneObject($where = [], $field = true)
     {
-       $arr=$this->where($where)->field($field)->find();
-       return $arr;
+       return $this->where($where)->field($field)->find();
     }
     
     /**
