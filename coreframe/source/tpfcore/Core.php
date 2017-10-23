@@ -6,6 +6,7 @@
  */
 namespace tpfcore;
 use \think\Loader;
+use tpfcore\helpers\StringHelper;
 class Core{
 	/**
     * 加载模型
@@ -38,6 +39,7 @@ class Core{
 		        case LAYER_SERVICE_NAME    : $return_object = model($name, LAYER_SERVICE_NAME); break;
 		        case LAYER_LOGIC_NAME      : $return_object = model($name, LAYER_LOGIC_NAME); break;
 		        case LAYER_MODEL_NAME      : $return_object = model($name, LAYER_MODEL_NAME); break;
+		        default                    : $return_object = model($name, LAYER_MODEL_NAME); break;
 		    }
 	    }
 	    return $return_object;
@@ -170,16 +172,16 @@ class Core{
 	final static function addons_url($url, $param = array())
 	{
 
-	    $url        =  parse_url($url);
+	    $url        =  parse_url($url);   //  Array ( [scheme] => login [host] => qq [path] => /login )
 	    $addons     =  $url['scheme'];
 	    $controller =  $url['host'];
 	    $action     =  $url['path'];
 
 	    /* 基础参数 */
 	    $params_array = array(
-	        'addon_name'      => $addons,
-	        'controller_name' => $controller,
-	        'action_name'     => substr($action, 1),
+	        'm'     => $addons,
+	        'c' 	=> $controller,
+	        'a'     => substr($action, 1),
 	    );
 
 	    $params = array_merge($params_array, $param); //添加额外参数
@@ -187,22 +189,22 @@ class Core{
 	    return url('addon/execute', $params);
 	}
 	/**
-	 * 获取插件模型
+	 * 获取插件模型，默认获取c参数相同的控制器，否则外部l参数传递过来
 	 * @param array $param 参数
 	 * @author <510974211@qq.com>
 	 */
 	final static function loadAddonModel($param=[]){
-		if(!array_key_exists("catename",$param) || !array_key_exists("catename",$param) || !array_key_exists("catename",$param)){
+		if(!array_key_exists("m",$param) || !array_key_exists("c",$param)){
 			return null;
 		}
 
-		$catename=$param['catename'];
+		$catename=$param['m'];
 
-		$controller_name=$param['controller_name'];
+		$logic_name=isset($param['l']) &&  $param['l'] ? $param['l']:StringHelper::s_format_class($param['c']);
 
-		$addon_name=$param['addon_name'];
+		$addon_name=$param['c'];
 
-		$logincModel="\\".ADDON_DIR_NAME."\\".$catename."\\".$addon_name."\\logic\\".$controller_name;
+		$logincModel="\\".ADDON_DIR_NAME."\\".$catename."\\".$addon_name."\\logic\\".$logic_name;
 
 		return new $logincModel();
 	}

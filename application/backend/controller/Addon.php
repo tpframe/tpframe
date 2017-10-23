@@ -7,6 +7,7 @@
 
 namespace app\backend\controller;
 use tpfcore\Core;
+use tpfcore\helpers\StringHelper;
 /**
  * 插件控制器
  */
@@ -15,15 +16,22 @@ class Addon extends AdminBase
 
     /**
      * 执行插件控制器
+     * catename  插件分类  控制模块  参数m
+     * addon_name  插件名  根据控制器来确定
+     * controller_name  控制器名  参数c来确定
+     * action_name  控制器里-操作名  参数a
+     * http://www.tpframe.com/addon/execute?c=qq&a=callback&m=login
      */
-    public function execute($addon_name = null, $controller_name = null, $action_name = null , $catename = '')
+    public function execute($c = null, $a = null , $m = '')
     {
 
-        $class_path = "\\".ADDON_DIR_NAME."\\$catename\\".$addon_name."\controller\\".$controller_name;
+        $controller_name=StringHelper::s_format_class($c);
+
+        $class_path = "\\".ADDON_DIR_NAME."\\$m\\".$c."\controller\\".$controller_name;
 
         $controller = new $class_path();
 
-        $controller->$action_name();
+        $controller->$a();
     }
 
     /**

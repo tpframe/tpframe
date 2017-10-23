@@ -97,4 +97,39 @@ class StringHelper extends BaseStringHelper
 		}
 		return $param;
 	}
-}
+	/**
+     * 将$name中的大写字符串替换成带_前缀的（小写）
+     * @access public
+     * @return string
+     */
+	public static function s_format_underline($name){
+	  	$temp_array = array();
+	  	for($i=0;$i<strlen($name);$i++){
+		    $ascii_code = ord($name[$i]);
+		    if($ascii_code >= 65 && $ascii_code <= 90){
+		      	if($i == 0){
+		         	$temp_array[] = chr($ascii_code + 32);
+		      	}else{
+		        	$temp_array[] = '_'.chr($ascii_code + 32);
+		      	}
+		    }else{
+		      	$temp_array[] = $name[$i];
+		    }
+		}
+	  	return implode('',$temp_array);
+	}
+
+	/**
+     * 将$name中的下划线转换成类名   全如  aa_aa   变成 AaAa
+     * @access public
+     * @return string
+     */
+	public static function s_format_class($name){
+		$temp_array = array();
+	  	$arr=explode("_", $name);
+	  	foreach ($arr as $key => $value) {
+	  		$temp_array[]=ucfirst($value);
+	  	}
+	  	return implode('',$temp_array);
+	}
+}	

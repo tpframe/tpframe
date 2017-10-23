@@ -8,7 +8,12 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+use \think\Request;
+$pathinfo=strtolower(Request::instance()->pathinfo());
+$pathinfo=$pathinfo=='backend'?$pathinfo.'/':$pathinfo;
+if(!preg_match('/^backend\//',$pathinfo) && !preg_match('/^frontend\//',$pathinfo)){
+	\think\Route::bind('frontend');
+};
 return [
     '__pattern__' => [
         'name' => '\w+',
@@ -17,5 +22,4 @@ return [
         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/hello', ['method' => 'post']],
     ],
-
 ];

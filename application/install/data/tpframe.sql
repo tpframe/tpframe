@@ -58,13 +58,13 @@ CREATE TABLE `tpf_category` (
 -- ----------------------------
 -- Records of t_category
 -- ----------------------------
-INSERT INTO `tpf_category` VALUES ('1', '博客', '0', '1', '1', '/frontend/posts/index/cid/1', '0');
+INSERT INTO `tpf_category` VALUES ('1', '博客', '0', '1', '1', '/posts/index/cid/1', '0');
 INSERT INTO `tpf_category` VALUES ('2', '原型设计', '1', '0', '1', '', '1');
 INSERT INTO `tpf_category` VALUES ('3', '微信设计', '1', '0', '1', '', '1');
 INSERT INTO `tpf_category` VALUES ('4', 'APP设计', '1', '0', '1', '', '1');
 INSERT INTO `tpf_category` VALUES ('5', 'H5设计', '1', '0', '1', '', '1');
 INSERT INTO `tpf_category` VALUES ('6', '用户体验', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('7', '案例', '0', '1', '1', '/frontend/index/cases/cid/7', '1');
+INSERT INTO `tpf_category` VALUES ('7', '案例', '0', '1', '1', '/index/cases/cid/7', '1');
 
 -- ----------------------------
 -- Table structure for t_city
@@ -225,9 +225,9 @@ CREATE TABLE `tpf_nav` (
 -- ----------------------------
 -- Records of t_nav
 -- ----------------------------
-INSERT INTO `tpf_nav` VALUES ('1', '0', '案例', '_self', 'href_text', '/frontend/index/cases', '', '0', '0', '0', '1');
-INSERT INTO `tpf_nav` VALUES ('2', '0', '博客', '_self', 'href_text', '/frontend/index/news', '', '0', '0', '0', '1');
-INSERT INTO `tpf_nav` VALUES ('3', '0', '关于', '_self', 'href_text', '/frontend/index/about', '', '1', '0', '0', '1');
+INSERT INTO `tpf_nav` VALUES ('1', '0', '案例', '_self', 'href_text', '/index/cases', '', '0', '0', '0', '1');
+INSERT INTO `tpf_nav` VALUES ('2', '0', '博客', '_self', 'href_text', '/index/news', '', '0', '0', '0', '1');
+INSERT INTO `tpf_nav` VALUES ('3', '0', '关于', '_self', 'href_text', '/index/about', '', '1', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for t_nav_cat

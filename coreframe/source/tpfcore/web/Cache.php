@@ -17,12 +17,24 @@ class Cache extends Object{
 	    $table_string = $cache_table_info[CACHE_VERSION_NAME];
 	    
 	    if (!empty($join) && !empty($join['join'])) {
-	        
-	        foreach ($join['join'] as $v) {
+
+	        if(is_array($join['join'])){
+
+	        	foreach ($join['join'] as $v) {
 	            
-	            $names = explode(' ', $v[0]);
-	            
-	            $table_name = str_replace('_', '', str_replace(DB_PREFIX, '', $names[0]));
+		            $names = explode(' ', $v);
+		            
+		            $table_name = str_replace('_', '', str_replace(DB_PREFIX, '', $names[0]));
+		            
+		            $cache_key = CACHE_PREFIX.$table_name;
+		            
+		            $cache_info = cache($cache_key);
+		            
+		            $table_string .= $cache_info[CACHE_VERSION_NAME];
+		        }
+	        }else{
+		            
+	            $table_name = str_replace('_', '', str_replace(DB_PREFIX, '', $join['join']));
 	            
 	            $cache_key = CACHE_PREFIX.$table_name;
 	            
@@ -30,6 +42,7 @@ class Cache extends Object{
 	            
 	            $table_string .= $cache_info[CACHE_VERSION_NAME];
 	        }
+
 	    }
 	    
 	    return md5(serialize($table_string));
