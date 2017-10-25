@@ -1,8 +1,17 @@
 <?php
+// +----------------------------------------------------------------------
+// | Author: yaoyihong <510974211@qq.com>
+// +----------------------------------------------------------------------
 /**
+ * ============================================================================
+ * 版权所有 2017-2077 tpframe工作室，并保留所有权利。
  * @link http://www.tpframe.com/
  * @copyright Copyright (c) 2017 TPFrame Software LLC
- * @author 510974211@qq.com
+ * ----------------------------------------------------------------------------
+ * 这不是一个自由软件！未经本公司授权您只能在不用于商业目的的前提下对程序代码进行修改和使用；
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * 核心类
  */
 namespace tpfcore;
 use \think\Loader;
@@ -190,11 +199,32 @@ class Core{
 	}
 	/**
 	 * 获取插件模型，默认获取c参数相同的控制器，否则外部l参数传递过来
-	 * @param array $param 参数
+	 * @param var $param 参数
 	 * @author <510974211@qq.com>
 	 */
 	final static function loadAddonModel($param=[]){
-		if(!array_key_exists("m",$param) || !array_key_exists("c",$param)){
+		if(null==$param || empty($param) || ""==$param){
+			return null;
+		}
+
+		if(is_array($param) && (!array_key_exists("m",$param) || !array_key_exists("c",$param))){
+			return null; 
+		}
+
+		if(is_string($param)){
+
+			$backtrace_array = debug_backtrace(false, 1);
+
+			$addon_path=str_replace(ROOT_PATH, "\\", dirname(dirname($backtrace_array[0]['file'])));
+
+			$logincModel=$addon_path."\\logic\\".$param;
+
+			if(class_exists($logincModel)){
+
+				return new $logincModel();
+				
+			}
+
 			return null;
 		}
 
