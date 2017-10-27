@@ -257,5 +257,87 @@ class ModelBase extends Model
             return $result_data;
         }
     }
+
+    /**
+    * 获取数据列表，为了更加灵活，采用数组的方式导入参数
+    * @access protected
+    * @param array   $param 参数
+    * @return mixed
+    */
+    final protected function getList($param=[])
+    {
+        $defaultParam=   [
+                    "where" =>[],
+                    "field" =>true,
+                    "order" =>"",
+                    "paginate"  =>['rows' => null, 'simple' => false, 'config' => []],
+                    "join"      =>['join' => null, 'condition' => null, 'type' => 'INNER'],
+                    "group"     =>['group' => '', 'having' => ''],
+                    "limit" =>null,
+                    "data"  =>null
+        ]; 
+
+        $params=array_merge($defaultParam,$param);
+
+        extract($params);
+
+        $where=StringHelper::parseStrTable($where);
+        
+        $field=StringHelper::parseStrTable($field);
+ 
+        $join=StringHelper::parseStrTable($join);
+
+        $paginate['simple'] = empty($paginate['simple']) ? false   : $paginate['simple'];
+        
+        $paginate['config'] = empty($paginate['config']) ? []      : $paginate['config'];
+        
+        $join['condition']  = empty($join['condition'])  ? null    : $join['condition'];
+        
+        $join['type']       = empty($join['type'])       ? 'INNER' : $join['type'];
+        
+        $group['having']    = empty($group['having'])    ? ''      : $group['having'];
+        
+        self::$ob_query = $this->where($where)->order($order);
+
+        if(!empty($join['join'])){
+
+            if(is_array($join['join'])){
+
+                foreach ($join['join'] as $key => $value) {
+
+                    self::$ob_query = self::$ob_query->join($join['join'][$key], $join['condition'][$key], $join['type'][$key]);
+
+                }
+
+            }else{
+
+                self::$ob_query = self::$ob_query->join($join['join'], $join['condition'], $join['type']);
+
+            }
+
+        }
+        
+        self::$ob_query = self::$ob_query->field($field);
+        
+        !empty($group['group'])   && self::$ob_query = self::$ob_query->group($group['group'], $group['having']);
+    
+        !empty($limit)            && self::$ob_query = self::$ob_query->limit($limit);
+        
+        $cache_tag = Cache::get_cache_tag($this->name, $join);
+        
+        $cache_key = Cache::get_cache_key($this->name, $where, $field, $order, $paginate, $join, $group, $limit, $data);
+        
+        if (\think\Cache::has($cache_key) && Cache::check_cache_tag($cache_tag)) {
+
+            return unserialize(\think\Cache::get($cache_key));
+            
+        } else {
+            $result_data = !empty($paginate['rows']) ? self::$ob_query->paginate($paginate['rows'], $paginate['simple'], $paginate['config']) : self::$ob_query->select($data);
+
+            \think\Cache::tag($cache_tag)->set($cache_key, serialize($result_data)) && Cache::set_cache_tag($cache_tag);
+            
+            return $result_data;
+        }
+    }
 }
 ?>

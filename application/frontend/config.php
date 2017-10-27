@@ -14,7 +14,9 @@ return [
         'view_path'     =>  './theme/frontend/'.FRONTEND_THEME.'/',     //设置模板位置
         'layout_on'     =>  true,
         'layout_name'   =>  'layout',
-        'tpl_cache'     =>  false
+        'tpl_cache'     =>  false,
+        // 预加载自定义模板标签
+        'taglib_pre_load'     =>    'tpfcore\taglib\Tpf',
     ],
     
     //验证码
