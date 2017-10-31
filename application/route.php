@@ -11,7 +11,7 @@
 use \think\Request;
 $pathinfo=strtolower(Request::instance()->pathinfo());
 $pathinfo=$pathinfo=='backend'?$pathinfo.'/':$pathinfo;
-if(!preg_match('/^backend\//',$pathinfo) && !preg_match('/^frontend\//',$pathinfo)){
+if(!preg_match('/^backend\//',$pathinfo) && !preg_match('/^frontend\//',$pathinfo) && file_exists("data/install.lock")){
 	\think\Route::bind('frontend');
 };
 return [

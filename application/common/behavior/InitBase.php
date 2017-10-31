@@ -38,6 +38,9 @@ class InitBase
         // 初始化缓存信息
         @file_exists('data/conf/database.php') && $this->initCacheInfo();
         
+        //初始化一些常量
+        $this->initDefine();
+
         // 注册命名空间
         $this->registerNamespace();
     }
@@ -46,11 +49,23 @@ class InitBase
      */
     private function checkInstall(){
         if(!preg_match('/(.*?)install(.*?)/', strtolower(request()->baseUrl()))){
-             if(!file_exists('data/install.lock')){
+            if(!file_exists('data/install.lock') || !file_exists("data/conf/database.php")){
                 Header("Location:/install");
                 exit;
-             }
+            }
+        }else{
+            if(file_exists("data/install.lock") && file_exists("data/conf/database.php")){
+
+                Header("Location:/");exit;
+
+            }
+            if((file_exists("data/install.lock") || file_exists("data/conf/database.php")) && !preg_match('/(.*?)install\/index\/step(.*?)/', strtolower(request()->baseUrl()))){
+
+                exit("请删除data/install.lock文件与data/conf/database.php文件后再重新安装");
+
+            }
         }
+        
     }
 
     /**
@@ -223,7 +238,25 @@ class InitBase
             $config=array_merge($config,require ROOT_PATH.$value);
         }
     }
-    
+        
+    /**
+    * 常量初始化
+    */
+    private function initDefine(){
+
+        defined('FRONTEND_THEME') or define('FRONTEND_THEME', "default");
+
+        defined('HTML_CACHE_ON') or define('HTML_CACHE_ON', "false");
+        // 缓存表信息前缀
+        defined('CACHE_PREFIX') or define('CACHE_PREFIX', 'cache_info_');
+        
+        // 缓存表版本key名称
+        defined('CACHE_VERSION_NAME') or define('CACHE_VERSION_NAME', 'version');
+        
+        // 缓存标签key名称
+        defined('CACHE_TAGS_NAME') or define('CACHE_TAGS_NAME', 'cache_info_tags');
+    }
+
     /**
      * 注册命名空间
      */

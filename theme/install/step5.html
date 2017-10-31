@@ -7,6 +7,12 @@
 <body>
 	<div class="wrap">
 		{include file="Public:header" /}
+		<script>
+		layui.use('element', function(){
+			var $ = layui.jquery,element = layui.element; 
+			element.progress('progress', '100%');
+		});
+		</script>
 		<section class="section">
 			<div style="padding: 40px 20px;">
 				<div class="text-center">

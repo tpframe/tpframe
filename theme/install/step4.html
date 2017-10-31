@@ -10,6 +10,12 @@ use think\Db;
 <body>
 	<div class="wrap">
 		{include file="Public:header" /}
+		<script>
+		layui.use('element', function(){
+			var $ = layui.jquery,element = layui.element; 
+			element.progress('progress', '80%');
+		});
+		</script>
 		<section class="section">
 			<div class="step">
 				<ul class="unstyled">

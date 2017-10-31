@@ -6,6 +6,12 @@
 <body>
 	<div class="wrap">
 		{include file="Public:header" /}
+		<script>
+		layui.use('element', function(){
+			var $ = layui.jquery,element = layui.element; 
+			element.progress('progress', '60%');
+		});
+		</script>
 		<section class="section">
 			<div class="step">
 				<ul class="unstyled">
@@ -92,7 +98,7 @@
 						</tr>
 						<tr>
 							<td class="text-left">描述：</td>
-							<td><input type="text" name="siteinfo" class="input" value="TPFrame是完全开源的免费自由的框架系统"></td>
+							<td><input type="text" name="siteinfo" class="input" value="TPFrame是完全开源的框架系统"></td>
 							<td><div id="js-install-tip-siteinfo"></div></td>
 						</tr>
 					</table>
