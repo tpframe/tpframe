@@ -51,7 +51,7 @@ class Database extends LogicBase
 		    $sql = explode(";\n", $sql);
 		    //替换表前缀
 
-		    $default_tablepre = "t_";
+		    $default_tablepre = "tpf_";
 		    $sql = str_replace(" `{$default_tablepre}", " `{$tablepre}", $sql);
 		    //开始安装
 		    $this->show_msg('开始安装数据库...');
