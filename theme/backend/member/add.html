@@ -72,11 +72,17 @@
 						<input type="text" name="email">
 					</div>
 				</div>
-				<!-- <div class="control-group">
+				<div class="control-group">
 					<label class="control-label">角色</label>
 					<div class="controls">
-						<label class="checkbox inline"><input value="4" type="checkbox" name="role_id[]">人事部</label><label class="checkbox inline"><input value="3" type="checkbox" name="role_id[]">财务管理员</label><label class="checkbox inline"><input value="2" type="checkbox" name="role_id[]">普通管理员</label><label class="checkbox inline"><input value="1" type="checkbox" name="role_id[]">超级管理员</label>					</div>
-				</div> -->
+						<select name="role_id">
+							<option value="0">==请选择==</option>
+							{volist name="listRole" id="vo"}
+							<option value="{$vo.id}">{$vo.role_name}</option>
+							{/volist}
+						</select>				
+					</div>
+				</div>
 			</fieldset>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary">添加</button>

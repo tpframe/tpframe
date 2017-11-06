@@ -70,7 +70,13 @@
 						<td align="center">{$vo.id}</td>
 						<td>{$vo.username}</td>
 						<td>{$vo.nickname}</td>
-						<td><img width="25" height="25" src="__THEMES__/images/headicon.png"></td>
+						<td>
+							{empty name="$vo.headimg"}
+							<img width="25" height="25" src="__THEMES__/images/headicon.png">
+							{else/}
+							<img src="{$vo.headimg}" width="25" height="25">
+							{/empty}
+						</td>
 						<td>{empty name="vo.email"}----{else/}{$vo.email}{/empty}</td>
 						<td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
 						<td>{empty name="vo.last_login_time"}----{else/}{$vo.last_login_time|date='Y-m-d H:i:s',###}{/empty}</td>

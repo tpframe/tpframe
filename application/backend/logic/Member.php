@@ -24,7 +24,7 @@ class Member extends AdminBase
         if(!$this->checkPassword($data)){
         	return [RESULT_ERROR, '旧密码不正确', null];
         }
-        if(self::updateObject(['username'=>\think\Session::get("backend_author_sign")['username']],["password"=>md5($data['password'])])){
+        if(self::updateObject(['username'=>\think\Session::get("backend_author_sign")['username']],["password"=>"###".md5($data['password'].DATA_ENCRYPT_KEY)])){
         	\think\Session::delete("backend_author_sign");
         	return [RESULT_SUCCESS, '修改密码成功，请重新登录', url('User/login')];
         } 
@@ -44,7 +44,7 @@ class Member extends AdminBase
 		return self::getOneObject($where);
 	}
 	public function checkPassword($data){
-		return self::getStatistics(['username'=>\think\Session::get("backend_author_sign")['username'],"password"=>md5($data['old_password'])]);
+		return self::getStatistics(['username'=>\think\Session::get("backend_author_sign")['username'],"password"=>"###".md5($data['old_password'].DATA_ENCRYPT_KEY)]);
 	}
 	public function getUserList($where = [], $field = true, $order = '', $is_paginate = true){
 		$paginate_data = $is_paginate ? ['rows' => DB_LIST_ROWS] : false;
@@ -71,22 +71,11 @@ class Member extends AdminBase
         }
         $result=Core::loadModel($this->name)->saveObject($data);
 		if($result){
+			$data['role_id'] && self::updateObject(['id'=>$data['id']],['privs'=>Core::loadModel("Role")->getColumnValue(["id"=>input("role_id")],"privs")]);
 			return [RESULT_SUCCESS, '操作成功', url('Member/admin')];
 		}else{
 			return [RESULT_ERROR, '操作失败', url('Member/admin')];
 		}
-	}
-	public function del($data){
-		$validate=\think\Loader::validate("Member");
-		$validate_result = $validate->scene('del')->check($data);
-        if (!$validate_result) {    
-            return [RESULT_ERROR, $validate->getError(), null];
-        }
-        if(self::deleteObject($data,true)){
-        	return [RESULT_SUCCESS, '操作成功', url('Member/admin')];
-        }else{
-        	return [RESULT_ERROR, '操作失败', url('Member/admin')];
-        }
 	}
 	public function ban($data){
 		self::saveObject($data);
@@ -95,6 +84,7 @@ class Member extends AdminBase
 	public function priv($data){
 		$result=Core::loadModel($this->name)->saveObject($data);
 		if($result){
+			self::updateObject(["id"=>$data['id']],['role_id'=>0]);
 			return [RESULT_SUCCESS, '操作成功', url('Member/admin')];
 		}
 		return [RESULT_ERROR, '操作失败', url('Member/admin')];

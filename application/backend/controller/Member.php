@@ -47,7 +47,9 @@ class Member extends AdminBase
 	*/
 	public function add(){
 		IS_POST && $this->jump(Core::loadModel($this->name)->addUser($this->param));
-		return $this->fetch("add");
+		return $this->fetch("add",[
+			"listRole"=>Core::loadModel("Role")->getRole()
+		]);
 	}
 	/*
 		编辑管理员
@@ -56,11 +58,9 @@ class Member extends AdminBase
 		IS_POST && $this->jump(Core::loadModel($this->name)->editUser($this->param));
 		return $this->fetch("edit",[
 			'id'=>$this->param['id'],
-			"list"=>Core::loadModel($this->name)->getUserList($this->param)
+			"list"=>Core::loadModel($this->name)->getUserList($this->param),
+			"listRole"=>Core::loadModel("Role")->getRole()
 		]);
-	}
-	public function del(){
-		$this->jump(Core::loadModel($this->name)->del($this->param));
 	}
 	/*
 		拉黑用户操作

@@ -202,6 +202,7 @@ INSERT INTO `tpf_menu` VALUES ('23', '前台菜单', 'backend', 'Index', 'index'
 INSERT INTO `tpf_menu` VALUES ('24', '菜单管理', 'backend', 'Nav', 'index', '1', '', '1', '', '', '0', '23');
 INSERT INTO `tpf_menu` VALUES ('25', '菜单分类', 'backend', 'NavCat', 'index', '1', '', '1', '', '', '0', '23');
 INSERT INTO `tpf_menu` VALUES ('26', '插件管理', 'backend', 'Addon', 'addonList', '1', '', '1', '', '', '0', '17');
+INSERT INTO `tpf_menu` VALUES ('27', '角色管理', 'backend', 'Role', 'index', '1', '', '1', '管理员角色', '', '0', '10');
 
 -- ----------------------------
 -- Table structure for t_nav
@@ -372,5 +373,6 @@ CREATE TABLE `tpf_user` (
   `create_time` varchar(30) DEFAULT '0' COMMENT '会员创建时间',
   `isban` tinyint(4) DEFAULT '0' COMMENT '是否被拉黑',
   `privs` varchar(255) DEFAULT NULL COMMENT '用户权限列表',
+  `role_id` int(11) DEFAULT '0' COMMENT '角色id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
