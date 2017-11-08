@@ -54,4 +54,8 @@ class AdminBase extends ControllerBase
         
         $this->assign('describe', $describe);
     }
+
+    public function ajaxdata(){
+        IS_AJAX && $this->jump(Core::loadModel("AdminBase")->ajaxdata($this->param));
+    }
 }

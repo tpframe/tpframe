@@ -48,7 +48,7 @@ class Menu extends AdminBase
        
         $tree->init($result);
         $str = "<tr id='node-\$id' \$parentid_node>
-					<td style='padding-left:20px;'><span style='padding-left: 20px' class='expander'></span><input name='listorders[\$id]' type='text' size='3' value='\$sort' class='input input-order'></td>
+					<td style='padding-left:20px;'><span style='padding-left: 20px' class='expander'></span><input name='listorders[]' data='Menu|sort|id|\$id' type='text' size='3' value='\$sort' class='input input-order ajax'></td>
 					<td>\$id</td>
         			<td>\$app</td>
 					<td>\$spacer\$name</td>

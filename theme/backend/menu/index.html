@@ -46,7 +46,7 @@
 			<li class="active"><a href="{:url('Menu/index')}">后台菜单</a></li>
 			<li><a href="{:url('Menu/add')}">添加菜单</a></li>	
 		</ul>
-		<form class="js-ajax-form" action="/index.php?g=Admin&amp;m=Menu&amp;a=listorders" method="post">
+		<form class="js-ajax-form" action="" method="post">
 			<div class="table-actions">
 				<button class="btn btn-primary btn-small js-ajax-submit" type="submit">排序</button>
 			</div>
@@ -81,6 +81,29 @@
 		</form>
 	</div>
 	<script src="__THEMES__/js/common.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		    $(".ajax").each(function(){
+		        var newval;
+		        $(this).change(function(){
+		            newval=$(this).val();
+		            var data=$(this).attr("data");
+		            var dataArr=data.split("|"),table=dataArr[0],colum=dataArr[1],key=dataArr[2],keyval=dataArr[3];
+		            $.ajax({
+		                type:"post",
+		                dataType:"json",
+		                data:{"table":table,"colum":colum,"columval":newval,"key":key,"keyval":keyval},
+		                url:"{:url('"+table+"/ajaxdata')}",
+		                success:function(data){
+		                	if(data.code!=0){
+		                		alert(msg);
+		                	}
+		                }
+		            });
+		        });
+		    });
+		});
+	</script>
 	</body>
 
 </html>
