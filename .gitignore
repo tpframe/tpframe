@@ -2,4 +2,6 @@
 composer
 data/install.lock
 data/conf/database.php
-data/runtime/*
+data/runtime/temp/*
+data/runtime/cache/*
+data/runtime/log/*
