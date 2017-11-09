@@ -1,0 +1,808 @@
+[ 2017-11-09T15:29:09+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ log ] git.tpframe.com/ [运行时间：0.504029s][吞吐率：1.98req/s] [内存消耗：3,812.63kb] [文件加载：92]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.312018s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.008000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->index[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\index.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Slide->getSlide[ E:\www\git\application\frontend\logic\Slide.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.058004s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.202011s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide_cat` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `slide_pic`,`slide_url` FROM `tpf_slide` WHERE  (  slide_cid=( SELECT `cid` FROM `tpf_slide_cat` WHERE  `cat_idname` = 'banner' ) ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=7 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:14+08:00 ] 127.0.0.1 127.0.0.1 GET /index/about
+[ log ] git.tpframe.com/index/about [运行时间：0.087005s][吞吐率：11.49req/s] [内存消耗：3,565.05kb] [文件加载：86]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.020002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; monitor_count=1; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->about[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\about.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:14+08:00 ] 127.0.0.1 127.0.0.1 GET /theme/frontend/default/assets/images/contactbg.jpg
+[ log ] git.tpframe.com/theme/frontend/default/assets/images/contactbg.jpg [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：2,707.88kb] [文件加载：63]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.021001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006001s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'theme',
+    2 => 'frontend',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/theme/frontend/default/assets/css/style.css',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=2',
+)
+[ info ] [ PARAM ] array (
+  'default' => 'assets',
+  'images' => 'contactbg.jpg',
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:14+08:00 ] 127.0.0.1 127.0.0.1 GET /posts/index/cid/1
+[ log ] git.tpframe.com/posts/index/cid/1 [运行时间：0.136008s][吞吐率：7.35req/s] [内存消耗：3,955.46kb] [文件加载：97]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.030002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'posts',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/about',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=2',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '1',
+)
+[ info ] [ RUN ] app\frontend\controller\Posts->index[ E:\www\git\application\frontend\controller\Posts.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/posts\index.html [ array (
+  0 => 'list',
+  1 => 'listChild',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->countPost[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (2,3,4,5,6,1) ) LIMIT 0,10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT b.id,b.title,count(a.cateid) as num FROM tpf_posts as a  RIGHT JOIN tpf_category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `tpf_posts` WHERE  (  cateid in(2,3,4,5,6,1) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:15+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7
+[ log ] git.tpframe.com/index/cases/cid/7 [运行时间：0.114006s][吞吐率：8.77req/s] [内存消耗：3,822.51kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/posts/index/cid/1',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=3',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 0,3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:17+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7?page=4
+[ log ] git.tpframe.com/index/cases/cid/7?page=4 [运行时间：0.095006s][吞吐率：10.53req/s] [内存消耗：3,822.97kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.028002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/cases/cid/7',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=4',
+)
+[ info ] [ PARAM ] array (
+  'page' => '4',
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 9,3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:18+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7?page=5
+[ log ] git.tpframe.com/index/cases/cid/7?page=5 [运行时间：0.123007s][吞吐率：8.13req/s] [内存消耗：3,810.37kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.032002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/cases/cid/7?page=4',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=5',
+)
+[ info ] [ PARAM ] array (
+  'page' => '5',
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 12,3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:18+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7?page=3
+[ log ] git.tpframe.com/index/cases/cid/7?page=3 [运行时间：0.111006s][吞吐率：9.01req/s] [内存消耗：3,822.97kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.031002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/cases/cid/7?page=5',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=6',
+)
+[ info ] [ PARAM ] array (
+  'page' => '3',
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 6,3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:36+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7?page=3
+[ log ] git.tpframe.com/index/cases/cid/7?page=3 [运行时间：0.092006s][吞吐率：10.87req/s] [内存消耗：3,823.14kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.027002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/cases/cid/7?page=5',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=7',
+)
+[ info ] [ PARAM ] array (
+  'page' => '3',
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 6,3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:38+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ log ] git.tpframe.com/ [运行时间：0.106006s][吞吐率：9.43req/s] [内存消耗：3,812.92kb] [文件加载：92]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.027002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/cases/cid/7?page=3',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->index[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\index.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Slide->getSlide[ E:\www\git\application\frontend\logic\Slide.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide_cat` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `slide_pic`,`slide_url` FROM `tpf_slide` WHERE  (  slide_cid=( SELECT `cid` FROM `tpf_slide_cat` WHERE  `cat_idname` = 'banner' ) ) [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=7 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:39+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ log ] git.tpframe.com/ [运行时间：0.105006s][吞吐率：9.52req/s] [内存消耗：3,812.98kb] [文件加载：92]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.029002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; monitor_count=9; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->index[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\index.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Slide->getSlide[ E:\www\git\application\frontend\logic\Slide.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Posts->getPosts[ E:\www\git\application\frontend\logic\Posts.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide_cat` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_slide` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `slide_pic`,`slide_url` FROM `tpf_slide` WHERE  (  slide_cid=( SELECT `cid` FROM `tpf_slide_cat` WHERE  `cat_idname` = 'banner' ) ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=7 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_posts` WHERE  (  cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6 ) ORDER BY thumb desc LIMIT 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:39+08:00 ] 127.0.0.1 127.0.0.1 GET /index/about
+[ log ] git.tpframe.com/index/about [运行时间：0.097006s][吞吐率：10.31req/s] [内存消耗：3,565.23kb] [文件加载：86]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.028001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006001s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; monitor_count=10; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\frontend\controller\Index->about[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\about.html [ array (
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:39+08:00 ] 127.0.0.1 127.0.0.1 GET /theme/frontend/default/assets/images/contactbg.jpg
+[ log ] git.tpframe.com/theme/frontend/default/assets/images/contactbg.jpg [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：2,707.86kb] [文件加载：63]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.030002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'theme',
+    2 => 'frontend',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/theme/frontend/default/assets/css/style.css',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=11',
+)
+[ info ] [ PARAM ] array (
+  'default' => 'assets',
+  'images' => 'contactbg.jpg',
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-11-09T15:29:40+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/cid/7
+[ log ] git.tpframe.com/index/cases/cid/7 [运行时间：0.117007s][吞吐率：8.55req/s] [内存消耗：3,822.28kb] [文件加载：93]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitBase @app_init [ RunTime:0.031001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_init [ RunTime:0.005001s ]
+[ info ] [ LANG ] E:\www\git\coreframe\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'frontend'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'frontend',
+    1 => 'index',
+    2 => 'cases',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'git.tpframe.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://git.tpframe.com/index/about',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; UM_distinctid=15de51a2118104-00579c53e39de5-6b1b1279-1fa400-15de51a2119103; __guid=260970395.2685981833810867000.1505267741939.0364; thinkphp_show_page_trace=0|0; monitor_count=11',
+)
+[ info ] [ PARAM ] array (
+  'cid' => '7',
+)
+[ info ] [ RUN ] app\frontend\controller\Index->cases[ E:\www\git\application\frontend\controller\Index.php ]
+[ info ] [ VIEW ] ./theme/frontend/default/index\cases.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ RUN ] app\frontend\logic\Nav->getNav[ E:\www\git\application\frontend\logic\Nav.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ RUN ] app\frontend\logic\Setting->getSetting[ E:\www\git\application\frontend\logic\Setting.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=git_tpframe;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_config` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `tpf_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_hook` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `name`,`addon_list` FROM `tpf_hook` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_category` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`parentid`,`isnav`,`sort`,`url`,`display` FROM `tpf_category` WHERE  `parentid` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_posts` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`content`,`datetime`,`updatetime`,`thumb`,`source`,`author`,`view`,`likes`,`type`,`ischeck`,`iscomment`,`istop`,`isrecommend`,`isdelete`,`cateid`,`parentid` FROM `tpf_posts` WHERE  (  cateid in (7) ) LIMIT 0,3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_nav` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `id`,`href`,`label`,`target` FROM `tpf_nav` WHERE  `cid` = 1  AND `display` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`title` FROM `tpf_category` WHERE  `isnav` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tpf_setting` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`sign`,`options` FROM `tpf_setting` WHERE  `sign` = 'site_options' LIMIT 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
