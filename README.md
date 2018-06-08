@@ -1,131 +1,126 @@
 ![](http://www.tpframe.com/data/assets/images/mark_logo.jpg) 
 TPFrame
 ===============
-TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式下做了进一步的开发，对CBD模式做了更深的强化，优化核心，减少依赖，为个人或企业建站提供高效、快速解决的方案，是你快速做在线成品、可自己扩展的首选利器，TPFrame的主要特性：
+TPFrame keeps all of the ThinkPHP5's original features, and has done further development in the ThinkPHP drive mode, strengthening the CBD mode, optimizing the core, reducing the dependence, providing an efficient and fast solution for the individual or enterprise building station, which is the first choice for your fast doing in line finished products and expanding your own. The main features of TPFrame:
 
- + 网站目录结构清晰、合理
- + 保留ThinkPHP5所有模式，你可以运用任何ThinkPHP5可用的操作
- + 系统可完全采用CBD模式进行随意扩展
- + 系统采用多层（控制层、模型层、验证层、逻辑层、视图层）设计模式来更低的减少各个模块之间的耦合度，让你的代码在开发不同系统时可更好的重复利用
- + 系统可插件式开发功能模块，丰富的免费插件可直接下载使用
- + 基于命名空间和众多PHP新特性
- + 核心功能组件化
- + 强化路由功能
- + 更灵活的控制器
- + 重构的模型和数据库类
- + 配置文件可分离
- + 重写的自动验证和完成
- + 简化扩展机制
- + API支持完善
- + 命令行访问支持
- + REST支持
- + 引导文件支持
- + 方便的自动生成定义
- + 真正惰性加载
- + 分布式环境支持
- + 更多的社交类库
+ + The structure of the web site is clear and reasonable
+ + Keep all ThinkPHP5 modes, you can use any ThinkPHP5 available operation.
+ + The system can be extended at random with the CBD mode
+ + The system uses multiple layers (control layer, model layer, validation layer, logic layer, view layer) to reduce the coupling between each module, so that your code can be better reused when developing different systems.
+ + The system can plug in the development of functional modules, rich free plug-ins can be downloaded directly
+ + Based on namespace and many new features of PHP
+ + Core function component-based
+ + enhanced routing function
+ + more flexible controller
+ + reconfigured models and database classes
+ + configuration file can be separated
+Automatic verification and completion of + rewriting
+ + simplified extension mechanism
+ + API supports perfection
+ + command line access support
+ + REST support
+ + boot file support
+ + convenient automatic generation definition
+ + real lazy loading
+ + distributed environment support
+ + more social class libraries
 
-> TPFrame的运行环境要求PHP5.4以上。
+> The running environment of TPFrame requires more than PHP5.4.
 
-## 标准目录结构
+## Standard directory structure
 
-初始的目录结构如下：
+The initial directory structure is as follows:
 
 ~~~
-www  WEB部署目录（或者子目录）
-├─addon           		插件目录
-│  └─...        		可扩展模块目录
-├─application           应用程序目录
-│  ├─common             公共模块目录（可以更改）
-│  ├─backend            后台模块目录（可以更改）
-│  ├─frontend           前台模块目录（可以更改）
-│  ├─extra           	配置文件目录
-│  ├─install            安装模块目录（安装后建议删除）
-│  ├─module_name        模块目录（可以更改）
-│  │  ├─config.php      模块配置文件
-│  │  ├─controller      控制器目录
-│  │  ├─logic      		逻辑层目录
-│  │  ├─model           模型目录
-│  │  ├─service      	服务层目录
-│  │  ├─validate      	数据验证层目录
-│  │  └─ ...            更多类库目录
-│  ├─command.php        命令行工具配置文件
-│  ├─common.php         公共函数文件
-│  ├─config.php         公共配置文件
-│  ├─route.php          路由配置文件
-│  ├─tags.php           应用行为扩展定义文件
-│  └─database.php       数据库配置文件
-├─coreframe           	核心代码目录
-│  ├─source        		tpframe源码目录
-│  ├─thinkphp        	thinkphp源码目录
-│  ├─vendor        		第三方类库目录（Composer依赖库）
-│  └─...        		更多可扩展模块目录
-├─data                	数据资源目录（对外访问目录）
-│  ├─assets          	静态资源目录
-│  ├─conf(<2.0)        	配置文件目录(2.0版本已移动到application的extra目录)
-│  ├─runtime         	运行时目录
-│  ├─uploads        	上传文件目录
-│  ├─install.lock       安装标识文件
-│  └─...		        其它文件
-│─extend                扩展类库目录
-├─theme              	模板目录
-│  ├─backend            后台模板文件目录
-│  ├─frontend           前台模板文件目录
-│  └─install            安装模板文件目录
+www  WEB deployment directories (or subdirectories)
+├─addon           		Plug-in directory
+│  └─...        		...
+├─application           Application directory
+│  ├─common             Public module directory (can be changed)
+│  ├─backend            Backend module directory (can be changed)
+│  ├─frontend           Frontend module directory (can be changed)
+│  ├─extra           	Configuration file directory
+│  ├─install            Install the module directory (after installation is recommended to delete)
+│  ├─module_name        
+│  │  ├─config.php      
+│  │  ├─controller      
+│  │  ├─logic      		
+│  │  ├─model           
+│  │  ├─service      	
+│  │  ├─validate      	
+│  │  └─ ...            
+│  ├─command.php        
+│  ├─common.php         
+│  ├─config.php         
+│  ├─route.php          
+│  ├─tags.php           
+│  └─database.php       
+├─coreframe           	
+│  ├─source        		tpframe source
+│  ├─thinkphp        	
+│  ├─vendor        		
+│  └─...        		
+├─data                	
+│  ├─assets          	
+│  ├─runtime         	
+│  ├─uploads        	Upload the file directory
+│  ├─install.lock       Installation identification file
+│  └─...		        
+│─extend                
+├─theme              	
+│  ├─backend            
+│  ├─frontend           
+│  └─install            
 │
-├─build.php             自动生成定义文件（参考）
-├─composer.json         composer 定义文件
-├─LICENSE.txt           授权说明文件
-├─README.md             README 文件
-├─think                 命令行入口文件
-├─index.php             入口文件
-├─...            		其它文件
+├─build.php             Automatic generation of definition files (Reference)
+├─LICENSE.txt           ....
+├─README.md             README
+├─think                 Command line entry file
+├─index.php             Entry file
+├─...            		
 ~~~
 
-## 自动安装
-系统运行后会自动安装
-重新安装的用户,请手动删除`data/install.lock`文件和'application/extra/database.php'文件
+## Automatic installation
+The system will be installed automatically after the system is run
+For reinstalled users, manually delete `data/install.lock` files and'application/extra/database.php'files
 
-## 命名规范
+## Naming specification
 
-`TPFrame`遵循PSR-2命名规范和PSR-4自动加载规范，并且注意如下规范：
+`TPFrame` follows the PSR-2 naming specification and the PSR-4 automatic loading specification, and takes note of the following specifications
 
-### 目录和文件
+### Catalogues and files
 
-*   目录不强制规范，驼峰和小写+下划线模式均支持；
-*   类库、函数文件统一以`.php`为后缀；
-*   类的文件名均以命名空间定义，并且命名空间的路径和类库文件所在路径一致；
-*   类名和类文件名保持一致，统一采用驼峰法命名（首字母大写）；
+* directory is not mandatory, hump and lowercase + underline mode are supported;
+* class libraries and function files are unified with `.php` suffix.
+* file names are defined in namespace, and the namespace path is the same as the class library file.
+* the class name and class file name remain the same, and the hump method is used uniformly (initialization capital)
 
-### 函数和类、属性命名
-*   类的命名采用驼峰法，并且首字母大写，例如 `User`、`UserType`，默认不需要添加后缀，例如`UserController`应该直接命名为`User`；
-*   函数的命名使用小写字母和下划线（小写字母开头）的方式，例如 `get_client_ip`；
-*   方法的命名使用驼峰法，并且首字母小写，例如 `getUserName`；
-*   属性的命名使用驼峰法，并且首字母小写，例如 `tableName`、`instance`；
-*   以双下划线“__”打头的函数或方法作为魔法方法，例如 `__call` 和 `__autoload`；
+### Function and class, attribute naming
+* the name of the class is humped, and the initials are capitalized, such as `User`, `UserType`, and the default does not need to be added. For example, `UserController` should be named `User` directly.
+* the naming of functions is in the form of lowercase letters and underlines (lowercase letters), such as `get_client_ip`;
+* the naming of the method uses the hump method, and the initials are lowercase, such as `getUserName`;
+* the naming of attributes uses the hump method, and the initials are lowercase, such as `tableName` and `instance`.
+* function or method that takes the lead in double underline "`__call`" as magic method, such as `__call` and `__autoload`;
 
-### 常量和配置
-*   常量以大写字母和下划线命名，例如 `APP_PATH`和 `THINK_PATH`；
-*   配置参数以小写字母和下划线命名，例如 `url_route_on` 和`url_convert`；
+### Constant and configuration
+* constants are named after capital letters and underscores, such as `APP_PATH` and `THINK_PATH`.
+* configuration parameters are named after lowercase letters and underscores, such as `url_route_on` and `url_convert`;
 
-### 数据表和字段
-*   数据表和字段采用小写加下划线方式命名，并注意字段名不要以下划线开头，例如 `think_user` 表和 `user_name`字段，不建议使用驼峰和中文作为数据表字段命名。
+### Data tables and fields
+* data tables and fields are named by lowercase and underlined, and note that field names do not start with the following lines, such as the `think_user` table and the `user_name` field, and do not recommend the use of hump and Chinese as a data table field
 
-### 网站指示:
+### Web site instructions:
 
-[tpframe官网](http://www.tpframe.com)
+[tpframe official network] (http://www.tpframe.com)
 
-[tpframe演示网站](http://demo.tpframe.com/backend)
+[tpframe demo website] (http://demo.tpframe.com/backend)
 
-### QQ群:
-`TPFrame 官方交流群`:129822766  
+## Copyright information
 
-## 版权信息
+TPFrame follows the Apache2 open source protocol and provides free use.
 
-TPFrame遵循Apache2开源协议发布，并提供免费使用。
+The copyright information contained in the third party source code and binary files will be separately marked.
 
-本项目包含的第三方源码和二进制文件之版权信息另行标注。
+Copyright Copyright by 2006-2017 http://www.tpframe.com TPFrame (http://www.tpframe.com)
 
-版权所有Copyright © 2006-2017 by TPFrame (http://www.tpframe.com)
-
-All rights reserved。
+All rights reserved.
