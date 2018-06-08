@@ -1,0 +1,167 @@
+<?php
+use tpfcore\Core;
+?>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- HTML5 shim for IE8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+      </script>
+    <![endif]-->
+    <link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+    <link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+    <link href="__THEMES__/css/default.css" rel="stylesheet" />
+    <link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+    .length_3 {
+        width: 180px;
+    }
+    
+    form .input-order {
+        margin-bottom: 0px;
+        padding: 3px;
+        width: 40px;
+    }
+    
+    .table-actions {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 0px;
+    }
+    
+    .table-list {
+        margin-bottom: 0px;
+    }
+    .status{cursor: pointer;}
+    </style>
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <script type="text/javascript">
+    //全局变量
+    var GV = {
+        WEB_ROOT: "",
+        DIMAUB: "/",
+        JS_ROOT: "/theme/backend/assets/js/",
+        TOKEN: ""
+    };
+    </script>
+    <script src="__THEMES__/js/jquery.js"></script>
+    <script src="__THEMES__/js/wind.js"></script>
+    <script src="__THEMES__/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $(".status").click(function(){
+            $this=$(this);
+              var data=$(this).attr("data"),src=$(this).attr("src");
+              var dataArr=data.split("|"),table=dataArr[0],colum=dataArr[1],key=dataArr[2],keyval=dataArr[3];
+              var newval=src.indexOf("btn_enable.png")>0?0:1;
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                url:"{:Core::addons_url('FriendLink://FriendLink/ajaxdata')}",
+                data:{"table":table,"colum":colum,"columval":newval,"key":key,"keyval":keyval},
+                beforeSend:function(obj){
+                    $this.attr("src","/data/assets/images/btn_loading.gif");
+                },
+                success:function(data){
+                  if(data.code==1){
+                    if(src.indexOf("btn_enable.png")>0){
+                      $this.attr("src","/data/assets/images/btn_disable.gif");
+                    }else{
+                      $this.attr("src","/data/assets/images/btn_enable.png");
+                    }
+                  }else{
+                    alert(data.msg);
+                  }
+                  
+                }
+            });
+        });
+      });
+      </script>
+    <!-- Le javascript==================================================-
+    -> <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__THEMES__/js/jquery.js"></script>
+    <script src="__THEMES__/js/wind.js"></script>
+    <script src="__THEMES__/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            {volist name="listAddonCate" id="vo"}
+            <li {eq name="vo.type" value="$type"}class="active"{/eq}><a href="{:url('Addon/addonList',['type'=>$vo.type])}">{$vo.name}</a></li>
+            {/volist}
+        </ul>
+        <div class="box">
+    
+        <div class="box-body">
+        <table  class="table table-bordered table-hover">
+          <thead>
+          <tr>
+              <th>名称</th>
+              <th>标识</th>
+              <th>描述</th>
+              <th>插件版本</th>
+              <th>适用版本</th>
+              <th>插件状态</th>
+              <th>作者</th>
+              <th>操作</th>
+          </tr>
+          </thead>
+          
+          {notempty name='list'}
+            <tbody>
+                {volist name='list' id='vo'}
+                    <tr>
+                      <td>{$vo.title}</td>
+                      <td>{$vo.name}</td>
+                      <td>{$vo.describe}</td>
+                      <td>{$vo.version}</td>
+                      <td>{$vo.require}</td>
+                      <td>
+                       {eq name='vo.is_install' value='1'}
+                         {eq name="vo.status" value="1"}
+                         <img src="/data/assets/images/btn_enable.png" title="启用" class="status" data="Addon|status|id|{$vo.id}"/>
+                         {else/}
+                         <img src="/data/assets/images/btn_disable.gif" title="禁用" class="status" data="Addon|status|id|{$vo.id}"/>
+                         {/eq}
+                       {else/}  
+                       未安装
+                       {/eq}
+                      </td>
+                      <td>{$vo.author}</td>
+                      <td>
+                          {eq name='vo.is_install' value='1'}
+                              {eq name="vo.ext" value="1"}
+                              <a class="btn btn-info confirm ajax-get"  href='{:Core::addons_url($vo['class_name']."://".$vo['handle']."/config")}'><i class="fa fa-remove"></i> 配置 </a>{/eq} 
+                              {neq name="vo.type" value="behavior"}
+                              <a class="btn btn-primary confirm ajax-get"  href='{$vo.manager.url|default=''}'><i class="fa"></i> {$vo.manager.text} </a>{/neq}
+                              <a class="btn btn-warning confirm ajax-get"  href="{:url('addonUninstall', array('name' => $vo['name']))}"><i class="fa fa-remove"></i> 卸 载</a>
+                              <a class="btn-link confirm ajax-get"  href="{:Core::addons_url($vo['class_name']."://".$vo['handle']."/doc")}">使用说明 </a>
+                             {else/}
+                              <a class="btn confirm ajax-get"  href="{:url('addonInstall', array('name' => $vo['name']))}"><i class="fa fa-refresh"></i> 安 装</a>
+                          {/eq}
+                      </td>
+                    </tr>
+                {/volist}
+            </tbody>
+            {else/}
+            <tbody><tr class="odd"><td colspan="6" class="text-center" valign="top">{:config('empty_list_describe')}</td></tr></tbody>
+          {/notempty}
+        </table>
+      </div>
+    </div>
+    </div>
+    <script src="__THEMES__/js/common.js"></script>
+</body>
+
+</html>

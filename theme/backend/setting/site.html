@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- HTML5 shim for IE8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+			</script>
+		<![endif]-->
+		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
+		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
+		<link href="__THEMES__/css/default.css" rel="stylesheet" />
+		<link href="__THEMES__/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+		<style>
+			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
+			0px;}
+		</style>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				WEB_ROOT:"",
+				DIMAUB: "/",
+				JS_ROOT: "/theme/backend/assets/js/",
+				TOKEN: ""
+			};
+		</script>
+		<!-- Le javascript==================================================-
+		-> <!-- Placed at the end of the document so the pages load faster -->
+		<script src="__THEMES__/js/jquery.js"></script>
+		<script src="__THEMES__/js/wind.js"></script>
+		<script src="__THEMES__/js/bootstrap.min.js"></script>
+		</script>
+	</head>
+	<body>
+		<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#A" data-toggle="tab">网站信息</a></li>
+			<li><a href="#B" data-toggle="tab">SEO设置</a></li>
+		</ul>
+		<form class="form-horizontal" action="" method="post">
+			<input type="hidden" name="id" value="{$list.id}"/>
+			<fieldset>
+				<div class="tabbable">
+					<div class="tab-content">
+						<div class="tab-pane active" id="A">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">网站名称</label>
+									<div class="controls">
+										<input type="text" name="options[site_name]" value="{$list.options.site_name|default='TPFrame管理框架'}"><span class="form-required">*</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">网站域名</label>
+									<div class="controls">
+										<input type="text" name="options[site_host]" value="{$list.options.site_host|default='http://tpframe.com/'}"><span class="form-required">*</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">模版方案</label>
+									<div class="controls">
+										<select name="options[site_tpl]">
+											{volist name="templetes" id="vo"}
+											<option value="{$vo}" {eq name="vo" value="$list.options.site_tpl"}selected{/eq}>{$vo}</option>											
+											{/volist}			
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">开启静态缓存：</label>
+									<div class="controls">
+										<label class="checkbox inline"><input type="checkbox" name="options[html_cache_on]" value="1" {notempty name="list.options.html_cache_on"}checked{/notempty}></label>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">公司座机</label>
+									<div class="controls">
+										<input type="text" name="options[landline]" value="{$list.options.landline|default=''}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">400电话</label>
+									<div class="controls">
+										<input type="text" name="options[toll_free]" value="{$list.options.toll_free|default=''}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">公司地址</label>
+									<div class="controls">
+										<input type="text" name="options[address]" value="{$list.options.address|default=''}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">备案信息</label>
+									<div class="controls">
+										<input type="text" name="options[site_icp]" value="{$list.options.site_icp}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">站长邮箱</label>
+									<div class="controls">
+										<input type="text" name="options[site_admin_email]" value="{$list.options.site_admin_email|default='510974211@qq.com'}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">统计代码</label>
+									<div class="controls">
+										<textarea name="options[site_tongji]" rows="5" cols="57">{$list.options.site_tongji}</textarea>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">版权信息</label>
+									<div class="controls">
+										<textarea name="options[site_copyright]" rows="5" cols="57">{$list.options.site_copyright}</textarea>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="B">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">SEO标题</label>
+									<div class="controls">
+										<input type="text" name="options[site_seo_title]" value="{$list.options.site_seo_title|default='TPFrame管理框架'}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">SEO关键字</label>
+									<div class="controls">
+										<input type="text" name="options[site_seo_keywords]" value="{$list.options.site_seo_keywords|default='TPFrame,php,管理框架,cms,简约风, simplewind,framework'}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">SEO描述</label>
+									<div class="controls">
+										<textarea name="options[site_seo_description]" rows="5" cols="57">{$list.options.site_seo_description|default='TPFrame是简约风网络科技发布的一款用于快速开发的内容管理框架'}</textarea>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="C">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">url模式</label>
+									<div class="controls">
+										<select name="options[urlmode]">
+											<option value="0" selected="">普通模式</option>											<option value="1">PATHINFO模式</option>											<option value="2">REWRITE模式</option>										</select>
+										<span class="form-required">* 如果你开启的是REWRITE模式，请确保服务器支持REWRITE!</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">URL伪静态后缀</label>
+									<div class="controls">
+										<input type="text" name="options[html_suffix]" value="">
+										<span class="form-required">普通模式不支持</span>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="D">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">开启UCenter</label>
+									<div class="controls">
+										<input type="checkbox" class="js-check" name="options[ucenter_enabled]" value="1" {notempty name="list.options.ucenter_enabled"}checked{/notempty}>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="E">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">评论审核</label>
+									<div class="controls">
+										<input type="checkbox" class="js-check" name="options[comment_need_check]" value="1" {notempty name="list.options.comment_need_check"}checked{/notempty}>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">评论时间间隔</label>
+									<div class="controls">
+										<input type="number" name="options[comment_time_interval]" value="{$list.options.comment_time_interval|default=60}" style="width:40px;">秒									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="F">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">特殊用户名</label>
+									<div class="controls">
+										<textarea name="options[banned_usernames]" rows="5" cols="57">{$list.options.banned_usernames}</textarea>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">保存</button>
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+		<script src="__THEMES__/js/common.js"></script>
+	</body>
+
+</html>

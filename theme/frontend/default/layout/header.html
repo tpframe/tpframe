@@ -1,0 +1,91 @@
+<?php
+use tpfcore\Core;
+use tpfcore\helpers\StringHelper;
+?>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="description" content="全部-微信公众号设计,微信界面设计,微信公众号界面设计,微信公众号原型设计,app设计,app界面设计,手机app界面设计,app原型设计-迅虎设计-专为初创企业提供UI设计及开发服务" />
+    <meta name="keywords" content="全部-微信公众号设计,微信界面设计,微信公众号界面设计,微信公众号原型设计,app设计,app界面设计,手机app界面设计,app原型设计-迅虎设计-专为初创企业提供UI设计及开发服务" />
+    <script type="text/javascript" src="__THEMES__/js/jquery.js"></script>
+    <script type="text/javascript" src="__THEMES__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__THEMES__/js/common.js"></script>
+    <title>全部-微信公众号设计,微信界面设计,微信公众号界面设计,微信公众号原型设计,app设计,app界面设计,手机app界面设计,app原型设计-迅虎设计-专为初创企业提供UI设计及开发服务</title>
+    <!-- Bootstrap -->
+    <link href="__THEMES__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__THEMES__/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__THEMES__/css/reset.css">
+    <link rel="stylesheet" href="__THEMES__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__THEMES__/css/responsive.css">
+    <link rel="stylesheet" href="__THEMES__/css/swiper.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if IE]>
+    <script src="__THEMES__/js/html5shiv.js"></script>
+    ![endif]-->
+    <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+    body {
+        padding-top: 80px;
+    }
+    </style>
+    <script type="text/javascript">
+    $(function(){
+        $("#changLang").change(function(){
+            var lang=$(this).val();
+            $.ajax({
+                url:'{:url("index/changlang")}',
+                data:{"lang":lang},
+                type:"POST",
+                success:function(data){
+                    location.reload();
+                }
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <hearder class="header">
+        <div class="container ">
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <a href="/" class="logo"><img src="/data/assets/images/logo.png"/>Frame</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topmenu">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="logo navbar-brand " href="/"></a>
+                <div class="collapse navbar-collapse" id="topmenu">
+                    <ul class="navbar-nav navbar-right">
+                        <li><a href="/">首页</a></li>
+                        {volist name=':Core::loadAction("Nav/getNav")' id="vo"}
+                        <li><a href="{:url($vo.href)}" target="{$vo.target}">{$vo.label}</a></li>
+                        {/volist}
+                        <li>
+                            <select name="lang" id="changLang">
+                                <option value="zh-cn" {eq name=":lang('lang_id')" value="0"}selected="selected"{/eq}>中文</option>
+                                <option value="en-us" {eq name=":lang('lang_id')" value="1"}selected="selected"{/eq}>英文</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </hearder>

@@ -1,0 +1,152 @@
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {volist name=':Core::loadAction("Slide/getSlide")' id="vo"}
+            <div class="swiper-slide">
+                <!-- Required swiper-lazy class and image source specified in data-src attribute -->
+                <img data-src="{$vo.pic}" class="swiper-lazy">
+                <!-- Preloader image -->
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+            {/volist}
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Navigation -->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="__THEMES__/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        // Disable preloading of all images
+        preloadImages: false,
+        // Enable lazy loading
+        lazyLoading: true
+    });
+    var ratio=0;
+    window.onload=function(imgObj){
+        var width=$(".swiper-slide img:first").css("width");
+        var height=$(".swiper-slide img:first").css("height");
+        //console.log(width+":"+height);
+        ratio=parseInt(width)/parseInt(height);
+        $(".swiper-container").css({"height":$(".swiper-slide img:first").css("height")});
+    }
+    $(function(){
+        $(window).resize(function(){
+            var width=$(".swiper-slide img:first").css("width");
+            var height=parseInt(width)/ratio;
+            $(".swiper-container").css({"height":height});
+        });
+    });
+    </script>
+    <style type="text/css">
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    </style>
+    <!-- banner结束 -->
+    <!-- 设计流程 -->
+    <div class="container bgwhite clearfix p20 pB40">
+        <div class="con_rank_title">
+            <h2>{:lang("project development process")}</h2>
+            <h4>APP/PHP{:lang("program design")}</h4>
+        </div>
+        <ul class="pslist">
+            <li>
+                <div>
+                    <i class="fa tus fa-user xh-flipInX"></i>
+                </div>
+                <p class="text-center text">{:lang("demand communication, sketching")}</p>
+            </li>
+            <li>
+                <div>
+                    <i class="fa fa-laptop tus xh-flipInX"></i>
+                </div>
+                <p class="text-center text">{:lang("user interaction, high fidelity prototype")}</p>
+            </li>
+            <li>
+                <div>
+                    <i class="fa tus fa-eye xh-flipInX"></i>
+                </div>
+                <p class="text-center text">{:lang("vision and UI design")}</p>
+            </li>
+            <li>
+                <div>
+                    <i class="fa fa-apple tus xh-flipInX"></i>
+                </div>
+                <p class="text-center text">{:lang("frontend and backend development")}</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 案例 -->
+    <div class="mycontainer bgwhite clearfix p20 pB40" style="margin-top: 20px;">
+        <div class="con_rank_title">
+            <h2>{:lang("case study")}</h2>
+            <h4>TPFrame {:lang("classic case")}</h4>
+        </div>
+        <section class="home-case">
+            <ul class="list" id="home-showbox">
+                {volist name=':Core::loadAction("Posts/getPosts",["limit"=>3,"where"=>"cateid=7"])' id="vo"}
+                <li class="xh-bounce">
+                    <img src="{empty name="vo.thumb"}/data/assets/images/case_thumb.jpg{else/}{$vo.thumb}{/empty}" alt="{$vo.title|StringHelper::msubstr=0,10}">
+                    <div class="showbox ">
+                        <div class="overlay"></div>
+                        <div class="content xh-flipInY">
+                            <h3>{$vo.title|StringHelper::msubstr=0,10}</h3>
+                            <p>{:lang("system design, system development, two development")}</p>
+                        </div>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+            <div class="p20 text-center">
+                <a href="{:url('index/cases',['cid'=>7])}" class="more2 xh-zoomIn">{:lang("all cases")}</a>
+            </div>
+        </section>
+    </div>
+    <!-- about -->
+    <div class="homeabout">
+        <h4 class="title">TPFrame{:lang("brief introduction")}</h4>
+        <p class="text">{:lang("TPFrame PHP is a new framework for the project quickly crash, based on thinkphp5.0 development, the program is fully open source, can be two times the development of any of the abandoned thinkphp3.2 function programming model, data model with object encapsulation, four layer framework, make your program more decouple, write less code, do more the real thing, open source framework to enhance corporate value.")}</p>
+        <p class="text-center">
+            <a href="//shang.qq.com/wpa/qunwpa?idkey=2902b09cc5514af8485c492180d2d6a8c0c602977a33ee6a51bc311a7429a42a" class="bts" target="_blank">{:lang("Join QQ group communication")}</a>
+        </p>
+    </div>
+    <!-- blog -->
+    <div class="mycontainer bgwhite clearfix p20 pB40" style="margin-top: 20px;">
+        <div class="con_rank_title">
+            <h2>{:lang("blog")}</h2>
+            <h4>PHP{:lang("industry information")}</h4>
+        </div>
+        <div class="bloghome mT20">
+            {volist name=':Core::loadAction("Posts/getPosts",["limit"=>3,"where"=>"cateid=2 or cateid=3 or cateid=4 or cateid=5 or cateid=6"])' id="vo"}
+            <div class="thumbnail">
+                <a target="_blank" href="{:url('posts/show',['id'=>$vo.id])}">
+                    <img class="img-responsive" title="{$vo.title|StringHelper::msubstr=0,10}" alt="{$vo.title|StringHelper::msubstr=0,10}" src="{$vo.thumb}">
+                </a>
+                <div class="blog-time">
+                    <span>{$vo.datetime|date='d',###}</span>
+                    <p>{$vo.datetime|date='m',###}月</p>
+                </div>
+                <div class="caption">
+                    <h4>
+					<a target="_blank" href="{:url('posts/show',['id'=>$vo.id])}">{$vo.title|StringHelper::msubstr=0,10}</a>
+				</h4>
+                    <p class="text-left">{$vo.content|StringHelper::msubstr=0,50}</p>
+                </div>
+            </div>
+            {/volist}
+        </div>
+        <div class="p20 text-center">
+            <a href="{:url('posts/index',['cid'=>1])}" class="more2 xh-zoomIn" target="_blank">{:lang("all blog")}</a>
+        </div>
+    </div>

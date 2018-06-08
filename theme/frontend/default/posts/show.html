@@ -1,0 +1,31 @@
+<div class="blogcontent bgwhite clearfix p20 pB40">
+    <div class="clearfix">
+        <div class="blogc-left">
+            {:Core::loadAction("Posts/updateView",["id"=>$id])}
+            {assign name="list" value=':Core::loadAction("Posts/getPostById",["id"=>$id])'}
+            {notempty name="list"}
+            <h2 class=" text-center">{$list.title}</h2>
+            <p class="gray  font12  text-center mT10">{$list.datetime|date='Y-m-d H:i',###} 点击：{$list.view}</p>
+            <hr>
+            <div class="clearfix">
+            {$list.content}
+            </div>
+            {else/}
+            <div class="clearfix">没有数据</div>
+            {/notempty}
+            <div>
+                <div class="pre">上一篇：{:Core::loadAction("Posts/preNextPost",["parentid"=>1,"id"=>$id,"option"=>"pre"])}</div>
+                <div class="next">下一篇：{:Core::loadAction("Posts/preNextPost",["parentid"=>1,"id"=>$id,"option"=>"next"])}</div>
+            </div>
+        </div>
+        <div class="blogc-right">
+            <div><i class="fa fa-list"></i> 资讯分类</div>
+            <ul class="blogmenu">
+                <li><a class="active" href="{:url('Posts/index',['cid'=>1])}">全部 ({:Core::loadAction("Posts/countPost",["id"=>1])})</a></li>
+                {volist name="listChild" id="vo"}
+                <li><a href="{:url('Posts/index',['cid'=>$vo.id])}">{$vo.title}</a><span>({$vo.num})</span></li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</div>

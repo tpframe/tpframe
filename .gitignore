@@ -1,0 +1,5 @@
+.idea
+data/install.lock
+application/extra/database.php
+data/runtime/
+data/uploads/

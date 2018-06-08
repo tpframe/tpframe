@@ -1,0 +1,41 @@
+<div class="blogcontent bgwhite clearfix p20 pB40">
+    <div class="clearfix">
+        <h1 class="rowonetitle">博客</h1>
+        <p class="text-center gray">关于TPFrame 系统一些有帮助的东西</p>
+        <div class="blogc-left">
+            <div class="blog-post">
+                {volist name="list" id="vo" empty="没有数据"}
+                <article>
+                    <figure>
+                        <a target="_blank" href="{:url('Posts/show',['id'=>$vo.id])}">
+                            <img class="img-responsive" src="{$vo.thumb}" title="{$vo.title}" />
+                        </a>
+                    </figure>
+                    <div class="main">
+                        <h5>
+						<a target="_blank" href="{:url('Posts/show',['id'=>$vo.id])}">{$vo.title}</a>
+					</h5>
+                        <div class="date">{$vo.datetime|date="Y-m-d",###}</div>
+                        <div class="content">{$vo.content|StringHelper::msubstr=0,100}</div>
+                        <a target="_blank" href="{:url('Posts/show',['id'=>$vo.id])}" class="btn-blog">阅读详细</a>
+                    </div>
+                </article>
+                {/volist}
+            </div>
+            <div class="text-center mT20">
+                <nav>
+                    <div>{$list->render()}</div>
+                </nav>
+            </div>
+        </div>
+        <div class="blogc-right">
+            <div><i class="fa fa-list"></i> 资讯分类</div>
+            <ul class="blogmenu">
+                <li><a class="active" href="{:url('Posts/index',['cid'=>1])}">全部 ({:Core::loadAction("Posts/countPost",["id"=>1])})</a></li>
+                {volist name="listChild" id="vo"}
+                <li><a href="{:url('Posts/index',['cid'=>$vo.id])}">{$vo.title}</a><span>({$vo.num})</span></li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</div>
