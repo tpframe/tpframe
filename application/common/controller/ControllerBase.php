@@ -134,6 +134,7 @@ class ControllerBase extends Controller
         上传地址  public/upload/201706/lwhfljawfewef.jpg
      */
     public function upload(){
+        config("default_return_type","json");
         if(request()->file()){
             $request = Request::instance();
             $param=$request->param();

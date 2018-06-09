@@ -240,7 +240,8 @@ $.fn.serializeObject = function() {
     $(".js-ajax-button").click(function() {
         var $btn = $(".js-ajax-button"),$form = $(".js-ajax-form");
         var formObject=$form.serializeObject();
-        if($form.find("textarea[class!='ke-edit-textarea']").length>0){
+        // 对于ke-editor编辑器
+        if($form.find("textarea[class='ke-edit-textarea']").length &&　$form.find("textarea[class!='ke-edit-textarea']").length>0){
             $.each($form.find("textarea[class!='ke-edit-textarea']"),function(k,v){
                 var key=$(v).attr("name");
                 formObject[key]=editors[k].html();
