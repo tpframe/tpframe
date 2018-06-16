@@ -27,6 +27,8 @@ class Url
      */
     public static function build($url = '', $vars = '', $suffix = true, $domain = false)
     {
+        $baseurl=$url;
+
         if (false === $domain && Route::rules('domain')) {
             $domain = true;
         }
@@ -117,6 +119,21 @@ class Url
         if (!self::$bindCheck) {
             $type = Route::getBind('type');
             if ($type) {
+
+                $urls=explode("/", $url);
+
+                if(count($urls)>2){
+
+                    $domains = Route::rules('domain');
+
+                    if($domains && array_key_exists($urls[0], $domains)){
+
+                        $url=substr($url, strlen($urls[0]) + 1);
+
+                    }
+                    
+                }
+
                 $bind = Route::getBind($type);
                 if ($bind && 0 === strpos($url, $bind)) {
                     $url = substr($url, strlen($bind) + 1);
@@ -154,7 +171,7 @@ class Url
             $url .= $suffix . $anchor;
         }
         // 检测域名
-        $domain = self::parseDomain($url, $domain);
+        $domain = self::parseDomain($url, $domain, $baseurl);
         // URL组装
         $url = $domain . rtrim(self::$root ?: Request::instance()->root(), '/') . '/' . ltrim($url, '/');
 
@@ -230,7 +247,7 @@ class Url
     }
 
     // 检测域名
-    protected static function parseDomain(&$url, $domain)
+    protected static function parseDomain(&$url, $domain, $baseurl="")
     {
         if (!$domain) {
             return '';
@@ -243,6 +260,17 @@ class Url
 
             $domains = Route::rules('domain');
             if ($domains) {
+
+                $urls=explode("/", $baseurl);
+
+                if(count($urls)>2){
+                    $childDomain=$urls[0];
+                    // 生成对应子域名
+                    if (!empty($rootDomain) && array_key_exists($childDomain, $domains)) {
+                        $domain = $childDomain.".".$rootDomain;
+                    }
+                }
+
                 $route_domain = array_keys($domains);
                 foreach ($route_domain as $domain_prefix) {
                     if (0 === strpos($domain_prefix, '*.') && strpos($domain, ltrim($domain_prefix, '*.')) !== false) {
