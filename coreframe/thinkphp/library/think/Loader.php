@@ -484,6 +484,11 @@ class Loader
 
             if (class_exists($emptyClass)) {
                 return new $emptyClass(Request::instance());
+            }else{
+                $emptyClass = self::parseClass("common", $layer, $empty, $appendSuffix);
+                if (class_exists($emptyClass)) {
+                    return new $emptyClass(Request::instance());
+                }
             }
         }
 

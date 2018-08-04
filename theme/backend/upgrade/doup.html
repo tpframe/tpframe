@@ -1,0 +1,85 @@
+{extend name="base"}
+{block name="content"}
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="javascript:;">程序正在升级</a>
+        </li>
+    </ul>
+    <div class="explain-tip">{empty name="list"}你的程序已是最新版，无须升级！{else/}注意：程序正在升级，请不要进行其它操作或关闭浏览器！{/empty}</div>
+    <div class="upgrade-log margin-top-20" style="height: 460px;overflow-y: scroll;">
+        <ul id="loginner" class="unstyled"></ul>
+    </div>
+</div>
+<script src="__THEMES__/js/common.js"></script>
+<script type="text/javascript">
+    function showmsg(content,status){
+        var icon='<i class="fa fa-check correct"></i> ';
+        if(status=="error"){
+            icon ='<i class="fa fa-remove error"></i> ';
+        }
+        $('#loginner').append("<li>"+icon+content+"</li>");
+        $(".upgrade-log").scrollTop(1000000000);
+    }
+    {notempty name="list"}
+    var upgrade_list='{$list}',update_package_index=0;
+
+    if(upgrade_list.length>0 && typeof upgrade_list == 'string'){
+        try{
+            var upgrade_list = JSON.parse(upgrade_list);
+            if(typeof upgrade_list == 'object' && upgrade_list){
+                
+            }else{
+                showmsg("更新安装包问题，停止安装！","error");
+            }
+        }catch(e){
+            showmsg("更新安装包问题，停止安装！","error");
+        }
+    }else{
+        showmsg("更新安装包问题，停止安装！","error");
+    }
+
+    var upgrade_length=upgrade_list.length;
+
+    function upgrade_package(action){
+        var post_data = upgrade_list[update_package_index];
+        post_data.action=action;
+        $.ajax({
+            url:"{:url('upgrade/doupdate')}",
+            dataType:"json",
+            type:"post",
+            data:post_data,
+            success:function(data){
+                console.log(data);
+                showmsg(data.msg,data.data.status);
+                if(data.data.next_tip!=undefined){
+                    showmsg(data.data.next_tip,data.data.status);
+                }
+                post_data.action=data.data.action;
+                if(data.data.status=="success"){
+                    if(data.data.action == undefined){
+                        showmsg("恭喜你，显示此消息表示你的tpframe系统全部更新完成，赶快进行一次新的体验吧！");
+                        setInterval(function(){
+                            
+                        },1000);
+                    }else{
+                        if(data.data.action=="update_version"){
+                            if(update_package_index < upgrade_length-1){
+                                update_package_index++;
+                            }
+                        }
+                        upgrade_package(data.data.action);
+                    }
+                }else{
+                    return false;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+
+            }
+        });
+    }
+    upgrade_package("download");
+    {/notempty}
+</script>
+{/block}

@@ -245,13 +245,32 @@ class File extends Driver
                 if (is_array($matches)) {
                     array_map('unlink', $matches);
                 }
-                rmdir($path);
+                $this->removeDir($path);
             } else {
                 unlink($path);
             }
         }
         return true;
     }
+    public function removeDir($dirName)   
+    {   
+        if(! is_dir($dirName))   
+        {   
+            return false;   
+        }   
+        $handle = @opendir($dirName);   
+        while(($file = @readdir($handle)) !== false)   
+        {   
+            if($file != '.' && $file != '..')   
+            {   
+                $dir = $dirName . '/' . $file;   
+                is_dir($dir) ? removeDir($dir) : @unlink($dir);   
+            }   
+        }   
+        closedir($handle);   
+            
+        return rmdir($dirName) ;   
+    } 
 
     /**
      * 判断文件是否存在后，删除

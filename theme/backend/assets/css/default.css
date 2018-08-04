@@ -67,3 +67,6 @@ button.aui_state_highlight:active { border-color:#1c6a9e; filter: progid:DXImage
 .aui_state_noTitle .aui_close:hover, .aui_state_noTitle .aui_close:active { text-decoration:none; color:#900; }
 .aui_state_noTitle .aui_dialog { box-shadow: none; }
 .red{color: #F00;}
+.green{color: #18bc9c;}
+.explain-tip{border:1px solid #ffbe7a;zoom:1;background-color: #fffced; padding: 8px 10px; line-height: 20px;}
+.margin-top-20{margin-top: 20px;}

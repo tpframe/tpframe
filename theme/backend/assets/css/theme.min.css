@@ -3526,7 +3526,8 @@ input[type="button"].btn-block {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff3c3c3c', GradientType=0);
     filter: progid: DXImageTransform.Microsoft.gradient(enabled=false)
 }
-
+.btn-default{background-color: #009688;}
+.btn-default:hover{background-color:#02b1a0;}
 .btn-inverse:hover,
 .btn-inverse:focus,
 .btn-inverse:active,

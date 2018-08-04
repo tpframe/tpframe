@@ -182,22 +182,21 @@ class Core{
 
 	    $url        =  parse_url($url);   // login://qq/login ====> Array ( [scheme] => login [host] => qq [path] => /login )
 
-	    $addons     =  $url['scheme'];
+	    if(!isset($url['scheme']) || !isset($url['host'])){
 
-	    $controller =  $url['host'];
+	    	return null;
 
-	    $action     =  isset($url['path'])?$url['path']:"index";
+	    }
 
-	    /* 基础参数 */
-	    $params_array = array(
-	        'm'     => StringHelper::s_format_underline($addons),
-	        'c' 	=> StringHelper::s_format_underline($controller),
-	        'a'     => strtolower(substr($action, 1)),
-	    );
+	    $action     =  isset($url['path'])?$url['path']:"/index";
 
-	    $params = array_merge($params_array, $param); //添加额外参数
+	    $module = StringHelper::s_format_underline($url['scheme']);
 
-	    return url('addon/execute', $params);
+	    $controller = StringHelper::s_format_underline($url['host']);
+
+	    $action = strtolower(substr($action, 1));
+
+	    return url("$module/$controller/$action", $param);
 	}
 	/**
 	 * 获取插件模型，默认获取c参数相同的控制器，否则外部l参数传递过来
@@ -207,10 +206,6 @@ class Core{
 	final static function loadAddonModel($param=[],$module="",$layer=""){
 		if(null==$param || empty($param) || ""==$param){
 			return null;
-		}
-
-		if(is_array($param) && !array_key_exists("m",$param)){
-			return null; 
 		}
 
 		if(is_string($param)){
@@ -223,6 +218,8 @@ class Core{
 
 			$addon_path=str_replace(DS, "\\", $addon_path);
 
+			$serviceModel=$addon_path."\\service\\".$param;
+
 			$logincModel=$addon_path."\\logic\\".$param;
 
 			$entityModel=$addon_path."\\model\\".$param;
@@ -230,48 +227,52 @@ class Core{
 			// 如果有模块
 			if($module){
 
-				$logincModel="\\addon\\{$module}"."\\logic\\".$param;
+				$addon_dir_list = \tpfcore\helpers\FileHelper::get_dir(ADDON_DIR_NAME);
 
-				$entityModel="\\addon\\{$module}"."\\model\\".$param;
+				if(in_array($module, $addon_dir_list)){
+
+					$serviceModel="\\addon\\{$module}"."\\service\\".$param;
+
+					$logincModel="\\addon\\{$module}"."\\logic\\".$param;
+
+					$entityModel="\\addon\\{$module}"."\\model\\".$param;
+
+				}else{
+
+					$serviceModel="\\app\\{$module}"."\\service\\".$param;
+
+					$logincModel="\\app\\{$module}"."\\logic\\".$param;
+
+					$entityModel="\\app\\{$module}"."\\model\\".$param;
+
+				}
 
 			}
 
-			if($layer){
+			$current_directory_name = empty($layer)?$current_directory_name:$layer;
 
-				$model_object=$layer==LAYER_CONTROLLER_NAME?$logincModel:$entityModel;
+			switch ($current_directory_name) {
 
-			}else{
+		        case LAYER_CONTROLLER_NAME : $model_object = class_exists($serviceModel)?$serviceModel:$logincModel;break;
 
-				switch ($current_directory_name) {
+		        case LAYER_SERVICE_NAME    : $model_object = $logincModel;break;
 
-			        case LAYER_CONTROLLER_NAME : $model_object = $logincModel; break;
+		        case LAYER_LOGIC_NAME      : $model_object = $entityModel; break;
 
-			        case LAYER_LOGIC_NAME      : $model_object = $entityModel; break;
+		        case LAYER_MODEL_NAME      : $model_object = $entityModel; break;
 
-			        case LAYER_MODEL_NAME      : $model_object = $entityModel; break;
-
-			        default                    : $return_object = null; break;
-			    }
-			}
+		        default                    : $model_object = null; break;
+		    }
 
 			if(class_exists($model_object)){
 
 				return new $model_object();
 
 			}
-
-			return null;
+			
 		}
 
-		// 数组的情况下有参数m表示模块  l表示逻辑
-
-		$module=$param['m'];
-
-		$logic_name=isset($param['c']) && $param['c'] ? $param['c']:$param['m'];
-
-		$logincModel="\\".ADDON_DIR_NAME."\\".$module."\\logic\\".StringHelper::s_format_class($logic_name);
-
-		return new $logincModel();
+		return null;
 	}
 	/*
 	* 插件里面的数据验证

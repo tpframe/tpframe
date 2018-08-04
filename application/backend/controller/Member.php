@@ -63,6 +63,12 @@ class Member extends AdminBase
 		]);
 	}
 	/*
+		管理员管理
+	*/
+	public function del(){
+		$this->jump(Core::loadModel($this->name)->delAdmin($this->param));
+	}
+	/*
 		拉黑用户操作
 	*/
 	public function ban(){
@@ -75,7 +81,6 @@ class Member extends AdminBase
 		IS_POST && $this->jump(Core::loadModel($this->name)->priv($this->param));
 		return $this->fetch("priv",[
 			'listUser'=>Core::loadModel("Member")->getUserList(['id'=>$this->param['id']],"id,username,privs"),
-			'listPrivs'=>Core::loadModel("Menu")->getMenuArrTree(['type'=>1])
 		]);
 	}
 }

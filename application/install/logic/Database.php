@@ -36,48 +36,82 @@ class Database extends LogicBase
         if($result){
         	$dbconfig['database']=$dbname;
         	$dbconfig['prefix']=trim($data['dbprefix']);
-        	return Db::connect($dbconfig);
+        	return [0,"数据库安装成功",['db'=>Db::connect($dbconfig),'action'=>'executeSql','status'=>'success']];
         }else{
-        	return false;
+        	return [-1,"数据库安装失败",['status'=>'error']];
         }  
 	}
 	public function executeSql($db,$file,$data){
-		try{
-			$tablepre=$data['dbprefix'];
-			$module_path=dirname(dirname(__FILE__));
-		    //读取SQL文件
-		    $sql = file_get_contents($module_path . '/data/'.$file);
-		    $sql = str_replace("\r", "\n", $sql);
-		    $sql = explode(";\n", $sql);
-		    //替换表前缀
 
-		    $default_tablepre = "tpf_";
-		    $sql = str_replace(" `{$default_tablepre}", " `{$tablepre}", $sql);
-		    //开始安装
-		    $this->show_msg('开始安装数据库...');
-		    foreach ($sql as $item) {
-		    	set_time_limit(0);
-		        $item = trim($item);
-		        if(empty($item)) continue;
-		        preg_match('/CREATE TABLE `([^ ]*)`/', $item, $matches);
-		        if($matches) {
-		            $table_name = $matches[1];
-		            $msg  = "创建数据表{$table_name}";
-		            if(false!== $db->execute($item)){
-		                $this->show_msg($msg . ' 完成');
-		            } else {
-		               	$this->show_msg($msg . ' 失败！', 'error');
-		            }
-		        } else {
-		        	// $this->show_msg('正在创建数据');
-		            $db->execute($item);
-		        }
-		    }
-		}catch(\Exception $e){
-			$this->show_msg("安装数据库失败!", 'error');
-			throw new \Exception('安装数据库失败'); 
+		$tablepre=$data['dbprefix'];
+
+		$module_path=dirname(dirname(__FILE__));
+
+		if(!session("?install_sql")){
+			//读取SQL文件
+	   	 	$install_sql = $this->export_sql($module_path . '/data/'.$file, $tablepre);
+	   	 	session("install_sql",$install_sql);
+		}else{
+			$install_sql=session("install_sql");
 		}
+		/*echo "<pre/>";
+		print_r($install_sql);*/
+		if(empty($install_sql) || !is_array($install_sql)){
+			return [-1,"安装sql解析错误",['status'=>'error']];
+		}
+	    
+	    $sql_curr_index = isset($data['install_sql_index']) && is_numeric($data['install_sql_index'])?$data['install_sql_index']:0;
+
+	    if($sql_curr_index>=count($install_sql)){
+
+	    	return [0,"SQL安装完成",['status'=>'success','action'=>'update_site_config']];
+
+	    }
+
+	    $sql_curr = $install_sql[$sql_curr_index].";";
+
+    	set_time_limit(0);
+        $sql_curr = trim($sql_curr);
+
+        preg_match('/CREATE TABLE .+ `([^ ]*)`/', $sql_curr, $matches);
+
+        if($matches) {
+            $table_name = $matches[1];
+            $msg  = "创建数据表{$table_name}";
+            try{
+	            $db->execute($sql_curr);
+	            return [0,$msg."成功",['status'=>"success","action"=>"executeSql"]];
+	        }catch(\Exception $e){
+	        	return [-1,$msg."失败".$e->getMessage(),['status'=>"error"]];
+	        }
+        } else {
+        	try{
+            	$db->execute($sql_curr);
+            	return [0,"SQL语句执行成功",['status'=>"success","action"=>"executeSql"]];
+        	}catch(\Exception $e){
+        		return [-1,"SQL语句执行失败".$e->getMessage(),['status'=>"error"]];
+        	}
+        }
+		    
 	}
+	private function export_sql($file, $tablepre, $charset = 'utf8mb4')
+    {
+        if (file_exists($file)) {
+            //读取SQL文件
+            $sql = file_get_contents($file);
+            $sql = str_replace("\r", "\n", $sql);
+            $sql = str_replace("BEGIN;\n", '', $sql);
+            $sql = str_replace("COMMIT;\n", '', $sql);
+            $sql = str_replace('utf8mb4', $charset, $sql);
+            $sql = trim($sql);
+            //替换表前缀
+            $sql  = str_replace(" `tpf_", " `{$tablepre}", $sql);
+            $sqls = explode(";\n", $sql);
+            return $sqls;
+        }
+
+        return [];
+    }
 	public function update_site_config($db,$data){
 		try{
 			$tablepre=$data['dbprefix'];
@@ -88,9 +122,6 @@ class Database extends LogicBase
 		    $seo_description=$data["siteinfo"];
 			$site_options="{
 				\"site_name\":\"$sitename\",
-				\"site_tpl\":\"\",
-				\"mobile_tpl_enabled\":\"0\",
-				\"html_cache_on\":\"0\",
 				\"landline\":\"\",
 				\"toll_free\":\"\",
 				\"address\":\"\",
@@ -112,11 +143,26 @@ class Database extends LogicBase
 			}";
 		    $sql="INSERT INTO `{$tablepre}setting` (options,sign) VALUES ('$site_options','site_options')";
 		    $db->execute($sql);
-		    $this->show_msg("网站信息配置成功!");
+		    return [0,"网站信息配置成功!",['action'=>'create_admin_account','status'=>'success']];
 		}catch(\Exception $e){
-			$this->show_msg("安装网站配置失败!", 'error');
-			throw new \Exception('安装网站配置失败'); 
+			return [-1,"安装网站配置失败!".$e->getMessage(),['status'=>'error']];
 		}
+	}
+	public function create_config(){
+		 $site_options="<?php return array (
+  'DEFAULT_THEME' => 'default',
+  'HTML_CACHE_ON' => 0,
+  'ADMIN_LOG_SWITCH' => 0,
+  'WEB_SITE_CLOSE' => 0,
+  'ADMIN_LOGIN_LLIMIT_IP'=>'',
+  'ADMIN_LOGIN_VERIFY_SWITCH'=>0
+);";
+		//写入配置文件
+        if(file_put_contents(APP_PATH.'extra/config.php', $site_options)){
+            return [0,'基本配置文件写入成功!',['action'=>'create_version','status'=>'success']];
+        } else {
+            return [-1,'基本配置文件写入失败！',['status'=>'error']];
+        }
 	}
 	public function create_admin_account($db,$data,$data_encrypt_key){
 		try{
@@ -131,13 +177,12 @@ class Database extends LogicBase
 		    (id,username,password,nickname,email,url,create_time,grade,last_login_ip,last_login_time) VALUES 
 		    ('1', '{$username}', '{$password}', 'admin', '{$email}', '', '{$create_date}', 1, '{$ip}','{$create_date}');";
 		    $db->execute($sql);
-		    $this->show_msg("管理员账号创建成功!");
+		    return [0,'管理员账号创建成功!',['action'=>'create_site_config','status'=>'success']];
 		}catch(\Exception $e){
-			$this->show_msg("管理员账号创建失败!", 'error');
-			throw new \Exception('管理员账号创建失败'); 
+			return [-1,'管理员账号创建失败! 失败原因：'.$e->getMessage(),['status'=>'error']];
 		}
 	}
-	public function create_config($data,$data_encrypt_key){
+	public function create_site_config($data,$data_encrypt_key){
 		if(is_array($data)){
 			try{
 				$hostname=$data['dbhost'];
@@ -146,7 +191,6 @@ class Database extends LogicBase
 				$password=$data['dbpw'];
 				$hostport=$data['dbport'];
 				$prefix=$data['dbprefix'];
-				$tpframe_version=\think\Config::get("TPFRAME_VERSION");
 		        $conf="<?php
 \$local_database=require('database-local.php');
 /**
@@ -161,22 +205,38 @@ class Database extends LogicBase
     'hostport' => '{$hostport}',
     'prefix' => '{$prefix}',
     
-    'DATA_ENCRYPT_KEY'	=> '$data_encrypt_key',
-    'TPFRAME_VERSION'	=> '$tpframe_version',
+    'DATA_ENCRYPT_KEY'	=> '$data_encrypt_key'
 );
 return array_merge(\$database,\$local_database);";
 		        //写入应用配置文件
 		        if(file_put_contents(APP_PATH.'extra/database.php', $conf)){
-		            $this->show_msg('配置文件写入成功');
+		            return [0,'配置文件写入成功!',['action'=>'create_config','status'=>'success']];
 		        } else {
-		            $this->show_msg('配置文件写入失败！', 'error');
+		            return [-1,'配置文件写入失败！',['status'=>'error']];
 		        }
 	    	}catch(\Exception $e){
-	    		echo $e->getMessage();
-	    		$this->show_msg("配置文件写入失败！", 'error');
-				throw new \Exception('配置文件写入失败！'); 
+				return [-1,'配置文件写入失败！'.$e->getMessage(),['status'=>'error']];
 	    	}
     	}
+	}
+	public function create_version(){
+		try{
+				$tpframe_version=config("tpframe_version");
+				$tpframe_release=config("tpframe_release");
+		        $conf="<?php
+return [
+	'tpframe_version'=>'$tpframe_version',
+	'tpframe_release'=>'$tpframe_release'
+];";
+		        //写入应用配置文件
+		        if(file_put_contents(APP_PATH.'extra/version.php', $conf)){
+		            return [0,'版本记录文件写入成功',['status'=>'success']];
+		        } else {
+		            return [-1,'版本记录文件写入失败！',['status'=>'error']];
+		        }
+	    	}catch(\Exception $e){
+				return [-1,'版本记录文件写入失败！'.$e->getMessage(),['status'=>'error']];
+	    	}
 	}
 	public function show_msg($msg, $class = ''){
 	    echo "<script type=\"text/javascript\">showmsg(\"{$msg}\", \"{$class}\")</script>";

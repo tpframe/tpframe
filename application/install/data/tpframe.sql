@@ -1,38 +1,18 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost_3306
-Source Server Version : 50553
-Source Host           : localhost:3306
-Source Database       : git_tpframe
-
-Target Server Type    : MYSQL
-Target Server Version : 50553
-File Encoding         : 65001
-
-Date: 2018-01-26 14:54:37
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for tpf_ad
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_ad`;
-CREATE TABLE `tpf_ad` (
-  `ad_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '广告id',
-  `ad_name` varchar(200) NOT NULL COMMENT '广告名称',
-  `ad_content` text COMMENT '广告内容',
+CREATE TABLE IF NOT EXISTS `tpf_ad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '广告id',
+  `name` varchar(200) NOT NULL COMMENT '广告名称',
+  `content` text COMMENT '广告内容',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
-  PRIMARY KEY (`ad_id`),
-  KEY `ad_name` (`ad_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for tpf_addon
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_addon`;
-CREATE TABLE `tpf_addon` (
+CREATE TABLE IF NOT EXISTS `tpf_addon` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `module` varchar(100) DEFAULT NULL COMMENT '插件模块',
   `title` varchar(100) DEFAULT NULL COMMENT '插件标题',
@@ -41,18 +21,16 @@ CREATE TABLE `tpf_addon` (
   `author` varchar(100) DEFAULT NULL COMMENT '作者',
   `version` varchar(20) DEFAULT NULL COMMENT '插件版本',
   `status` tinyint(4) DEFAULT '0' COMMENT '状态 1启用 0禁用',
-  `handle` varchar(255) DEFAULT NULL COMMENT '插件句柄',
   `type` varchar(50) DEFAULT NULL COMMENT '插件分类  行为插件 模块插件  行为模块插件',
   `create_time` varchar(30) DEFAULT NULL,
   `update_time` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for tpf_category
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_category`;
-CREATE TABLE `tpf_category` (
+CREATE TABLE IF NOT EXISTS `tpf_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) DEFAULT NULL,
   `parentid` int(11) DEFAULT '0' COMMENT '父类ID',
@@ -61,27 +39,29 @@ CREATE TABLE `tpf_category` (
   `url` varchar(255) DEFAULT NULL COMMENT '链接地址',
   `display` tinyint(4) DEFAULT '1' COMMENT '是否显示  0：不显示   1显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of tpf_category
 -- ----------------------------
-INSERT INTO `tpf_category` VALUES ('1', '博客', '0', '1', '1', '/posts/index/cid/1', '0');
-INSERT INTO `tpf_category` VALUES ('2', '原型设计', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('3', '微信设计', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('4', 'APP设计', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('5', 'H5设计', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('6', '用户体验', '1', '0', '1', '', '1');
-INSERT INTO `tpf_category` VALUES ('7', '案例', '0', '1', '1', '/index/cases/cid/7', '1');
+INSERT INTO `tpf_category` VALUES 
+('1', '博客', '0', '1', '1', '/posts/index/cid/1', '0'),
+('2', '原型设计', '1', '0', '1', '', '1'),
+('3', '微信设计', '1', '0', '1', '', '1'),
+('4', 'APP设计', '1', '0', '1', '', '1'),
+('5', 'H5设计', '1', '0', '1', '', '1'),
+('6', '用户体验', '1', '0', '1', '', '1'),
+('7', '案例', '0', '1', '1', '/index/cases/cid/7', '1');
 
 -- ----------------------------
 -- Table structure for tpf_config
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_config`;
-CREATE TABLE `tpf_config` (
+CREATE TABLE IF NOT EXISTS `tpf_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of tpf_config
@@ -90,8 +70,7 @@ CREATE TABLE `tpf_config` (
 -- ----------------------------
 -- Table structure for tpf_hook
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_hook`;
-CREATE TABLE `tpf_hook` (
+CREATE TABLE IF NOT EXISTS `tpf_hook` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL COMMENT '钩子名称',
   `describe` varchar(255) DEFAULT NULL COMMENT '描述',
@@ -99,13 +78,12 @@ CREATE TABLE `tpf_hook` (
   `update_time` varchar(30) DEFAULT '0' COMMENT '更新时间',
   `create_time` varchar(30) DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for tpf_friend_link
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_friend_link`;
-CREATE TABLE `tpf_friend_link` (
+CREATE TABLE IF NOT EXISTS `tpf_friend_link` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL COMMENT '友情链接名称',
   `url` varchar(100) DEFAULT NULL COMMENT '友情链接地址',
@@ -117,7 +95,7 @@ CREATE TABLE `tpf_friend_link` (
   `relation` varchar(255) DEFAULT NULL COMMENT '链接与网站的关系',
   `sort` int(11) DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of tpf_friend_link
@@ -127,11 +105,10 @@ INSERT INTO `tpf_friend_link` VALUES ('1', 'tpframe', 'http://www.tpframe.com', 
 -- ----------------------------
 -- Table structure for tpf_menu
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_menu`;
-CREATE TABLE `tpf_menu` (
+CREATE TABLE IF NOT EXISTS `tpf_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL COMMENT '菜单名称',
-  `model` varchar(30) DEFAULT 'backend' COMMENT '模块名',
+  `module` varchar(30) DEFAULT 'backend' COMMENT '模块名',
   `controller` varchar(30) DEFAULT 'Index' COMMENT '控制器',
   `action` varchar(30) DEFAULT 'index' COMMENT '默认操作',
   `type` tinyint(4) DEFAULT '1' COMMENT '菜单类型  1：权限认证+菜单；0：只作为菜单',
@@ -142,38 +119,51 @@ CREATE TABLE `tpf_menu` (
   `sort` smallint(6) DEFAULT '0' COMMENT '排序ID',
   `parentid` int(11) DEFAULT '0' COMMENT '父id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of tpf_menu
 -- ----------------------------
-INSERT INTO `tpf_menu` VALUES ('1', '设置', 'backend', 'Index', 'index', '1', '', '1', '', 'cogs', '0', '20');
-INSERT INTO `tpf_menu` VALUES ('2', '个人信息', 'backend', 'Index', 'index', '1', '', '1', '', '', '0', '1');
-INSERT INTO `tpf_menu` VALUES ('3', '修改信息', 'backend', 'Member', 'userinfo', '1', '', '1', '', '', '0', '2');
-INSERT INTO `tpf_menu` VALUES ('4', '修改密码', 'backend', 'Member', 'uppwd', '1', '', '1', '', '', '0', '2');
-INSERT INTO `tpf_menu` VALUES ('5', '网站信息', 'backend', 'Setting', 'site', '1', '', '1', '', '', '0', '1');
-INSERT INTO `tpf_menu` VALUES ('6', '清空缓存', 'backend', 'Setting', 'clear', '1', '', '1', '', '', '0', '1');
-INSERT INTO `tpf_menu` VALUES ('7', '用户管理', 'backend', 'Index', 'index', '1', '', '1', '', 'group', '0', '20');
-INSERT INTO `tpf_menu` VALUES ('8', '用户组', 'backend', 'Index', 'index', '1', '', '1', '', '', '0', '7');
-INSERT INTO `tpf_menu` VALUES ('9', '本站用户', 'backend', 'Member', 'index', '1', '', '1', '', '', '0', '8');
-INSERT INTO `tpf_menu` VALUES ('10', '管理组', 'backend', 'Index', 'index', '1', '', '1', '', '', '0', '7');
-INSERT INTO `tpf_menu` VALUES ('11', '管理员', 'backend', 'Member', 'admin', '1', '', '1', '', '', '0', '10');
-INSERT INTO `tpf_menu` VALUES ('12', '菜单管理', 'backend', 'Index', 'index', '1', '', '1', '', 'list', '0', '20');
-INSERT INTO `tpf_menu` VALUES ('13', '后台菜单', 'backend', 'Menu', 'index', '1', '', '1', '', '', '0', '12');
-INSERT INTO `tpf_menu` VALUES ('14', '扩展工具', 'backend', 'Index', 'index', '1', '', '1', '', 'cloud', '0', '21');
-INSERT INTO `tpf_menu` VALUES ('15', '前台菜单', 'backend', 'Index', 'index', '1', '', '1', '', '', '0', '12');
-INSERT INTO `tpf_menu` VALUES ('16', '菜单管理', 'backend', 'Nav', 'index', '1', '', '1', '', '', '0', '15');
-INSERT INTO `tpf_menu` VALUES ('17', '菜单分类', 'backend', 'NavCat', 'index', '1', '', '1', '', '', '0', '15');
-INSERT INTO `tpf_menu` VALUES ('18', '插件管理', 'backend', 'Addon', 'addonList', '1', '', '1', '', '', '0', '14');
-INSERT INTO `tpf_menu` VALUES ('19', '角色管理', 'backend', 'Role', 'index', '1', '', '1', '管理员角色', '', '0', '10');
-INSERT INTO `tpf_menu` VALUES ('20', '基本信息', 'backend', 'Index', 'index', '1', null, '1', null, null, '0', '0');
-INSERT INTO `tpf_menu` VALUES ('21', '扩展管理', 'backend', 'Index', 'index', '1', null, '1', null, null, '0', '0');
+INSERT INTO `tpf_menu` VALUES 
+('1', '基本信息', 'backend', 'Index', 'index', '1', null, '1', null, null, '1', '0'),
+('2', '用户中心', 'backend', 'Index', 'index', '1', null, '1', null, null, '2', '0'),
+('3', '扩展管理', 'backend', 'Index', 'index', '1', null, '1', null, null, '3', '0'),
+('4', '插件模块', 'backend', 'Index', 'index', '1', null, '1', null, null, '4', '0'),
+('27', '微信管理', 'backend', 'Index', 'index', '1', null, '1', null, null, '5', '0'),
+
+('10', '系统', 'backend', 'Index', 'index', '1', '', '1', '', 'th', '1', '1'),
+('11', '清空缓存', 'backend', 'Setting', 'clear', '1', '', '1', '', '', '1', '10'),
+('12', '更新系统', 'backend', 'Upgrade', 'index', '1', '', '1', '', '', '2', '10'),
+('13', '后台操作日志', 'backend', 'AdminLog', 'index', '1', '', '1', '', '', '3', '10'),
+
+('5', '设置', 'backend', 'Index', 'index', '1', '', '1', '', 'cogs', '2', '1'),
+('6', '个人信息', 'backend', 'Index', 'index', '1', '', '1', '', '', '1', '5'),
+('7', '修改信息', 'backend', 'Member', 'userinfo', '1', '', '1', '', '', '1', '6'),
+('8', '修改密码', 'backend', 'Member', 'uppwd', '1', '', '1', '', '', '2', '6'),
+('9', '网站信息', 'backend', 'Setting', 'site', '1', '', '1', '', '', '2', '5'),
+
+('14', '菜单管理', 'backend', 'Index', 'index', '1', '', '1', '', 'list', '3', '1'),
+('15', '后台菜单', 'backend', 'Menu', 'index', '1', '', '1', '', '', '1', '14'),
+('16', '前台菜单', 'backend', 'Index', 'index', '1', '', '1', '', '', '2', '14'),
+('17', '菜单管理', 'backend', 'Nav', 'index', '1', '', '1', '', '', '1', '16'),
+('18', '菜单分类', 'backend', 'NavCat', 'index', '1', '', '1', '', '', '2', '16'),
+
+
+('19', '用户管理', 'backend', 'Index', 'index', '1', '', '1', '', 'group', '1', '2'),
+('20', '用户组', 'backend', 'Index', 'index', '1', '', '1', '', '', '1', '19'),
+('21', '本站用户', 'backend', 'Member', 'index', '1', '', '1', '', '', '1', '20'),
+
+('22', '管理组', 'backend', 'Index', 'index', '1', '', '1', '', '', '2', '19'),
+('23', '管理员', 'backend', 'Member', 'admin', '1', '', '1', '', '', '1', '22'),
+('24', '角色管理', 'backend', 'Role', 'index', '1', '', '1', '管理员角色', '', '2', '22'),
+
+('25', '扩展工具', 'backend', 'Index', 'index', '1', '', '1', '', 'cloud', '1', '3'),
+('26', '插件管理', 'backend', 'addon', 'addonlist', '1', null, '1', null, null, '1', '25');
 
 -- ----------------------------
 -- Table structure for tpf_nav
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_nav`;
-CREATE TABLE `tpf_nav` (
+CREATE TABLE IF NOT EXISTS `tpf_nav` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parentid` int(11) NOT NULL COMMENT '导航父 id',
   `label` varchar(255) NOT NULL COMMENT '导航标题',
@@ -186,26 +176,26 @@ CREATE TABLE `tpf_nav` (
   `path` varchar(255) NOT NULL COMMENT '层级关系',
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT '导航分类 id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='前台导航表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航表';
 
 -- ----------------------------
 -- Records of tpf_nav
 -- ----------------------------
-INSERT INTO `tpf_nav` VALUES ('1', '0', '案例', '_self', 'href_text', 'Index/cases', '', '0', '0', '0', '1');
-INSERT INTO `tpf_nav` VALUES ('2', '0', '博客', '_self', 'href_text', 'Index/news', '', '0', '0', '0', '1');
-INSERT INTO `tpf_nav` VALUES ('3', '0', '关于', '_self', 'href_text', 'Index/about', '', '1', '0', '0', '1');
+INSERT INTO `tpf_nav` VALUES 
+('1', '0', '案例', '_self', 'href_text', 'Index/cases', '', '0', '0', '0', '1'),
+('2', '0', '博客', '_self', 'href_text', 'Index/news', '', '0', '0', '0', '1'),
+('3', '0', '关于', '_self', 'href_text', 'Index/about', '', '1', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for tpf_nav_cat
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_nav_cat`;
-CREATE TABLE `tpf_nav_cat` (
+CREATE TABLE IF NOT EXISTS `tpf_nav_cat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL COMMENT '导航分类名',
   `active` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否为主菜单，1是，0不是',
   `remark` varchar(200) COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台导航分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航分类表';
 
 -- ----------------------------
 -- Records of tpf_nav_cat
@@ -215,8 +205,7 @@ INSERT INTO `tpf_nav_cat` VALUES ('1', '主导航', '1', '主导航');
 -- ----------------------------
 -- Table structure for tpf_posts
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_posts`;
-CREATE TABLE `tpf_posts` (
+CREATE TABLE IF NOT EXISTS `tpf_posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL COMMENT '标题',
   `content` text COMMENT '内容',
@@ -237,60 +226,58 @@ CREATE TABLE `tpf_posts` (
   `parentid` int(11) DEFAULT '0' COMMENT '父id',
   `uid` int(11) DEFAULT '0' COMMENT '用户ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of tpf_posts
 -- ----------------------------
-INSERT INTO `tpf_posts` VALUES ('1', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1499913494', '1497156908', '', '本站', 'tpframe', '23', '0', '1', '0', '0', '0', '1', '0', '1', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('2', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '16', '0', '1', '1', '1', '0', '0', '1', '2', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('3', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '39', '0', '2', '0', '0', '0', '0', '0', '2', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('4', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '9', '0', '1', '1', '1', '0', '0', '1', '5', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('5', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1497152844', '1497148729', null, '本站', 'tpframe', '2', '0', '1', '1', '1', '0', '0', '0', '4', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('6', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '7', '0', '1', '1', '1', '0', '0', '0', '2', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('7', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034964', '1497148729', null, '本站', 'tpframe', '4', '0', '1', '1', '1', '0', '0', '0', '4', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('8', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498103128', '1497148729', null, '本站', 'tpframe', '2', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('9', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498108591', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('10', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114235', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('11', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('12', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('13', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('14', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('15', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('16', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('17', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('18', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('19', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
-INSERT INTO `tpf_posts` VALUES ('20', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
+INSERT INTO `tpf_posts` VALUES 
+('1', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1499913494', '1497156908', '', '本站', 'tpframe', '23', '0', '1', '0', '0', '0', '1', '0', '1', '0', '0'),
+('2', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '16', '0', '1', '1', '1', '0', '0', '1', '2', '0', '0'),
+('3', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '39', '0', '2', '0', '0', '0', '0', '0', '2', '0', '0'),
+('4', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '9', '0', '1', '1', '1', '0', '0', '1', '5', '0', '0'),
+('5', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1497152844', '1497148729', null, '本站', 'tpframe', '2', '0', '1', '1', '1', '0', '0', '0', '4', '0', '0'),
+('6', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034319', '1497148729', null, '本站', 'tpframe', '7', '0', '1', '1', '1', '0', '0', '0', '2', '0', '0'),
+('7', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498034964', '1497148729', null, '本站', 'tpframe', '4', '0', '1', '1', '1', '0', '0', '0', '4', '0', '0'),
+('8', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498103128', '1497148729', null, '本站', 'tpframe', '2', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('9', 'TPFrame 正式上线', '<p>\r\n <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498108591', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('10', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114235', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('11', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('12', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('13', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('14', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('15', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('16', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('17', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('18', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('19', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0'),
+('20', 'TPFrame 正式上线', '<p>\r\n  <img src=\"/data/uploads/20170713/128ee9657bf2e2b09c89ddca4d29e4be.jpg\" alt=\"\" /><br />\r\nTPFrame 是一款新起的专门为项目速成的PHP框架，基于thinkphp5.0，程序完全开源，可进行任何的二次开发，废弃thinkphp3.2函数编程模式，数据模式全部采用对象封装', '1498114280', '1497148729', null, '本站', 'tpframe', '0', '0', '1', '1', '1', '0', '0', '0', '7', '0', '0');
 
 -- ----------------------------
 -- Table structure for tpf_role
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_role`;
-CREATE TABLE `tpf_role` (
+CREATE TABLE IF NOT EXISTS `tpf_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(200) DEFAULT NULL COMMENT '角色名',
   `privs` varchar(255) DEFAULT NULL COMMENT '权限列表',
   `role_describe` varchar(255) DEFAULT NULL COMMENT '权限描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='管理员角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='管理员角色表';
 
 -- ----------------------------
 -- Table structure for tpf_setting
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_setting`;
-CREATE TABLE `tpf_setting` (
+CREATE TABLE IF NOT EXISTS `tpf_setting` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sign` varchar(30) DEFAULT NULL COMMENT '配置名',
   `options` text COMMENT '配置选项',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for tpf_slide
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_slide`;
-CREATE TABLE `tpf_slide` (
+CREATE TABLE IF NOT EXISTS `tpf_slide` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL COMMENT '幻灯片分类 id',
   `name` varchar(255) NOT NULL COMMENT '幻灯片名称',
@@ -301,27 +288,27 @@ CREATE TABLE `tpf_slide` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
   `sort` int(10) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='幻灯片表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片表';
 
 -- ----------------------------
 -- Records of tpf_slide
 -- ----------------------------
-INSERT INTO `tpf_slide` VALUES ('1', '1', '1', '/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0');
-INSERT INTO `tpf_slide` VALUES ('2', '1', '2', '/data/uploads/20170713/3dc497387a1d6046560dfe8b43f0a0bc.jpg', '/', '', '', '1', '0');
-INSERT INTO `tpf_slide` VALUES ('3', '1', '3', '/data/uploads/20170713/e261eee1c255f8642623f7b70b9b16a3.jpg', '/', '', '', '1', '0');
+INSERT INTO `tpf_slide` VALUES 
+('1', '1', '1', '/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0'),
+('2', '1', '2', '/data/uploads/20170713/3dc497387a1d6046560dfe8b43f0a0bc.jpg', '/', '', '', '1', '0'),
+('3', '1', '3', '/data/uploads/20170713/e261eee1c255f8642623f7b70b9b16a3.jpg', '/', '', '', '1', '0');
 
 -- ----------------------------
 -- Table structure for tpf_slide_cat
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_slide_cat`;
-CREATE TABLE `tpf_slide_cat` (
+CREATE TABLE IF NOT EXISTS `tpf_slide_cat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL COMMENT '幻灯片分类名称',
   `sign` varchar(255) NOT NULL COMMENT '幻灯片分类标识',
   `remark` text COMMENT '分类备注',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片分类表';
 
 -- ----------------------------
 -- Records of tpf_slide_cat
@@ -331,8 +318,7 @@ INSERT INTO `tpf_slide_cat` VALUES ('1', '首页大图广告', 'banner', '首页
 -- ----------------------------
 -- Table structure for tpf_user
 -- ----------------------------
-DROP TABLE IF EXISTS `tpf_user`;
-CREATE TABLE `tpf_user` (
+CREATE TABLE IF NOT EXISTS `tpf_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
@@ -351,4 +337,25 @@ CREATE TABLE `tpf_user` (
   `privs` varchar(255) DEFAULT NULL COMMENT '用户权限列表',
   `role_id` int(11) DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for tpf_admin_log
+-- ----------------------------
+CREATE TABLE IF NOT EXISTS `tpf_admin_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `old_value` mediumtext NOT NULL COMMENT '原值',
+  `new_value` mediumtext NOT NULL COMMENT '新值',
+  `module` varchar(15) NOT NULL COMMENT '模块',
+  `controller` varchar(20) NOT NULL COMMENT '控制器',
+  `action` varchar(20) NOT NULL COMMENT '操作',
+  `data` mediumtext NOT NULL COMMENT '数据',
+  `url` varchar(255) DEFAULT NULL COMMENT '链接',
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `username` varchar(20) NOT NULL,
+  `ip` varchar(15) NOT NULL,
+  `datetime` varchar(30) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `module` (`module`,`controller`,`action`),
+  KEY `username` (`username`,`action`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;

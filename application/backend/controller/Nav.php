@@ -28,12 +28,11 @@ class Nav extends AdminBase
         IS_POST && $this->jump(Core::loadModel($this->name)->saveNav($this->param));
         return $this->fetch("add",[
             'categorys'=>Core::loadModel($this->name)->getNavList("add",$this->param),
-            'listNavCat'=>Core::loadModel("NavCat")->getNavCatList(),
+            'listNavCat'=>Core::loadModel("NavCat")->getNavCatList()
         ]);
     }
     public function del()
     {
-        die('别乱来');
         $this->jump(Core::loadModel($this->name)->delNav($this->param));
     }
 } 

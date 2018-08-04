@@ -1,31 +1,46 @@
-/*
-===================
-@explain: 系统后台登录页面
-@copyright: Copyright 2012,phpwind.com
-@author: longwenid@gmail.com
-$Id: admin_login.css 22060 2012-12-19 03:01:55Z yanchixia $
-===================
-*/
 html{
 	padding:0;
 	margin:0;
-	background:#1262B7;
-}
+	height: 100%;
+	background:#085295;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#085295,endColorStr=#549fcc); /*IE 6 7 8*/ 
+	background: -ms-linear-gradient(top, #fff,  #549fcc);        /* IE 10 */
+	background:-moz-linear-gradient(top,#085295,#549fcc);/*火狐*/ 
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#085295), to(#549fcc));/*谷歌*/ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#085295), to(#549fcc));      /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, #085295, #549fcc);   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, #085295, #549fcc);  /*Opera 11.10+*/
+  }
+
+.flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+.flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+.flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+
 body {
 	padding:0;
 	margin:0;
+	height: 100%;
 	font-family:Arial, "Microsoft Yahei";
+
+	
 }
 .wrap {
-	width: 250px;
+	/*position: fixed;
+	left: 50%;
+	margin-left: -134px;*/
+	width: 268px;
 	overflow:hidden;
-	margin: 180px auto 0;
 	-webkit-animation: bounceIn 600ms linear;
 	-moz-animation: bounceIn 600ms linear;
 	-o-animation: bounceIn 600ms linear;
 	animation: bounceIn 600ms linear;
+	background-color: #FFF;
+	padding: 18px;
+	border-radius: 5px;
 }
-
+h1{
+	margin:10px 0;
+}
 h1 a {
 	display: block;
 	height: 50px;
@@ -48,43 +63,46 @@ h1 a {
 }
 .login ul{
 	background:#fff;
-	border:none;
-	box-shadow:1px 1px 1px #ccc inset;
-	border-radius:3px;
 	overflow:hidden;
 	margin-bottom:15px;
-	width:248px;
 	overflow:hidden;
 }
 .login li{
-	border-top:1px solid #d3d4d4;
 	padding:5px;
+	background-color: #d3d4d4;
+	margin-bottom: 15px;
+	border-radius: 3px;
 }
 .login .verifycode-wrapper{
 	padding:0px;
 }
+.verifycode-wrapper img{width: 100%; height: auto;}
 .login li img{
 	vertical-align:top;
 }
 .login .input {
-	width: 225px;
+	display: block;
+	width: 100%;
 	padding: 5px;
 	vertical-align: middle;
 	border:0 none;
 	background:transparent;
 	font-size:18px;
 	font-family:Arial,"Microsoft Yahei";
+	box-sizing:border-box;  
+-moz-box-sizing:border-box; /* Firefox */  
+-webkit-box-sizing:border-box; /* Safari */ 
 }
 .login .input:focus {
 	outline:0 none;
 }
 .btn {
-	width: 248px;
+	width: 100%;
 	height: 38px;
 	padding: 0;
 	margin: 0;
 	vertical-align: middle;
-	background:#549fcc url(../images/btn.png) no-repeat;
+	background:#549fcc;
 	overflow:visible;
 	color:#fff;
 	font-size:20px;
@@ -94,7 +112,7 @@ h1 a {
 	border-radius:3px;
 }
 .btn:hover{
-	background-position:0 -40px;
+	background-color:#59a7d6;
 }
 .btn:active {
 	background-position:0 -80px;

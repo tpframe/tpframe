@@ -16,6 +16,11 @@ class Role extends AdminBase
 	    return self::getObject($where ,$field, $order, $paginate_data);
     }
     public function addRole($data){
+        $validate=\think\Loader::validate($this->name);
+        $validate_result = $validate->scene('add')->check($data);
+        if (!$validate_result) {    
+            return [RESULT_ERROR, $validate->getError(), null];
+        }
         $last_id=Core::loadModel($this->name)->saveObject($data);
         if($last_id){
             return [RESULT_SUCCESS, '操作成功', url('Role/index')];

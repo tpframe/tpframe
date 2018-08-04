@@ -15,6 +15,11 @@ class Menu extends AdminBase
 	private $parentids=[];
 	private $arr=[];
 	public function saveMenu($data){
+		$validate=\think\Loader::validate($this->name);
+		$validate_result = $validate->scene('add')->check($data);
+        if (!$validate_result) {    
+            return [RESULT_ERROR, $validate->getError(), null];
+        }
 		$last_id=Core::loadModel($this->name)->saveObject($data);
 		if($last_id){
         	return [RESULT_SUCCESS, '操作成功', url('Menu/index')];
@@ -47,13 +52,14 @@ class Menu extends AdminBase
 
         foreach ($new_result as $n=> $r) {
         	$new_result[$n]['parentid_node'] = ($r['parentid']) ? ' class="child-of-node-' . $r['parentid'] . ' collapsed"' : 'class="expanded"';
-            $new_result[$n]['manage'] = '<a href="' . url("Menu/add", ["parentid" => $r['id']]) . '">添加菜单</a> | <a href="' . url("Menu/edit", ["id" => $r['id']]) . '">编辑菜单</a> | <a href="' . url("Menu/del", ["id" => $r['id']]). '">删除菜单</a> ';
+            $new_result[$n]['manage'] = '<a href="' . url("Menu/add", ["parentid" => $r['id']]) . '">添加菜单</a> | <a href="' . url("Menu/edit", ["id" => $r['id']]) . '">编辑菜单</a> | <a href="' . url("Menu/del", ["id" => $r['id']]). '" class="js-ajax-delete">删除菜单</a> ';
             $new_result[$n]['display'] = $r['display'] ? "显示" : "隐藏";
-            $new_result[$n]['app']=$r['model']."/".$r['controller']."/".$r['action'];
+            $new_result[$n]['app']=$r['module']."/".$r['controller']."/".$r['action'];
         }
         $tree->init($new_result);
+        $action=url("Menu/ajaxdata");
         $str = "<tr id='node-\$id' \$parentid_node>
-					<td style='padding-left:20px;'><span style='padding-left: 20px' class='expander'></span><input name='listorders[]' data='Menu|sort|id|\$id' type='text' size='3' value='\$sort' class='input input-order ajax'></td>
+					<td style='padding-left:20px;'><span style='padding-left: 20px' class='expander'></span><input name='listorders[]' data='Menu|sort|id|\$id' type='text' size='3' value='\$sort' class='input input-order ajax-text' action='$action'></td>
 					<td>\$id</td>
         			<td>\$app</td>
 					<td>\$spacer\$name</td>
@@ -108,6 +114,30 @@ class Menu extends AdminBase
 			}
 		}
 		return $returnarr?$arr:Data::toTreeArrray($arr);
+	}
+
+	public function getMenuRole($data=[]){
+		$result=self::getObject(["type"=>1],"id,name,parentid","sort ASC,id ASC");
+		$new_result=[];
+		foreach ($result as $key => $value) {
+			$new_result[$key]=$value->toArray();
+		}
+		if($data && isset($data['privs']) && is_string($data['privs'])){
+			$role_id=explode(",", $data['privs']);
+			foreach ($role_id as $key => $value) {
+				foreach ($new_result as $k2 => $v2) {
+					if($value==$v2['id']){
+						$new_result[$k2]['state']=["selected"=>true];
+					}
+				}
+			}
+
+		}
+		foreach ($new_result as $key => $value) {
+			$new_result[$key]['text']=$new_result[$key]['name'];
+			unset($new_result[$key]['name']);
+		}
+		return Data::genTree($new_result);
 	}
 
 	public function get_parent_ids($parentid){

@@ -31,4 +31,7 @@ class Menu extends AdminBase
     {
     	$this->jump(Core::loadModel($this->name)->delMenu($this->param));
     }
+    public function role(){
+        echo json_encode(Core::loadModel($this->name)->getMenuRole($this->param));
+    }
 } 

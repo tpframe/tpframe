@@ -132,4 +132,11 @@ class StringHelper extends BaseStringHelper
 	  	}
 	  	return implode('',$temp_array);
 	}
+    /**
+     * @access public
+     * @return string
+     */
+	public static function get_order_sn($str = ""){
+        return $str.date("YmdHis",time()).sprintf('%06s', rand(0,999999));
+    }
 }	

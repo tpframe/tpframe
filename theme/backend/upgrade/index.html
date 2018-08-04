@@ -1,0 +1,92 @@
+{extend name="base"}
+{block name="content"}
+<div class="wrap js-check-wrap">
+
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="{:url('Upgrade/index')}">在线升级</a>
+        </li>
+    </ul>
+    <div class="explain-tip">
+注意：升级程序时，请保证网络畅通，不要关闭浏览器，请不要进行其它操作，等待程序升级完成，为了不影响程序的运作，升级最好在晚上进行！linux服务器需检查文件所有者权限和组权限，确保WEB SERVER用户有文件写入权限</div>
+    <table class="table table-hover table-bordered table-list margin-top-20">
+        <thead>
+            <tr>
+                <th width="30%">当前版本</th>
+                <th>更新日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{$Think.config.version.tpframe_version}</td>
+                <td>{$Think.config.version.tpframe_release}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-bordered table-list margin-top-20">
+        <thead>
+            <tr>
+                <th width="30%">可升级版本包列表</th>
+                <th>更新日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo" empty="<tr><td colspan='2'>你的系统已经是最新版本</td></tr>"}
+            <tr>
+                <td>{$vo.version}</td>
+                <td>{$vo.release}</td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+    {notempty name="list"}
+    <div class="margin-top-20"><a class="btn btn-info"  data-toggle="modal" data-target="#upgrade">
+    开始升级</a></div>
+    {/notempty}
+    <div class="upgrade-tip">
+        <ul id="loginner" class="unstyled"></ul>
+    </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">你确定要进行系统升级</h4>
+            </div>
+            <div class="modal-body">
+                1、升级系统前建议对系统数据进行备份后再操作<br/>
+                2、请保持网络畅通，不要关闭浏览器<br/>
+                3、请不要进行其它操作，等待升级完成<br/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消升级</button>
+                <a type="button" class="btn btn-primary" href="{:url('upgrade/doup')}">确定升级</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function() {
+    $('#upgrade').modal({
+        'show':false,
+        'keyboard':true
+    });
+});
+</script>
+
+<script src="__THEMES__/js/common.js"></script>
+<script type="text/javascript">
+    function showmsg(content,status){
+        var icon='<i class="fa fa-check correct"></i> ';
+        if(status=="error"){
+            icon ='<i class="fa fa-remove error"></i> ';
+        }
+        $('#loginner').append("<li>"+icon+content+"</li>");
+        $(".upgrade-tip").scrollTop(1000000000);
+    }
+</script>
+{/block}

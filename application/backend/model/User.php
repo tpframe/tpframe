@@ -13,7 +13,6 @@ use \tpfcore\Core;
 class User extends AdminBase
 {
     protected $insert = ['grade'=>1,'create_time'];
-    
     protected function setPasswordAttr($value)
     {
         return '###'.md5($value.DATA_ENCRYPT_KEY);
@@ -21,13 +20,5 @@ class User extends AdminBase
     protected function setCreateTimeAttr($value)
     {
         return time();
-    }
-    protected function setPrivsAttr($value)
-    {
-        if(input("role_id")){
-            return Core::loadModel("Role")->getColumnValue(["id"=>input("role_id")],"privs");
-        }else{
-            return empty($value)?$value:implode(",", $value);
-        }
     }
 }

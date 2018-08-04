@@ -10,5 +10,5 @@ use \think\Request;
  */
 class Nav extends AdminBase
 {
-
+    
 }

@@ -399,8 +399,9 @@ $.extend( $.validator, {
 			} );
 
 			function delegate( event ) {
-				var validator = $.data( this.form, "validator" ),
-					eventType = "on" + event.type.replace( /^validate/, "" ),
+				var validator = $.data( this.form, "validator" );
+				if(validator==undefined) return false;
+				var eventType = "on" + event.type.replace( /^validate/, "" ),
 					settings = validator.settings;
 				if ( settings[ eventType ] && !$( this ).is( settings.ignore ) ) {
 					settings[ eventType ].call( validator, this, event );

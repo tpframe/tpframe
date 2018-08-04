@@ -29,8 +29,6 @@ class InitBase
         
         // 初始化配置信息
         @file_exists(APP_PATH.'extra/database.php') && $this->initConfig();
-        
-        //$this->checkConfig();
 
         // 初始化数据库信息
         $this->initDbInfo();
@@ -40,6 +38,9 @@ class InitBase
         
         //初始化一些常量
         $this->initDefine();
+        
+        //自动载入第三方包文件
+        $this->autoImportPackage(PACKAGE_PATH);
 
         // 注册命名空间
         $this->registerNamespace();
@@ -59,7 +60,7 @@ class InitBase
             }
             // 如果有install，配置文件又不完整的情况，如果没到第5步，有任意一个配置文件则表示非正常安装
             if(!preg_match('/(.*?)step5(.*?)/', strtolower(request()->baseUrl()))){
-                if(file_exists("data/install.lock") || file_exists(APP_PATH."extra/database.php")){
+                if(stripos(strtolower(request()->url(true)), "/install/index/install")==false && (file_exists("data/install.lock") || file_exists(APP_PATH."extra/database.php"))){
                     exit("请删除data/install.lock文件与".APP_PATH."extra/database.php文件后再重新安装");
                 }               
             }else{
@@ -168,7 +169,7 @@ class InitBase
         define('DATA_ENCRYPT_KEY', config('database.DATA_ENCRYPT_KEY')?config('database.DATA_ENCRYPT_KEY'):'!hg&HW14*WF5^%$3NHK)EDh*h#@s(01w-Eftpframe@.com');
 
         // 系统当前版本
-        define('TPFRAME_VERSION', config('database.TPFRAME_VERSION')?config('database.TPFRAME_VERSION'):'TPFrame v2.1');
+        define('TPFRAME_VERSION', config('version.tpframe_version')?config('version.tpframe_version'):'TPFrame v3.0');
         
     }
     
@@ -191,6 +192,9 @@ class InitBase
 
         // 核心文件目录路径
         define('TPFRAME_PATH', ROOT_PATH .SOURCE_DIR_PATH.TPFRAME_DIR_NAME . "/");
+
+        // 第三方程序包目录
+        define('PACKAGE_PATH', 'coreframe/package');
         
         // 静态资源目录路径
         define('PUBLIC_PATH', ROOT_PATH . 'data/assets/');
@@ -199,7 +203,7 @@ class InitBase
         define('UPLOAD_PATH', ROOT_PATH . 'data/uploads/');
         
         // 网站
-        define('SITE_PATH', $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']);
+        define('SITE_PATH', strpos($_SERVER['SERVER_PROTOCOL'],'HTTPS')  !== false ?"https://".$_SERVER['HTTP_HOST']:"http://".$_SERVER['HTTP_HOST']);
 
         // 文件上传目录相对路径
         define('UPLOAD_PATH_RELATIVE', SITE_PATH.'/data/uploads/');
@@ -230,19 +234,6 @@ class InitBase
 
         define("HTML_CACHE_ON",config('config.HTML_CACHE_ON')?config('config.HTML_CACHE_ON'):false);
     }
-    /**
-    * 检查配置文件是否完整
-    */
-    private function checkConfig(){
-        $core_config=[APP_PATH."extra/config.php"];
-        $config=[];
-        foreach ($core_config as $key => $value) {
-            if(!file_exists(ROOT_PATH.$value)){
-                die($value."不存在");
-            }
-            $config=array_merge($config,require ROOT_PATH.$value);
-        }
-    }
         
     /**
     * 常量初始化
@@ -262,6 +253,23 @@ class InitBase
         defined('CACHE_TAGS_NAME') or define('CACHE_TAGS_NAME', 'cache_info_tags');
     }
 
+    /**
+    * 自动导入第三方包文件
+    */
+    private function autoImportPackage($path){
+        if(is_dir($path)){
+            $dir =  scandir($path);
+            foreach ($dir as $file){
+                $sub_path =$path .'/'.$file;
+                if($file != "." && $file != ".." && strpos($file,".")===false && is_dir($sub_path)){
+                    if(file_exists($sub_path.'/Bootstrap.php')){
+                        include $sub_path.'/Bootstrap.php';
+                    }
+                    $this->autoImportPackage($sub_path);
+                }
+            }
+        }
+    }
     /**
      * 注册命名空间
      */

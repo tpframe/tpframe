@@ -25,4 +25,7 @@ class Nav extends AdminServiceBase
 	public function getNavArrTree($where,$filter=false,$returnarr=false){
 		return Core::loadModel($this->name)->getNavArrTree($where,$filter,$returnarr);	
 	}
+	public function delNav($data){
+		return Core::loadModel($this->name)->delNav($data);
+	}
 }

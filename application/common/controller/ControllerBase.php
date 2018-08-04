@@ -121,7 +121,7 @@ class ControllerBase extends Controller
 
         is_array($status) && list($status, $message, $url) = $status;
         
-        die($this->fetch("public/jump",['title'=>$message,'url'=>$url]));
+        die($this->fetch(THINK_PATH . 'tpl' . DS . 'public_jump.tpl',['title'=>$message,'url'=>$url]));
     }
     /*
     * ajax数据操作
@@ -129,6 +129,13 @@ class ControllerBase extends Controller
     public function ajaxdata(){
         IS_AJAX && $this->jump(Core::loadModel("ControllerBase")->ajaxdata($this->param));
     }
+    /*
+    * 空操作
+    */
+    public function _empty(){
+        $this->tip([0,"你访问的页面不存在",null]);
+    }
+    
     /*
         上传图片(单张图片)
         上传地址  public/upload/201706/lwhfljawfewef.jpg

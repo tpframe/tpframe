@@ -16,6 +16,7 @@ class Index extends ControllerBase {
     }
     //首页
     public function index() {
+        session("_install_step",1);
         return $this->fetch(":index");
     }
     public function step1() {
@@ -23,6 +24,7 @@ class Index extends ControllerBase {
     }
 
     public function step2(){
+        session("_install_step",2);
         try{
             if(file_exists(APP_PATH.'extra/database.php')){
                 unlink(APP_PATH.'extra/database.php');
@@ -110,6 +112,7 @@ class Index extends ControllerBase {
             'data',
             'data/assets',
             'data/uploads',
+            'application/extra'
         );
         $new_folders=array();
         foreach($folders as $dir){
@@ -135,23 +138,60 @@ class Index extends ControllerBase {
     }
 
     public function step3(){
+        session("_install_step",3);
         return $this->fetch(":step3");
     }
 
     public function step4(){
-        if(IS_POST){
-            //创建数据表
-            $db=Core::loadModel("Database")->createDatabase($this->post);
-            if(!$db) die("Database error");
-            echo $this->fetch(":step4");
-            try{
-                session("_install_step",4);
-                Core::loadModel("Database")->startInstall($db,$this->post);
-            }catch(\Exception $e){
-                session("_install_step",'');
-                die($e->getMessage());
+        $this->assign("data",json_encode($this->post));
+        return $this->fetch(":step4");
+    }
+
+    public function install(){
+        if(IS_POST && isset($this->post['action'])){
+            sleep(1);
+            $action=$this->post['action'];
+            switch ($action) {
+
+                case 'database': 
+                $result=Core::loadModel("Database")->createDatabase($this->post);
+                if($result[0]==0){
+                    session("db_connect",$result[2]['db']);
+                }
+                $this->jump($result); 
+                break;
+                
+                case 'executeSql':  
+                    $this->jump(Core::loadModel("Database")->executeSql(session("db_connect"),$this->post));
+                    break;
+
+                case 'update_site_config':  
+                    $this->jump(Core::loadModel("Database")->update_site_config(session("db_connect"),$this->post));
+                    break;
+                    
+                case 'create_admin_account':  
+                    $this->jump(Core::loadModel("Database")->create_admin_account(session("db_connect"),$this->post));
+                    break;        
+
+                case 'create_site_config':  
+                    $this->jump(Core::loadModel("Database")->create_site_config(session("db_connect"),$this->post));
+                    break;
+
+                case 'create_config':  
+                    $this->jump(Core::loadModel("Database")->create_config(session("db_connect")));
+                    break;
+                    
+                case 'create_version':
+                    session("_install_step",4);
+                    $this->jump(Core::loadModel("Database")->create_version(session("db_connect")));
+                    break;
+
+                default:
+                    $this->jump([-1,"安装出错",['status'=>'error']]);
+                    break;
             }
-            echo "<script type=\"text/javascript\">location.href='/install/index/step5'</script>";
+        }else{
+            $this->jump([-1,"非法安装程序！",['status'=>'error']]);
         }
     }
 
@@ -159,6 +199,7 @@ class Index extends ControllerBase {
         if(session("_install_step")==4){
             @touch('./data/install.lock');
             $this->curl_post("http://www.tpframe.com/taskmger/install",['domain'=>$_SERVER['HTTP_HOST'],'ip'=>request()->ip()]);
+            session(null);
             return $this->fetch(":step5");
         }else{
             $this->error("非法安装！");

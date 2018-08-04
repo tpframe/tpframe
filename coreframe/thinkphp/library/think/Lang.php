@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 
 namespace think;
+use think\Cookie;
 
 class Lang
 {
@@ -191,13 +192,12 @@ class Lang
     public static function detect()
     {
         $langSet = '';
-
         if (isset($_GET[self::$langDetectVar])) {
             // url 中设置了语言变量
             $langSet = strtolower($_GET[self::$langDetectVar]);
-        } elseif (isset($_COOKIE[self::$langCookieVar])) {
+        } elseif (Cookie::has(self::$langCookieVar)) {
             // Cookie 中设置了语言变量
-            $langSet = strtolower($_COOKIE[self::$langCookieVar]);
+            $langSet = strtolower(Cookie::get(self::$langCookieVar));
         } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             // 自动侦测浏览器语言
             preg_match('/^([a-z\d\-]+)/i', $_SERVER['HTTP_ACCEPT_LANGUAGE'], $matches);

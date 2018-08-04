@@ -24,7 +24,7 @@ class ModelBase extends Model
 {
     // 当前类名称
     public $class;
-	// 查询对象
+    // 查询对象
     private static $ob_query = null;
     /**
      * 基类初始化
@@ -50,15 +50,16 @@ class ModelBase extends Model
      * @access protected
      * @param stirng|array $data 要操作的数据
      * @param string|array $where 操作的条件
+     * @param string|array $field 操作的字段列表
      * @param string $sequence 自增序列名
      * @return boolean
      */
-    final protected function saveObject($data = [], $where = [], $sequence = null)
+    final protected function saveObject($data = [],$field = true, $where = [], $sequence = null)
     {
         
         $pk = $this->getPk();
         
-        return empty($data[$pk]) ? $this->addObject($data, true, $sequence) : $this->updateObject($where, $data,$sequence);
+        return empty($data[$pk]) ? $this->addObject($data, true, $field, $sequence) : $this->updateObject($where, $data, $field, $sequence);
     }
     
     /**
@@ -69,9 +70,9 @@ class ModelBase extends Model
      * @param string  $sequence     自增序列名
      * @return boolean
      */
-    final protected function addObject($data = [], $getLastInsID = true,$sequence = null)
+    final protected function addObject($data = [], $getLastInsID = true, $field = true, $sequence = null)
     { 
-        $result= $this->allowField(true)->isUpdate(false)->save($data, $where=[], $sequence);
+        $result= $this->allowField($field)->isUpdate(false)->save($data, $where=[], $sequence);
         if($getLastInsID){
             if(method_exists($this, "getQuery")){
                 return $this->getQuery()->getLastInsID($sequence);
@@ -89,10 +90,10 @@ class ModelBase extends Model
      * @param string|array $where 操作的条件
      * @return boolean
      */
-    final protected function updateObject($where = [], $data = [],$sequence = null)
+    final protected function updateObject($where = [], $data = [], $field = true, $sequence = null)
     {
 
-        return $this->allowField(true)->isUpdate(true)->save($data, $where, $sequence);
+        return $this->allowField($field)->isUpdate(true)->save($data, $where, $sequence);
 
     }
     

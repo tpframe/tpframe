@@ -14,18 +14,18 @@ class Nav extends AdminBase
 {
 	private $arr=[];
 	public function saveNav($data){
-		/*$validate=\think\Loader::validate($this->name);
+		$validate=\think\Loader::validate($this->name);
 		$validate_result = $validate->scene('add')->check($data);
         if (!$validate_result) {    
             return [RESULT_ERROR, $validate->getError(), null];
-        }*/
+        }
 		$last_id=Core::loadModel($this->name)->saveObject($data);
 		if($last_id){
         	return [RESULT_SUCCESS, '操作成功', url('Nav/index')];
         }
 	}
 	public function delNav($data){
-		return self::deleteObject($data,true)?[RESULT_SUCCESS, '删除成功', url('links/index')]:[RESULT_ERROR, '删除失败', url('links/index')];
+		return self::deleteObject($data,true)?[RESULT_SUCCESS, '删除成功', url('Nav/index')]:[RESULT_ERROR, '删除失败', url('Nav/index')];
 	}
 	public function getNavListByid($data){
 		return self::getOneObject($data);
@@ -42,7 +42,7 @@ class Nav extends AdminBase
         
         foreach ($new_result as $n=> $r) {
         	$new_result[$n]['parentid_node'] = ($r['parentid']) ? ' class="child-of-node-' . $r['parentid'] . ' collapsed"' : 'class="expanded"';
-        	$new_result[$n]['manage'] = '<a href="' . url("Nav/add", ["parentid" => $r['id']]) . '">添加菜单</a> | <a href="' . url("Nav/edit", ["id" => $r['id']]) . '">编辑菜单</a> | <a href="' . url("Nav/del", ["id" => $r['id']]). '">删除菜单</a> ';
+        	$new_result[$n]['manage'] = '<a href="' . url("Nav/add", ["parentid" => $r['id']]) . '">添加菜单</a> | <a href="' . url("Nav/edit", ["id" => $r['id']]) . '">编辑菜单</a> | <a href="' . url("Nav/del", ["id" => $r['id']]). '" class="js-ajax-delete">删除菜单</a> ';
             $new_result[$n]['display'] = $r['display'] ? "显示" : "隐藏";
         }
        

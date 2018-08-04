@@ -18,6 +18,7 @@ class AddonAdminBase extends AddonBase
         parent::_initialize();
         $this->valildataAdmin();
         $this->valildataPrivs();
+        define('ADDON_ADMIN_INC', true);
     }
     /**
      * 验证用户

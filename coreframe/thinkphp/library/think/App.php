@@ -264,6 +264,22 @@ class App
                 }
             }
 
+            $url = \think\Request::instance()->pathinfo();
+            $arr = explode("/", $url);
+            $addon_name=isset($arr[0])?$arr[0]:"";
+            
+            // 加载插件配置文件
+            if(is_dir(ROOT_PATH.'addon'.DS.$addon_name.DS."config")){
+                $dir   = ROOT_PATH.'addon'.DS.$addon_name.DS."config";
+                $files = scandir($dir);
+                foreach ($files as $file) {
+                    if ('.' . pathinfo($file, PATHINFO_EXTENSION) === CONF_EXT) {
+                        $filename = $dir . DS . $file;
+                        Config::load($filename, pathinfo($file, PATHINFO_FILENAME));
+                    }
+                }
+            }
+
             // 加载应用状态配置
             if ($config['app_status']) {
                 Config::load(CONF_PATH . $module . $config['app_status'] . CONF_EXT);

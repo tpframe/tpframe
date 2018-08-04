@@ -29,6 +29,7 @@ class Member extends AdminBase
         'old_password.require'      => '旧密码不能为空',
         'password.require'          => '新密码不能为空',
         'password.length'           => '新密码长度为3-30个字符之间',
+        'repassword.require'        => '请再次输入密码',
         'repassword.confirm'        => '两次输入的密码不一致',
         'password.different'        => '新密码不能与旧密码相同',
 

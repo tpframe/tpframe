@@ -12,8 +12,5 @@ use app\common\model\ModelBase;
  */
 class Role extends AdminBase
 {
-    protected function setPrivsAttr($value)
-    {
-        return empty($value)?$value:implode(",", $value);
-    }
+
 }

@@ -41,11 +41,62 @@ use think\Db;
 				$('#loginner').append("<li>"+icon+content+"</li>");
 				$("#log").scrollTop(1000000000);
 			}
+
+			var database='{$data}',install_sql_index=0;
+			
+			if(typeof database == 'string'){
+				try{
+		    		var database = JSON.parse(database);
+		    		if(typeof database == 'object' && database){
+			    		
+				    }else{
+				    	showmsg("非法数据安装","error");
+				    }
+		    	}catch(e){
+		    		showmsg("非法数据安装","error");
+		    	}
+			}else{
+				showmsg("非法数据安装","error");
+			}
+
+			//database=eval('('+database+')');
+
+			function install(data){
+				$.ajax({
+					url:"{:url('install/index/install')}",
+					dataType:"json",
+					type:"post",
+					data:data,
+					success:function(data){
+						showmsg(data.msg,data.data.status);
+						database.action=data.data.action;
+						if(data.data.status=="success"){
+							if(data.data.action == undefined){
+								setInterval(function(){
+									location.href='/install/index/step5'	
+								},1000);
+							}else{
+								if(data.data.action=="executeSql") database.install_sql_index=install_sql_index++;
+								install(database);
+							}
+						}else{
+							return false;
+						}
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown){
+
+               	 	}
+				});
+			}
+
+			function installDb(){
+				database.action="database";
+				install(database);
+			}
+
+			installDb();
+
 		</script>
-		<?php
-		//$db  = Db::connect($dbconfig);
-		//action("Database/executeSql",['db'=>$db,"file"=>"thinkcmf.sql","tablepre"=>$dbconfig['prefix']],"logic");
-		?>
 	</div>
 	{include file="Public:footer" /}
 </body>

@@ -30,5 +30,6 @@ class User extends ValidateBase
     // 应用场景
     protected $scene = [
         'select'  =>  ['username','password','captcha'],
+        'no_captcha' =>['username','password']
     ];
 }

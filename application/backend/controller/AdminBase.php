@@ -44,16 +44,6 @@ class AdminBase extends ControllerBase
             $this->jump([RESULT_ERROR, '你没有权限进行此操作', null]);
         }
     }
-    /**
-     * 设置页面标题及描述
-     */
-    final protected function setTitle($title = '', $describe = '')
-    {
-        
-        $this->assign('title', $title);
-        
-        $this->assign('describe', $describe);
-    }
 
     public function ajaxdata(){
         IS_AJAX && $this->jump(Core::loadModel("AdminBase")->ajaxdata($this->param));

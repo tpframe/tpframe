@@ -2,9 +2,7 @@
 // +----------------------------------------------------------------------
 // | Author: yaoyihong <510974211@qq.com>
 // +----------------------------------------------------------------------
-
 namespace app\common\logic;
-
 use \tpfcore\Core;
 use think\Validate;
 use think\Db;

@@ -1,100 +1,6 @@
-<?php
-use tpfcore\Core;
-?>
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <!-- Set render engine for 360 browser -->
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- HTML5 shim for IE8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-      </script>
-    <![endif]-->
-    <link href="__THEMES__/css/theme.min.css" rel="stylesheet">
-    <link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
-    <link href="__THEMES__/css/default.css" rel="stylesheet" />
-    <link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <style>
-    .length_3 {
-        width: 180px;
-    }
-    
-    form .input-order {
-        margin-bottom: 0px;
-        padding: 3px;
-        width: 40px;
-    }
-    
-    .table-actions {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding: 0px;
-    }
-    
-    .table-list {
-        margin-bottom: 0px;
-    }
-    .status{cursor: pointer;}
-    </style>
-    <!--[if IE 7]>
-      <link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
-    <![endif]-->
-    <script type="text/javascript">
-    //全局变量
-    var GV = {
-        WEB_ROOT: "",
-        DIMAUB: "/",
-        JS_ROOT: "/theme/backend/assets/js/",
-        TOKEN: ""
-    };
-    </script>
-    <script src="__THEMES__/js/jquery.js"></script>
-    <script src="__THEMES__/js/wind.js"></script>
-    <script src="__THEMES__/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        $(".status").click(function(){
-            $this=$(this);
-              var data=$(this).attr("data"),src=$(this).attr("src");
-              var dataArr=data.split("|"),table=dataArr[0],colum=dataArr[1],key=dataArr[2],keyval=dataArr[3];
-              var newval=src.indexOf("btn_enable.png")>0?0:1;
-            $.ajax({
-                type:"post",
-                dataType:"json",
-                url:"{:Core::addons_url('FriendLink://FriendLink/ajaxdata')}",
-                data:{"table":table,"colum":colum,"columval":newval,"key":key,"keyval":keyval},
-                beforeSend:function(obj){
-                    $this.attr("src","/data/assets/images/btn_loading.gif");
-                },
-                success:function(data){
-                  if(data.code==1){
-                    if(src.indexOf("btn_enable.png")>0){
-                      $this.attr("src","/data/assets/images/btn_disable.gif");
-                    }else{
-                      $this.attr("src","/data/assets/images/btn_enable.png");
-                    }
-                  }else{
-                    alert(data.msg);
-                  }
-                  
-                }
-            });
-        });
-      });
-      </script>
-    <!-- Le javascript==================================================-
-    -> <!-- Placed at the end of the document so the pages load faster -->
-    <script src="__THEMES__/js/jquery.js"></script>
-    <script src="__THEMES__/js/wind.js"></script>
-    <script src="__THEMES__/js/bootstrap.min.js"></script>
-</head>
-
-<body>
+{extend name="base"}
+{block name="content"}
+    <style type="text/css">.btn{padding:2px 8px; font-size: 14px;}</style>
     <div class="wrap js-check-wrap">
         <ul class="nav nav-tabs">
             {volist name="listAddonCate" id="vo"}
@@ -130,25 +36,30 @@ use tpfcore\Core;
                       <td>
                        {eq name='vo.is_install' value='1'}
                          {eq name="vo.status" value="1"}
-                         <img src="/data/assets/images/btn_enable.png" title="启用" class="status" data="Addon|status|id|{$vo.id}"/>
+                         <img src="/data/assets/images/btn_enable.png" title="启用" class="ajax-status" data="Addon|status|id|{$vo.id}" action="{:url($vo['name'].'/'.$vo['name'].'/ajaxdata')}"/>
                          {else/}
-                         <img src="/data/assets/images/btn_disable.gif" title="禁用" class="status" data="Addon|status|id|{$vo.id}"/>
+                         <img src="/data/assets/images/btn_disable.gif" title="禁用" class="ajax-status" data="Addon|status|id|{$vo.id}" action="{:url($vo['name'].'/'.$vo['name'].'/ajaxdata')}"/>
                          {/eq}
-                       {else/}  
+                       {else/}
                        未安装
                        {/eq}
                       </td>
                       <td>{$vo.author}</td>
                       <td>
                           {eq name='vo.is_install' value='1'}
-                              {eq name="vo.ext" value="1"}
-                              <a class="btn btn-info confirm ajax-get"  href='{:Core::addons_url($vo['class_name']."://".$vo['handle']."/config")}'><i class="fa fa-remove"></i> 配置 </a>{/eq} 
-                              {neq name="vo.type" value="behavior"}
-                              <a class="btn btn-primary confirm ajax-get"  href='{$vo.manager.url|default=''}'><i class="fa"></i> {$vo.manager.text} </a>{/neq}
-                              <a class="btn btn-warning confirm ajax-get"  href="{:url('addonUninstall', array('name' => $vo['name']))}"><i class="fa fa-remove"></i> 卸 载</a>
-                              <a class="btn-link confirm ajax-get"  href="{:Core::addons_url($vo['class_name']."://".$vo['handle']."/doc")}">使用说明 </a>
-                             {else/}
-                              <a class="btn confirm ajax-get"  href="{:url('addonInstall', array('name' => $vo['name']))}"><i class="fa fa-refresh"></i> 安 装</a>
+                              {eq name="vo.config" value="1"}
+                              <a class="btn btn-info confirm ajax-get"  href='{:url($vo['name']."/".$vo['name']."/config")}'><i class="fa fa-remove"></i> 配置 </a>
+                              {/eq} 
+                              <a class="btn btn-warning confirm ajax-get js-ajax-dialog-btn"  href="{:url('addonUninstall', array('name' => $vo['name']))}" msg="确定要卸载此插件吗"><i class="fa fa-remove"></i> 卸 载</a>
+                              {notempty name="vo.demo_url"}
+                              <a class="btn btn-default ajax-get"  target="_blank" href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
+                              {/notempty}
+                              <a class="btn-link confirm ajax-get"  href="{:url($vo['name']."/".$vo['name']."/doc")}">使用说明 </a>
+                          {else/}
+                              {notempty name="vo.demo_url"}
+                              <a class="btn btn-default ajax-get" target="_blank"  href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
+                              {/notempty}
+                              <a class="btn confirm ajax-get js-ajax-dialog-btn"  href="{:url('addonInstall', array('name' => $vo['name']))}" msg="确定要安装此插件吗"><i class="fa fa-refresh"></i> 安 装</a>
                           {/eq}
                       </td>
                     </tr>
@@ -162,6 +73,4 @@ use tpfcore\Core;
     </div>
     </div>
     <script src="__THEMES__/js/common.js"></script>
-</body>
-
-</html>
+{/block}

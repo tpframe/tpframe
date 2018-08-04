@@ -1,103 +1,27 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<!-- Set render engine for 360 browser -->
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- HTML5 shim for IE8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-			</script>
-		<![endif]-->
-		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
-		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
-		<link href="__THEMES__/css/default.css" rel="stylesheet" />
-		<link href="__THEMES__/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
-		<style>
-			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
-			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
-			0px;}
-		</style>
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
-		<![endif]-->
-		<script type="text/javascript">
-			//全局变量
-			var GV = {
-				WEB_ROOT:"",
-				DIMAUB: "/",
-				JS_ROOT: "/theme/backend/assets/js/",
-				TOKEN: ""
-			};
-		</script>
-		<!-- Le javascript==================================================-
-		-> <!-- Placed at the end of the document so the pages load faster -->
-		<script src="__THEMES__/js/jquery.js"></script>
-		<script src="__THEMES__/js/wind.js"></script>
-		<script src="__THEMES__/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="__THEMES__/js/treeTable/treeTable.css?v=">
-	</head>
-	<body>
-		<div class="wrap js-check-wrap">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="{:url('Menu/index')}">后台菜单</a></li>
-			<li><a href="{:url('Menu/add')}">添加菜单</a></li>	
-		</ul>
-		<form class="js-ajax-form" action="" method="post">
-			<table class="table table-hover table-bordered table-list treeTable" id="menus-table">
-				<thead>
-					<tr>
-						<th width="80">排序</th>
-						<th width="50">ID</th>
-						<th>应用</th>
-						<th>菜单名称</th>
-						<th width="80">状态</th>
-						<th width="180">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					{$categorys}			
-				</tbody>
-				<tfoot>
-					<tr>
-						<th width="80">排序</th>
-						<th width="50">ID</th>
-						<th>应用</th>
-						<th>菜单名称</th>
-						<th width="80">状态</th>
-						<th width="180">操作</th>
-					</tr>
-				</tfoot>
-			</table>
-		</form>
-	</div>
-	<script src="__THEMES__/js/common.js"></script>
-	<script type="text/javascript">
-		$(function(){
-		    $(".ajax").each(function(){
-		        var newval;
-		        $(this).change(function(){
-		            newval=$(this).val();
-		            var data=$(this).attr("data");
-		            var dataArr=data.split("|"),table=dataArr[0],colum=dataArr[1],key=dataArr[2],keyval=dataArr[3];
-		            $.ajax({
-		                type:"post",
-		                dataType:"json",
-		                data:{"table":table,"colum":colum,"columval":newval,"key":key,"keyval":keyval},
-		                url:"{:url('"+table+"/ajaxdata')}",
-		                success:function(data){
-		                	if(data.code!=0){
-		                		alert(msg);
-		                	}
-		                }
-		            });
-		        });
-		    });
-		});
-	</script>
-	</body>
-
-</html>
+{extend name="base"}
+{block name="content"}
+	<div class="wrap js-check-wrap">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="{:url('Menu/index')}">后台菜单</a></li>
+		<li><a href="{:url('Menu/add')}">添加菜单</a></li>	
+	</ul>
+	<form class="js-ajax-form" action="" method="post">
+		<table class="table table-hover table-bordered table-list treeTable" id="menus-table">
+			<thead>
+				<tr>
+					<th width="80">排序</th>
+					<th width="50">ID</th>
+					<th>应用</th>
+					<th>菜单名称</th>
+					<th width="80">状态</th>
+					<th width="180">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{$categorys}			
+			</tbody>
+		</table>
+	</form>
+</div>
+<script src="__THEMES__/js/common.js"></script>
+{/block}

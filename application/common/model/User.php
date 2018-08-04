@@ -17,10 +17,10 @@ namespace app\common\model;
 
 class User extends ModelBase
 {
-	protected $insert = ['reg_time']; 	//插件的时候自动写入注册时间
+	protected $insert = ['create_time']; 	//插件的时候自动写入注册时间
 	protected $update = ['login_time']; //更新的时候自动更新登录时间
     
-    protected function setRegTimeeAttr($value)
+    protected function setCreateTimeeAttr($value)
     {
     	return time();
     }

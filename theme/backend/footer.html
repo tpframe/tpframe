@@ -1,0 +1,29 @@
+<style type="text/css">
+.upgrade-tip{position: fixed;width: 100%;background-color:#f4a425;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding: 10px 20px; left: 0; top: 0; color: #FFF;filter:alpha(opacity:80); opacity:0.8;  -moz-opacity:0.8;-khtml-opacity: 0.8;z-index: 9999999; display: none;}
+.upgrade-tip .close-upgrade-tip{position: absolute; right: 10px; top: 10px; cursor: pointer;}
+.upgrade-tip a{color: #F00; font-weight: bold;}
+</style>
+<div class="upgrade-tip">你当前的版本是：{$Think.config.version.tpframe_version}，官方已发布新版本，是否想更新到最新版本？&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('Upgrade/index')}">立即去升级</a><div class="close-upgrade-tip">暂时不升级</div></div>
+<script type="text/javascript">
+$(function(){
+	$(".close-upgrade-tip").click(function(){
+		$(".upgrade-tip").slideUp();
+		setCookie("close_upgrade_tip",true,1);
+	});
+	
+	var opsign=getCookie("close_upgrade_tip");
+	if(opsign==null){
+		$.ajax({
+			url:"{:url('backend/upgrade/check')}",
+			type:"post",
+			dataType:"json",
+			success:function(data){
+				// 有升级包
+				if(data.code==0){
+					$(".upgrade-tip").slideDown();
+				}
+			}
+		});
+	}
+});
+</script>

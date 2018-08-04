@@ -1,52 +1,12 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<!-- Set render engine for 360 browser -->
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- HTML5 shim for IE8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-			</script>
-		<![endif]-->
-		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
-		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
-		<link href="__THEMES__/css/default.css" rel="stylesheet" />
-		<link href="__THEMES__/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
-		<style>
-			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
-			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
-			0px;}
-		</style>
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
-		<![endif]-->
-		<script type="text/javascript">
-			//全局变量
-			var GV = {
-				WEB_ROOT:"",
-				DIMAUB: "/",
-				JS_ROOT: "/theme/backend/assets/js/",
-				TOKEN: ""
-			};
-		</script>
-		<!-- Le javascript==================================================-
-		-> <!-- Placed at the end of the document so the pages load faster -->
-		<script src="__THEMES__/js/jquery.js"></script>
-		<script src="__THEMES__/js/wind.js"></script>
-		<script src="__THEMES__/js/bootstrap.min.js"></script>
-		</script>
-	</head>
-	<body>
+{extend name="base"}
+{block name="content"}
 		<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#A" data-toggle="tab">网站信息</a></li>
+			<li><a href="#C" data-toggle="tab">网站设置</a></li>
 			<li><a href="#B" data-toggle="tab">SEO设置</a></li>
 		</ul>
-		<form class="form-horizontal" action="" method="post">
+		<form class="form-horizontal js-ajax-form" action="" method="post">
 			<input type="hidden" name="id" value="{$list.id}"/>
 			<fieldset>
 				<div class="tabbable">
@@ -56,29 +16,13 @@
 								<div class="control-group">
 									<label class="control-label">网站名称</label>
 									<div class="controls">
-										<input type="text" name="options[site_name]" value="{$list.options.site_name|default='TPFrame管理框架'}"><span class="form-required">*</span>
+										<input type="text" name="options[site_name]" style="width: 500px;" value="{$list.options.site_name|default='TPFrame管理框架'}"><span class="form-required">*</span>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">网站域名</label>
 									<div class="controls">
 										<input type="text" name="options[site_host]" value="{$list.options.site_host|default='http://tpframe.com/'}"><span class="form-required">*</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">模版方案</label>
-									<div class="controls">
-										<select name="options[site_tpl]">
-											{volist name="templetes" id="vo"}
-											<option value="{$vo}" {eq name="vo" value="$list.options.site_tpl"}selected{/eq}>{$vo}</option>											
-											{/volist}			
-										</select>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">开启静态缓存：</label>
-									<div class="controls">
-										<label class="checkbox inline"><input type="checkbox" name="options[html_cache_on]" value="1" {notempty name="list.options.html_cache_on"}checked{/notempty}></label>
 									</div>
 								</div>
 								<div class="control-group">
@@ -114,7 +58,7 @@
 								<div class="control-group">
 									<label class="control-label">统计代码</label>
 									<div class="controls">
-										<textarea name="options[site_tongji]" rows="5" cols="57">{$list.options.site_tongji}</textarea>
+										<textarea name="options[site_tongji]" rows="5" cols="57" style="width: 400px;">{$list.options.site_tongji}</textarea>
 									</div>
 								</div>
 								<div class="control-group">
@@ -150,18 +94,55 @@
 						<div class="tab-pane" id="C">
 							<fieldset>
 								<div class="control-group">
-									<label class="control-label">url模式</label>
+									<label class="control-label">模版方案</label>
 									<div class="controls">
-										<select name="options[urlmode]">
-											<option value="0" selected="">普通模式</option>											<option value="1">PATHINFO模式</option>											<option value="2">REWRITE模式</option>										</select>
-										<span class="form-required">* 如果你开启的是REWRITE模式，请确保服务器支持REWRITE!</span>
+										<select name="options[DEFAULT_THEME]">
+											{volist name="templetes" id="vo"}
+											<option value="{$vo}" {eq name="vo" value=":config('config.DEFAULT_THEME')"}selected{/eq}>{$vo}</option>											
+											{/volist}			
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">URL伪静态后缀</label>
+									<label class="control-label">开启静态缓存：</label>
 									<div class="controls">
-										<input type="text" name="options[html_suffix]" value="">
-										<span class="form-required">普通模式不支持</span>
+										<select name="options[HTML_CACHE_ON]">
+											<option value="1" {eq name=":config('config.HTML_CACHE_ON')" value="1"}selected{/eq}>开户</option>
+											<option value="0" {eq name=":config('config.HTML_CACHE_ON')" value="0"}selected{/eq}>关闭</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">开启管理员操作日志：</label>
+									<div class="controls">
+										<select name="options[ADMIN_LOG_SWITCH]">
+											<option value="1" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="1"}selected{/eq}>开户</option>
+											<option value="0" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="0"}selected{/eq}>关闭</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">后台登录验证码开启：</label>
+									<div class="controls">
+										<select name="options[ADMIN_LOGIN_VERIFY_SWITCH]">
+											<option value="1" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}selected{/eq}>开户</option>
+											<option value="0" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="0"}selected{/eq}>关闭</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">关闭站点：</label>
+									<div class="controls">
+										<select name="options[WEB_SITE_CLOSE]">
+											<option value="0" {eq name=":config('config.WEB_SITE_CLOSE')" value="0"}selected{/eq}>开户</option>
+											<option value="1" {eq name=":config('config.WEB_SITE_CLOSE')" value="1"}selected{/eq}>关闭</option>
+										</select> &nbsp;&nbsp;站点关闭后其他用户不能访问，仅仅管理员可以正常访问
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">管理员登录IP限制：</label>
+									<div class="controls">
+										<textarea name="options[ADMIN_LOGIN_LLIMIT_IP]">{:config('config.ADMIN_LOGIN_LLIMIT_IP')}</textarea> &nbsp;&nbsp;多个用逗号（英文）分隔，如果不配置表示不限制IP访问
 									</div>
 								</div>
 							</fieldset>
@@ -205,13 +186,11 @@
 				</div>
 
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">保存</button>
+					<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
 				</div>
 			</fieldset>
 		</form>
 
 	</div>
 		<script src="__THEMES__/js/common.js"></script>
-	</body>
-
-</html>
+{/block}

@@ -247,7 +247,8 @@
 
 			$("body").append(root);
 
-			if($.browser.msie && $.browser.version < 7 ) {
+			//if($.browser.msie && $.browser.version < 7 ) {
+			if('undefined' == typeof(document.body.style.maxHeight)){
 	            Wind.use('bgiframe',function() {
 	                root.bgiframe();
 	            });
@@ -276,7 +277,8 @@
 			currMonth = date.getMonth();
 			currDay = date.getDate();
 
-			if (e.type == "click" && !$.browser.msie) {
+			//if (e.type == "click" && !$.browser.msie) {
+			if(e.type == "click" && 'undefined' != typeof(document.body.style.maxHeight)){
 				input.focus();
 			}
 

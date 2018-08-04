@@ -1,63 +1,37 @@
-<!doctype html>
-<head>
-		<meta charset="utf-8">
-		<!-- Set render engine for 360 browser -->
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- HTML5 shim for IE8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-			</script>
-		<![endif]-->
-		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
-		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
-		<link href="__THEMES__/css/default.css" rel="stylesheet" />
-		<link href="__THEMES__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<style>
-			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
-			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
-			0px;}
-			label{display: inline-block; margin-right: 20px;}
-		</style>
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
-		<![endif]-->
-
-		<!-- Le javascript==================================================-
-		-> <!-- Placed at the end of the document so the pages load faster -->
-		<script src="__THEMES__/js/jquery.js"></script>
-		<script src="__THEMES__/js/wind.js"></script>
-		<script src="__THEMES__/js/bootstrap.min.js"></script>
-		<script src="__THEMES__/kindedit/kindeditor-min.js"></script>
-		<link href="__THEMES__/kindedit/default.css" rel="stylesheet">
-	</head>
-<script type="text/javascript">
+{extend name="base"}
+{block name="content"}
+<style type="text/css">
+	.checkutil label{float: left;margin-right: 10px;}
+</style>
+	<link rel="stylesheet" href="__THEMES__/jstree/dist/themes/default/style.min.css" />
+	<script src="__THEMES__/jstree/dist/jstree.min.js"></script>
+	<script type="text/javascript">
 	$(function(){
-		var privs="{$list[0]['privs']|default=''}";
-		if(privs.length>0){
-			privs=privs.split(",");
-			for(var i=0;i<privs.length;i++){
-				$(":checkbox[value='"+privs[i]+"']").prop("checked",true);
-			}
-		}
-		$(".parentPriv").click(function(){
-			if($(this).attr("checked")){
-				$(this).parents("tr").find("table.listPriv").find(":checkbox").prop("checked",true);
-			}else{
-				$(this).parents("tr").find(":checkbox").prop("checked",false);
-			}
+		$('#role_wrap').jstree({
+			"core":{
+				"themes":{
+					"name" : "default",
+					"dots" : true,
+					"icons" : false
+				},
+				'data' : {
+			        "url" : '{empty name="list"}{:url("menu/role")}{else/}{:url("menu/role",["privs"=>$list[0]["privs"]])}{/empty}',
+			        "dataType" : "json"
+			      }
+			},
+		  	"plugins" : ["checkbox"],
 		});
-		$(".childPriv").click(function(){
-			if($(this).attr("checked")){
-				$(this).parents("td.childtd").siblings("td").find(":checkbox").prop("checked",true);
-			}else{
-				$(this).parents("td.childtd").siblings("td").find(":checkbox").prop("checked",false);
-			}
+		$('#role_wrap').on("changed.jstree", function (e, data) {
+			$("#role").val(data.selected.join(","));
+		});
+		$("#checkall").click(function(){
+			$("#role_wrap").jstree($(this).prop("checked") ? "check_all" : "uncheck_all");
+		});
+		$("#openall").click(function(){
+			$("#role_wrap").jstree($(this).prop("checked") ? "open_all" : "close_all");
 		});
 	});
 	</script>
-<body>
 	<div class="wrap">
 		<ul class="nav nav-tabs">
 			<li><a href="{:url('Role/index')}">角色管理</a></li>
@@ -70,6 +44,7 @@
 		</ul>
 		<form method="post" class="form-horizontal js-ajax-form" action="{:url('Role/add')}">
 			{notempty name="list"}<input type="hidden" name="id" value="{$id}" />{/notempty}
+			<input type="hidden" name="privs" id="role" value="{$list[0]['privs']|default=''}" />
 			<fieldset>
 				<div class="control-group">
 					<label class="control-label">角色名称</label>
@@ -85,38 +60,14 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label">角色选择</label>
-					<div class="controls">
-					<table  cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder">
-						{volist name="listPrivs" id="vo"}
-					    <tr>
-					      <td bgcolor="#F4F8FC" width="145"><label for="{$vo.controller}_{$vo.action}_{$vo.id}">
-					          <input name="privs[]" type="checkbox" class="parentPriv" id="{$vo.controller}_{$vo.action}_{$vo.id}" value="{$vo.id}">
-					          {$vo.name}</label>
-					      </td>
-					      <td class="altbg2">
-					      	{notempty name="vo.son"}
-					      	<table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder listPriv">
-					      	{volist name="$vo.son" id="child"}
-					      	<tr>
-					      		<td width="10%" class="childtd"><label for="{$child.controller}_{$child.action}_{$child.id}"><input type="checkbox" id="{$child.controller}_{$child.action}_{$child.id}" name="privs[]" class="childPriv" value="{$child.id}">{$child.name}</label> </td>
-					      		{notempty name="child.son"}
-					      		<td>
-					      		{volist name="$child.son" id="son"}
-					      		<label for="{$son.controller}_{$son.action}_{$son.id}"><input type="checkbox" id="{$son.controller}_{$son.action}_{$son.id}" name="privs[]" value="{$son.id}">{$son.name}</label> 
-					      		{/volist}
-					      		</td>
-					      		{/notempty}
-					      	</tr>
-					        {/volist}
-					        </table>
-					        {/notempty}
-					     </td>
-					    </tr>
-					    {/volist}
-					</table>
-					</div>
+					<label class="control-label"></label>
+					<div class="controls checkutil"><label><input type="checkbox" id="checkall"> 全部选中</label><label><input type="checkbox" id="openall"> 全部展开</label></div>
 				</div>
+				<div class="control-group">
+					<label class="control-label">角色选择</label>
+					<div class="controls" id="role_wrap"></div>
+				</div>
+
 			</fieldset>
 			<div class="form-actions">
 				<button class="btn btn-primary js-ajax-submit" type="submit">确定操作</button>
@@ -124,6 +75,5 @@
 			</div>
 		</form>
 	</div>
-	<script src="__PUBLIC__/js/common.js"></script>
-</body>
-</html>
+	<script src="__THEMES__/js/common.js"></script>
+{/block}

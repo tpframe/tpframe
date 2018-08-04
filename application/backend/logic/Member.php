@@ -38,6 +38,8 @@ class Member extends AdminBase
         $result=self::updateObject(['id'=>\think\Session::get("backend_author_sign")['userid']],$data);
         if($result){
         	return [RESULT_SUCCESS, '修改资料成功', null];
+        }else{
+        	return [RESULT_ERROR, '操作失败', null];
         }
 	}
 	public function getInfo($where){
@@ -77,6 +79,9 @@ class Member extends AdminBase
 		}else{
 			return [RESULT_ERROR, '操作失败', url('Member/admin')];
 		}
+	}
+	public function delAdmin($data){
+		return self::deleteObject("id={$data['id']} and id<>1",true)?[RESULT_SUCCESS,"操作成功",url("Member/admin")]:[RESULT_ERROR,'操作失败',url('Member/admin')];
 	}
 	public function ban($data){
 		self::saveObject($data);

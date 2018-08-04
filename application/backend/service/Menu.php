@@ -28,4 +28,7 @@ class Menu extends AdminServiceBase
 	public function delMenu($data){
 		return Core::loadModel($this->name)->delMenu($data);
 	}
+	public function getMenuRole($data){
+		return Core::loadModel($this->name)->getMenuRole($data);	
+	}
 }

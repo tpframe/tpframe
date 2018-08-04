@@ -1,107 +1,121 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="UTF-8" />
-<title>TPFrame 后台管理中心</title>
-<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta name="robots" content="noindex,nofollow">
-<link href="__THEMES__/css/admin_login.css" rel="stylesheet" />
-<script type="text/javascript" src="__THEMES__/js/jquery.js"></script>
-<style>
-#login_btn_wraper {
-	text-align: center;
-}
-#login_btn_wraper .tips_success {
-	color: #fff;
-}
-#login_btn_wraper .tips_error {
-	color: #DFC05D;
-}
-#login_btn_wraper button:focus {
-	outline: none;
-}
-img[alt='captcha']{cursor: pointer;}
-#errTip{text-align: center;color:#FFF;}
-</style>
-<script>
-if (window.parent !== window.self) {
-	document.write = '';
-	window.parent.location.href = window.self.location.href;
-	setTimeout(function () {
-		document.body.innerHTML = '';
-	}, 0);
-}
-$(function(){
-  $("img[alt='captcha']").click(function(){
-    $(this).attr("src","/captcha.html?t="+Math.random());
-  });
-  $("#loginBtn").click(function(){
-    var username=$.trim($("#js-admin-name").val()),pass=$("#admin_pwd").val(),verify=$("#verify").val();
-    if(username.length==0){
-      $("#errTip").show().html("用户名不能为空").fadeOut(1000);$("#js-admin-name").focus();return;
+    <meta charset="UTF-8" />
+    <title>TPFrame 后台管理中心</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="robots" content="noindex,nofollow">
+    <link href="__THEMES__/css/admin_login.css" rel="stylesheet" />
+    <script type="text/javascript" src="__THEMES__/js/jquery.js"></script>
+    <style>
+    #login_btn_wraper {
+        text-align: center;
     }
-    if(pass.length<3||pass.length>18){
-      $("#errTip").show().html("密码长度在3-18位之间").fadeOut(1000);$("#admin_pwd").focus();return;
-    }
-    if(verify.length==0){
-      $("#errTip").show().html("验证码不能为空").fadeOut(1000);$("#verify").focus();return;
-    }
-    /*$.ajax({
-      type:"post",
-      dataType:"json",
-      contentType:"application/json",
-      url:'{:url("User/login")}',
-      data:{"username":username,"password":pass,"captcha":verify,"t":(new Date()).getTime()},
-      success:function(data){
-        
-      }
-    });*/
 
-    $.post('{:url("User/login")}',{"username":username,"password":pass,"captcha":verify,"t":(new Date()).getTime()},
-      function(data){
-          if(data.code==0){
-            $("#errTip").show().html(data.msg).fadeOut(1000);
-            $("#captcha").attr("src","/captcha.html?t="+Math.random());return ;
-          }
-          $("#errTip").show().html(data.msg).fadeOut(1000,function(){
-            location.href='{:url("index/index")}';
-          });
-          // 定时器
-      }, "json");
+    #login_btn_wraper .tips_success {
+        color: #fff;
+    }
+
+    #login_btn_wraper .tips_error {
+        color: #DFC05D;
+    }
+
+    #login_btn_wraper button:focus {
+        outline: none;
+    }
+
+    img[alt='captcha'] {
+        cursor: pointer;
+    }
+
+    #errTip {
+        margin-top: 6px;
+        text-align: center;
+        color: #333;
+    }
+    </style>
+    <script>
+    if (window.parent !== window.self) {
+        document.write = '';
+        window.parent.location.href = window.self.location.href;
+        setTimeout(function() {
+            document.body.innerHTML = '';
+        }, 0);
+    }
+    $(function() {
+        $("img[alt='captcha']").click(function() {
+            $(this).attr("src", "/captcha.html?t=" + Math.random());
+        });
+        $("#loginBtn").click(function() {
+            var username = $.trim($("#js-admin-name").val()),
+                pass = $("#admin_pwd").val(),
+                verify = $("#verify").val();
+            if (username.length == 0) {
+                $("#errTip").show().html("用户名不能为空").fadeOut(1000);
+                $("#js-admin-name").focus();
+                return;
+            }
+            if (pass.length < 3 || pass.length > 18) {
+                $("#errTip").show().html("密码长度在3-18位之间").fadeOut(1000);
+                $("#admin_pwd").focus();
+                return;
+            }
+            {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}
+            if (verify.length == 0) {
+                $("#errTip").show().html("验证码不能为空").fadeOut(1000);
+                $("#verify").focus();
+                return;
+            }
+            {/eq}
+            $.post('{:url("User/login")}', { "username": username, "password": pass, "captcha": verify, "t": (new Date()).getTime() },
+                function(data) {
+                    if (data.code == 0) {
+                        $("#errTip").show().html(data.msg).fadeOut(1000);
+                        $("#captcha").attr("src", "/captcha.html?t=" + Math.random());
+                        return;
+                    }
+                    $("#errTip").show().html(data.msg).fadeOut(1000, function() {
+                        location.href = '{:url("index/index")}';
+                    });
+                }, "json");
+        });
+        $(".keydonw").keydown(function(e) {
+            // 得到键盘的keycode码
+            if (event.which == 13) {
+                $("#loginBtn").click();
+            }
+        });
+
     });
-  $(".keydonw").keydown(function(e){
-      // 得到键盘的keycode码
-      if(event.which==13){
-          $("#loginBtn").click();
-      }
-  });
-
-});
-</script>
+    </script>
 </head>
-<body>
 
-<div class="wrap">
-  <h1><a>TPFrame</a></h1>
-    <div class="login">
-      <ul>
-        <li>
-          <input class="input keydonw" id="js-admin-name" name="username" type="text" placeholder="用户名或邮箱" title="用户名或邮箱" data-rule-required="true"  data-msg-required=""/>
-        </li>
-        <li>
-          <input class="input keydonw" id="admin_pwd" type="password" name="password" placeholder="密码" title="密码" data-rule-required="true"  data-msg-required=""/>
-        </li>
-        <li class="verifycode-wrapper">{:captcha_img()}</li>
-        <li>
-          <input class="input keydonw" type="text" name="verify" id="verify" placeholder="请输入验证码" />
-        </li>
-      </ul>
-      <div id="login_btn_wraper">
-        <button type="button" name="submit" class="btn js-ajax-submit" id="loginBtn">登录</button>
-      </div>
-      <div id="errTip"></div>
+<body class=" flex flex-align-center flex-pack-center">
+    <div class="wrap">
+        <h1 style="text-align: center;"><img src="__THEMES__/images/login_logo2.png" style="width:68px; height: auto;"></h1>
+        <div class="login">
+            <ul>
+                <li>
+                    <input class="input keydonw" id="js-admin-name" name="username" type="text" placeholder="user id" title="username" data-rule-required="true" data-msg-required="" />
+                </li>
+                <li>
+                    <input class="input keydonw" id="admin_pwd" type="password" name="password" placeholder="password" title="password" data-rule-required="true" data-msg-required="" />
+                </li>
+                {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}
+                <li class="verifycode-wrapper">{:captcha_img()}</li>
+                <li>
+                    <input class="input keydonw" type="text" name="verify" id="verify" placeholder="validate code" />
+                </li>
+                {/eq}
+            </ul>
+            <div id="login_btn_wraper">
+                <button type="button" name="submit" class="btn js-ajax-submit" id="loginBtn">Login In</button>
+            </div>
+            <div id="errTip"></div>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

@@ -37,4 +37,7 @@ class Member extends AdminServiceBase
 	public function del($data){
 		return Core::loadModel($this->name)->del($data);
 	}
+	public function delAdmin($data){
+		return Core::loadModel($this->name)->delAdmin($data);
+	}
 }

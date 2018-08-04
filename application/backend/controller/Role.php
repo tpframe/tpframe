@@ -15,7 +15,6 @@ class Role extends AdminBase
     public function add(){
         IS_POST && $this->jump(Core::loadModel($this->name)->addRole($this->param));
         return $this->fetch('add',[
-            'listPrivs'=>Core::loadModel("Menu")->getMenuArrTree(['type'=>1])
         ]);
     }
     public function edit(){
@@ -23,7 +22,6 @@ class Role extends AdminBase
         return $this->fetch('add',[
             'id'=>$this->param['id'],
             'list'=>Core::loadModel($this->name)->getRoleList($this->param),
-            'listPrivs'=>Core::loadModel("Menu")->getMenuArrTree(['type'=>1])
         ]);
     }
     public function del(){

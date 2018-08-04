@@ -1,52 +1,11 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<!-- Set render engine for 360 browser -->
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- HTML5 shim for IE8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-			</script>
-		<![endif]-->
-		<link href="__THEMES__/css/theme.min.css" rel="stylesheet">
-		<link href="__THEMES__/css/simplebootadmin.css" rel="stylesheet">
-		<link href="__THEMES__/css/default.css" rel="stylesheet" />
-		<link href="__THEMES__/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
-		<style>
-			.length_3{width: 180px;} form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
-			.table-actions{margin-top: 5px; margin-bottom: 5px;padding:0px;} .table-list{margin-bottom:
-			0px;}
-		</style>
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="__THEMES__/css/font-awesome-ie7.min.css">
-		<![endif]-->
-		<script type="text/javascript">
-			//全局变量
-			var GV = {
-				WEB_ROOT:"",
-				DIMAUB: "/",
-				JS_ROOT: "/theme/backend/assets/js/",
-				TOKEN: ""
-			};
-		</script>
-		<!-- Le javascript==================================================-
-		-> <!-- Placed at the end of the document so the pages load faster -->
-		<script src="__THEMES__/js/jquery.js"></script>
-		<script src="__THEMES__/js/wind.js"></script>
-		<script src="__THEMES__/js/bootstrap.min.js"></script>
-		</script>
-	</head>
-	<body>
+{extend name="base"}
+{block name="content"}
 		<div class="wrap">
 		<ul class="nav nav-tabs">
 			<li><a href="{:url('Menu/index')}">后台菜单</a></li>
 			<li class="active"><a href="{:url('Menu/add')}">添加菜单</a></li>
 		</ul>
-		<form method="post" class="form-horizontal" action="">
+		<form method="post" class="form-horizontal js-ajax-form" action="">
 			<fieldset>
 				<div class="control-group">
 					<label class="control-label">上级:</label>
@@ -67,21 +26,21 @@
 				<div class="control-group">
 					<label class="control-label">模块:</label>
 					<div class="controls">
-						<input type="text" name="model" id="model" value="backend">
+						<input type="text" name="module" id="module" value="backend">
 						<span class="form-required">*</span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">控制器:</label>
 					<div class="controls">
-						<input type="text" name="controller" id="controller">
+						<input type="text" name="controller" id="controller" value="Index">
 						<span class="form-required">*</span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">操作:</label>
 					<div class="controls">
-						<input type="text" name="action" id="action">
+						<input type="text" name="action" id="action" value="index">
 						<span class="form-required">*</span>
 					</div>
 				</div>
@@ -95,8 +54,9 @@
 				<div class="control-group">
 					<label class="control-label">图标:</label>
 					<div class="controls">
-						<input type="text" name="icon" id="icon">
+						<input type="text" name="icon" id="icon">&nbsp;&nbsp;<a href="http://fontawesome.dashgame.com/" target="_blank">Font Awesome图标参考</a>
 					</div>
+
 				</div>
 				<div class="control-group">
 					<label class="control-label">备注:</label>
@@ -126,11 +86,9 @@
 			</fieldset>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary js-ajax-submit">添加</button>
-				<a class="btn" href="/index.php?g=Admin&amp;m=menu&amp;a=index">返回</a>
+				<a class="btn" href="javascript:history.go(-1);">返回</a>
 			</div>
 		</form>
 	</div>
 		<script src="__THEMES__/js/common.js"></script>
-	</body>
-
-</html>
+{/block}
