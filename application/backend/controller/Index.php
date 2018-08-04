@@ -19,7 +19,7 @@ class Index extends AdminBase
     	$mysql=$mysql[0]['version'];
     	$mysql=empty($mysql)?L('UNKNOWN'):$mysql;
     	
-        $validate_state=json_decode(Curl::post("http://validate.tpframe.com/authorize",['url'=>request()->url(true),'ip'=>request()->ip()]),true);
+        $validate_state=json_decode(Curl::post("http://validate.tpframe.com/authorize",['url'=>request()->domain(),'ip'=>request()->ip()]),true);
     	//server infomaions
     	$info = array(
     			"操作系统：" => PHP_OS,
