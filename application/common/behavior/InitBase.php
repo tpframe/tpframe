@@ -203,7 +203,7 @@ class InitBase
         define('UPLOAD_PATH', ROOT_PATH . 'data/uploads/');
         
         // 网站
-        define('SITE_PATH', strpos($_SERVER['SERVER_PROTOCOL'],'HTTPS')  !== false ?"https://".$_SERVER['HTTP_HOST']:"http://".$_SERVER['HTTP_HOST']);
+        define('SITE_PATH',(isset($_SERVER['REQUEST_SCHEME']) && !empty($_SERVER['REQUEST_SCHEME']))?$_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']:(strpos($_SERVER['SERVER_PROTOCOL'],'HTTPS')  !== false ?"https://".$_SERVER['HTTP_HOST']:"http://".$_SERVER['HTTP_HOST']));
 
         // 文件上传目录相对路径
         define('UPLOAD_PATH_RELATIVE', SITE_PATH.'/data/uploads/');
