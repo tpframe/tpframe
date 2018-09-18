@@ -390,6 +390,8 @@ abstract class Builder
             // 表达式查询
             if ($value instanceof Expression) {
                 $whereStr .= '( ' . $key . ' ' . $value->getValue() . ' )';
+            }elseif(!empty($value) && gettype($value)=="string"){
+                $whereStr .= '( ' . $key . ' ' . $value . ' )';
             } else {
                 throw new Exception('where express error:' . $exp);
             }
