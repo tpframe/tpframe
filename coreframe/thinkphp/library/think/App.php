@@ -268,6 +268,11 @@ class App
             $arr = explode("/", $url);
             $addon_name=isset($arr[0])?$arr[0]:"";
             
+            //加载插件主配置文件
+            if(file_exists(ROOT_PATH.'addon'.DS.$addon_name.DS.'config'.CONF_EXT)){
+                $config = Config::load(ROOT_PATH.'addon'.DS.$addon_name.DS.'config'.CONF_EXT);
+            }
+
             // 加载插件配置文件
             if(is_dir(ROOT_PATH.'addon'.DS.$addon_name.DS."config")){
                 $dir   = ROOT_PATH.'addon'.DS.$addon_name.DS."config";
