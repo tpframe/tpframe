@@ -71,7 +71,7 @@ class ModelBase extends Model
      * @return boolean
      */
     final protected function addObject($data = [], $getLastInsID = true, $field = true, $sequence = null)
-    { 
+    {
         $result= $this->allowField($field)->isUpdate(false)->save($data, $where=[], $sequence);
         if($getLastInsID){
             if(method_exists($this, "getQuery")){
@@ -246,8 +246,12 @@ class ModelBase extends Model
             }
 
         }
-        
-        self::$ob_query = self::$ob_query->field($field);
+
+        $except = false;
+
+        is_array($field) && isset($field[1]) && $except = true;
+
+        self::$ob_query = self::$ob_query->field($field,$except);
         
         !empty($group['group'])   && self::$ob_query = self::$ob_query->group($group['group'], $group['having']);
     
@@ -324,8 +328,12 @@ class ModelBase extends Model
             }
 
         }
-        
-        self::$ob_query = self::$ob_query->field($field);
+
+        $except = false;
+
+        is_array($field) && isset($field[1]) && $except = true;
+
+        self::$ob_query = self::$ob_query->field($field,$except);
         
         !empty($group['group'])   && self::$ob_query = self::$ob_query->group($group['group']);
 
