@@ -1211,10 +1211,25 @@ class Route
          /* update yoayihong */
         $urlFirstWord=explode("/", $url)[0];
         
-        if (!is_dir(ADDON_PATH . $urlFirstWord) && isset(self::$bind['module'])) {
-            $bind = str_replace('/', $depr, self::$bind['module']);
-            // 如果有模块/控制器绑定
-            $url = $bind . ('.' != substr($bind, -1) ? $depr : '') . ltrim($url, $depr);
+        //if (!is_dir(ADDON_PATH . $urlFirstWord) && isset(self::$bind['module'])) {
+        if (isset(self::$bind['module'])) {
+            if(is_dir(ADDON_PATH . $urlFirstWord) && self::$bind['module'] != $urlFirstWord){
+                
+                $bind = self::$bind['module'];
+
+            }else{
+                if(is_dir(APP_PATH . $urlFirstWord)){
+                   $bind = self::$bind['module'];
+                }
+                else if(self::$bind['module'] == $urlFirstWord && is_dir(ADDON_PATH . $urlFirstWord)){
+                    $bind = self::$bind['module'];
+                    $url = $bind . ('.' != substr($bind, -1) ? $depr : '') . ltrim($url, $depr);
+                }else{
+                    $bind = str_replace('/', $depr, self::$bind['module']);
+                    // 如果有模块/控制器绑定
+                    $url = $bind . ('.' != substr($bind, -1) ? $depr : '') . ltrim($url, $depr);
+                }
+            }
         }
         $url              = str_replace($depr, '|', $url);
         list($path, $var) = self::parseUrlPath($url);

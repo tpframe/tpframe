@@ -537,6 +537,8 @@ class App
                     $available = true;
                 }elseif(is_dir(ROOT_PATH."addon" . DS . $module)){
                     $available = true;
+                }elseif(is_dir(APP_PATH . $module)){
+                    $available = true;
                 }
             } elseif (!in_array($module, $config['deny_module_list']) && (is_dir(APP_PATH . $module) || is_dir(ROOT_PATH . 'addon' . DS . $module))) {
                 $available = true;
