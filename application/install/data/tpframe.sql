@@ -344,8 +344,8 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
 -- ----------------------------
 CREATE TABLE IF NOT EXISTS `tpf_admin_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `old_value` mediumtext NOT NULL COMMENT '原值',
-  `new_value` mediumtext NOT NULL COMMENT '新值',
+  `old_value` mediumtext COMMENT '原值',
+  `new_value` mediumtext COMMENT '新值',
   `module` varchar(15) NOT NULL COMMENT '模块',
   `controller` varchar(20) NOT NULL COMMENT '控制器',
   `action` varchar(20) NOT NULL COMMENT '操作',
