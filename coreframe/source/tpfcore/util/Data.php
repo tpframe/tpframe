@@ -18,12 +18,12 @@ class Data {
 	/*
 		把普通数组转换成树型数组
 	*/
-	final static function toTreeArrray($items=[]){
+	final static function toTreeArrray($items=[],$parentid="parentid"){
 		$tree = array(); //格式化好的树
 		if(is_array($items)){
 		    foreach ($items as $item)
-		        if (isset($items[$item['parentid']]))
-		            $items[$item['parentid']]['son'][] = &$items[$item['id']];
+		        if (isset($items[$item[$parentid]]))
+		            $items[$item[$parentid]]['son'][] = &$items[$item['id']];
 		        else
 		            $tree[] = &$items[$item['id']];
 	    }
@@ -32,9 +32,9 @@ class Data {
 	/*
 		把普通数组转换成树型数组
 	*/
-	final static function toTreeArrray2($items=[]) { 
+	final static function toTreeArrray2($items=[],$parentid="parentid") { 
 	    foreach ($items as $item) 
-	        $items[$item['parentid']]['son'][$item['id']] = &$items[$item['id']]; 
+	        $items[$item[$parentid]]['son'][$item['id']] = &$items[$item['id']]; 
 	    return isset($items[0]['son']) ? $items[0]['son'] : array(); 
 	}
 	final static function genTree($items,$id='id',$pid='parentid',$son = 'children'){
