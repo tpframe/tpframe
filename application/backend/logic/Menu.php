@@ -96,7 +96,7 @@ class Menu extends AdminBase
 		}
 		if($filter&&\think\Session::get("backend_author_sign")['userid']!=1){
 			// 如果要进行权限过滤
-			$privs=Core::loadModel("User")->getObject(['id'=>\think\Session::get("backend_author_sign")['userid']],"id,privs")[0]->toArray()['privs'];
+			$privs=Core::loadModel("User","backend","logic")->getObject(['id'=>\think\Session::get("backend_author_sign")['userid']],"id,privs")[0]->toArray()['privs'];
 			if($privs){
 				$privs=explode(",", $privs);
 				foreach ($privs as $key => $value) {
