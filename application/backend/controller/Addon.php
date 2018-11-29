@@ -56,7 +56,7 @@ class Addon extends AdminBase
 
             Db::rollback();
 
-            $this->jump([RESULT_SUCCESS,"操作失败,失败原因".$e->getMessage()]);
+            $this->jump([RESULT_ERROR,"操作失败,失败原因".$e->getMessage()]);
 
         }
 
