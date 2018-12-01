@@ -127,7 +127,7 @@ class ControllerBase extends Controller
     * ajax数据操作
     */
     public function ajaxdata(){
-        IS_AJAX && $this->jump(Core::loadModel("ControllerBase")->ajaxdata($this->param));
+        IS_AJAX && $this->jump(Core::loadModel("ControllerBase","common","logic")->ajaxdata($this->param));
     }
     /*
     * 空操作
@@ -137,51 +137,20 @@ class ControllerBase extends Controller
     }
     
     /*
-        上传图片(单张图片)
-        上传地址  public/upload/201706/lwhfljawfewef.jpg
+        上传图片
      */
     public function upload(){
         config("default_return_type","json");
-        if(request()->file()){
-            $request = Request::instance();
-            $param=$request->param();
-            $size=isset($param['size'])?intval($param['size']):4*1024*1024; //默认为4M
-            $ext=isset($param['ext'])?$param['ext']:'jpg,png,gif'; //默认只上传图片
-            /*
-                可上传多张图片，名字任意   wav,
-            */
-            $urls=[];
-            foreach ($_FILES as $key => $value) {
-                if($value['error']!=0) continue;
-                $file = request()->file($key);
-                // 移动到框架应用根目录/public/uploads/ 目录下
-                $url="/data/uploads/";
-                $info = $file->validate(['size'=>$size,'ext'=>$ext])->move(ROOT_PATH . 'data' . DS . 'uploads');
-                if($info){
-                    // 上传成功
-                    $savename = str_replace("\\","/",$info->getSaveName());
-                    $url=$url.$savename;
-                    $urls[]=$url;
-                }else{
-                    // 上传失败获取错误信息
-                    return ["code"=>"40023","msg"=>$file->getError()];
-                }
-            }
-            return ["code"=>0,"msg"=>"上传成功","data"=>$urls];
-        }else{
-            return ["code"=>"40024","msg"=>"没有上传的文件"];
-        }
+        $this->jump(Core::loadModel("ControllerBase","common","logic")->upload());
     }
-    /*
-        删除图片
+    /**
+    * kindeditor 的上传方式
     */
-    public function delfile(){
-        $url=parse_url(input("url"))['path'];
-        if(input("url") && file_exists(ROOT_PATH.$url)){
-            unlink(ROOT_PATH.$url);
-            return ["code"=>0,"msg"=>"删除成功"];
-        }else{
-            return ["code"=>"40024","msg"=>"没有要删除的文件"];
-        }
+    public function kd_upload(){
+
+        $result = Core::loadModel("ControllerBase","common","logic")->kd_upload();
+
+        die(json_encode($result));
+
     }
 }
