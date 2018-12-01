@@ -2,9 +2,10 @@
 {block name="content"}
 		<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#A" data-toggle="tab">网站信息</a></li>
+			<li class="active"><a href="#A" data-toggle="tab">基本信息</a></li>
 			<li><a href="#C" data-toggle="tab">网站设置</a></li>
 			<li><a href="#B" data-toggle="tab">SEO设置</a></li>
+			<li><a href="#F" data-toggle="tab">附件设置</a></li>
 		</ul>
 		<form class="form-horizontal js-ajax-form" action="" method="post">
 			<input type="hidden" name="id" value="{$list.id}"/>
@@ -96,7 +97,7 @@
 								<div class="control-group">
 									<label class="control-label">模版方案</label>
 									<div class="controls">
-										<select name="options[DEFAULT_THEME]">
+										<select name="configs[DEFAULT_THEME]">
 											{volist name="templetes" id="vo"}
 											<option value="{$vo}" {eq name="vo" value=":config('config.DEFAULT_THEME')"}selected{/eq}>{$vo}</option>											
 											{/volist}			
@@ -106,7 +107,7 @@
 								<div class="control-group">
 									<label class="control-label">开启静态缓存：</label>
 									<div class="controls">
-										<select name="options[HTML_CACHE_ON]">
+										<select name="configs[HTML_CACHE_ON]">
 											<option value="1" {eq name=":config('config.HTML_CACHE_ON')" value="1"}selected{/eq}>开户</option>
 											<option value="0" {eq name=":config('config.HTML_CACHE_ON')" value="0"}selected{/eq}>关闭</option>
 										</select>
@@ -115,7 +116,7 @@
 								<div class="control-group">
 									<label class="control-label">开启管理员操作日志：</label>
 									<div class="controls">
-										<select name="options[ADMIN_LOG_SWITCH]">
+										<select name="configs[ADMIN_LOG_SWITCH]">
 											<option value="1" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="1"}selected{/eq}>开户</option>
 											<option value="0" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="0"}selected{/eq}>关闭</option>
 										</select>
@@ -124,7 +125,7 @@
 								<div class="control-group">
 									<label class="control-label">后台登录验证码开启：</label>
 									<div class="controls">
-										<select name="options[ADMIN_LOGIN_VERIFY_SWITCH]">
+										<select name="configs[ADMIN_LOGIN_VERIFY_SWITCH]">
 											<option value="1" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}selected{/eq}>开户</option>
 											<option value="0" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="0"}selected{/eq}>关闭</option>
 										</select>
@@ -133,7 +134,7 @@
 								<div class="control-group">
 									<label class="control-label">关闭站点：</label>
 									<div class="controls">
-										<select name="options[WEB_SITE_CLOSE]">
+										<select name="configs[WEB_SITE_CLOSE]">
 											<option value="0" {eq name=":config('config.WEB_SITE_CLOSE')" value="0"}selected{/eq}>开户</option>
 											<option value="1" {eq name=":config('config.WEB_SITE_CLOSE')" value="1"}selected{/eq}>关闭</option>
 										</select> &nbsp;&nbsp;站点关闭后其他用户不能访问，仅仅管理员可以正常访问
@@ -142,7 +143,7 @@
 								<div class="control-group">
 									<label class="control-label">管理员登录IP限制：</label>
 									<div class="controls">
-										<textarea name="options[ADMIN_LOGIN_LLIMIT_IP]">{:config('config.ADMIN_LOGIN_LLIMIT_IP')}</textarea> &nbsp;&nbsp;多个用逗号（英文）分隔，如果不配置表示不限制IP访问
+										<textarea name="configs[ADMIN_LOGIN_LLIMIT_IP]">{:config('config.ADMIN_LOGIN_LLIMIT_IP')}</textarea> &nbsp;&nbsp;多个用逗号（英文）分隔，如果不配置表示不限制IP访问
 									</div>
 								</div>
 							</fieldset>
@@ -175,9 +176,26 @@
 						<div class="tab-pane" id="F">
 							<fieldset>
 								<div class="control-group">
-									<label class="control-label">特殊用户名</label>
+									<label class="control-label">允许上传的图片类型</label>
 									<div class="controls">
-										<textarea name="options[banned_usernames]" rows="5" cols="57">{$list.options.banned_usernames}</textarea>
+										<input type="text" name="configs[allow_upload_pic_type]" value="{:config('config.allow_upload_pic_type')}">
+										以英文逗号","分隔
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">允许上传的图片大小（KB）</label>
+									<div class="controls">
+										<input type="text" name="configs[allow_upload_pic_size]" value="{:config('config.allow_upload_pic_size')}">
+										以KB为单位,默认2M,计算方式 1Mb=1024Kb
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">图片上传至第三方平台</label>
+									<div class="controls">
+										<select name="configs[upload_pic_position]">
+											<option value="local">本地(服务器)</option>
+											<option value="aliyun_oss" {eq name=":config('config.upload_pic_position')" value="aliyun_oss"}selected{/eq}>阿里云OSS</option>
+										</select>
 									</div>
 								</div>
 							</fieldset>
