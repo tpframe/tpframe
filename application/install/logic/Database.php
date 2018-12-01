@@ -155,7 +155,10 @@ class Database extends LogicBase
   'ADMIN_LOG_SWITCH' => 0,
   'WEB_SITE_CLOSE' => 0,
   'ADMIN_LOGIN_LLIMIT_IP'=>'',
-  'ADMIN_LOGIN_VERIFY_SWITCH'=>0
+  'ADMIN_LOGIN_VERIFY_SWITCH'=>0,
+  'allow_upload_pic_type'=>'jpg,png,gif,bmp',
+  'allow_upload_pic_size'=>2048,
+  'upload_pic_position' => 'local'
 );";
 		//写入配置文件
         if(file_put_contents(APP_PATH.'extra/config.php', $site_options)){
