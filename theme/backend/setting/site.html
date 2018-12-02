@@ -195,6 +195,7 @@
 										<select name="configs[upload_pic_position]">
 											<option value="local">本地(服务器)</option>
 											<option value="aliyun_oss" {eq name=":config('config.upload_pic_position')" value="aliyun_oss"}selected{/eq}>阿里云OSS</option>
+											<option value="qiniu" {eq name=":config('config.upload_pic_position')" value="qiniu"}selected{/eq}>七牛云存储</option>
 										</select>
 									</div>
 								</div>
