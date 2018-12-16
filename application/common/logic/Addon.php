@@ -14,6 +14,9 @@ class Addon extends LogicBase
     // 插件实例
     protected static $instance = [];
 
+    public function getAddon($data=[]){
+        return self::getList($data);
+    }
     /**
      * 获取插件列表
      */
