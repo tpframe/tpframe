@@ -141,6 +141,15 @@
 									</div>
 								</div>
 								<div class="control-group">
+									<label class="control-label">前台注册功能：</label>
+									<div class="controls">
+										<select name="configs[WEB_REGISTER_CLOSE]">
+											<option value="0" {eq name=":config('config.WEB_REGISTER_CLOSE')" value="0"}selected{/eq}>开户</option>
+											<option value="1" {eq name=":config('config.WEB_REGISTER_CLOSE')" value="1"}selected{/eq}>关闭</option>
+										</select> &nbsp;&nbsp;关闭注册后，前台将不能进行注册
+									</div>
+								</div>
+								<div class="control-group">
 									<label class="control-label">管理员登录IP限制：</label>
 									<div class="controls">
 										<textarea name="configs[ADMIN_LOGIN_LLIMIT_IP]">{:config('config.ADMIN_LOGIN_LLIMIT_IP')}</textarea> &nbsp;&nbsp;多个用逗号（英文）分隔，如果不配置表示不限制IP访问
