@@ -108,7 +108,7 @@
 									<label class="control-label">开启静态缓存：</label>
 									<div class="controls">
 										<select name="configs[HTML_CACHE_ON]">
-											<option value="1" {eq name=":config('config.HTML_CACHE_ON')" value="1"}selected{/eq}>开户</option>
+											<option value="1" {eq name=":config('config.HTML_CACHE_ON')" value="1"}selected{/eq}>开启</option>
 											<option value="0" {eq name=":config('config.HTML_CACHE_ON')" value="0"}selected{/eq}>关闭</option>
 										</select>
 									</div>
@@ -117,7 +117,7 @@
 									<label class="control-label">开启管理员操作日志：</label>
 									<div class="controls">
 										<select name="configs[ADMIN_LOG_SWITCH]">
-											<option value="1" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="1"}selected{/eq}>开户</option>
+											<option value="1" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="1"}selected{/eq}>开启</option>
 											<option value="0" {eq name=":config('config.ADMIN_LOG_SWITCH')" value="0"}selected{/eq}>关闭</option>
 										</select>
 									</div>
@@ -126,7 +126,7 @@
 									<label class="control-label">后台登录验证码开启：</label>
 									<div class="controls">
 										<select name="configs[ADMIN_LOGIN_VERIFY_SWITCH]">
-											<option value="1" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}selected{/eq}>开户</option>
+											<option value="1" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="1"}selected{/eq}>开启</option>
 											<option value="0" {eq name=":config('config.ADMIN_LOGIN_VERIFY_SWITCH')" value="0"}selected{/eq}>关闭</option>
 										</select>
 									</div>
@@ -135,7 +135,7 @@
 									<label class="control-label">关闭站点：</label>
 									<div class="controls">
 										<select name="configs[WEB_SITE_CLOSE]">
-											<option value="0" {eq name=":config('config.WEB_SITE_CLOSE')" value="0"}selected{/eq}>开户</option>
+											<option value="0" {eq name=":config('config.WEB_SITE_CLOSE')" value="0"}selected{/eq}>开启</option>
 											<option value="1" {eq name=":config('config.WEB_SITE_CLOSE')" value="1"}selected{/eq}>关闭</option>
 										</select> &nbsp;&nbsp;站点关闭后其他用户不能访问，仅仅管理员可以正常访问
 									</div>
@@ -144,7 +144,7 @@
 									<label class="control-label">前台注册功能：</label>
 									<div class="controls">
 										<select name="configs[WEB_REGISTER_CLOSE]">
-											<option value="0" {eq name=":config('config.WEB_REGISTER_CLOSE')" value="0"}selected{/eq}>开户</option>
+											<option value="0" {eq name=":config('config.WEB_REGISTER_CLOSE')" value="0"}selected{/eq}>开启</option>
 											<option value="1" {eq name=":config('config.WEB_REGISTER_CLOSE')" value="1"}selected{/eq}>关闭</option>
 										</select> &nbsp;&nbsp;关闭注册后，前台将不能进行注册
 									</div>
