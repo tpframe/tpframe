@@ -46,9 +46,9 @@ class Addon extends AdminBase
         Db::startTrans();
         try{
             
-            Core::loadModel($this->name)->executeSql($strtolower_name, 'install');
-
             list($status, $message) = $controller->addonInstall();
+
+            Core::loadModel($this->name)->executeSql($strtolower_name, 'install');
 
             Db::commit();
 
