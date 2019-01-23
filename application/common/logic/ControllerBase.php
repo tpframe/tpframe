@@ -10,6 +10,8 @@ use tpfcore\storage\AliyunOss;
 use tpfcore\storage\Qiniu;
 use OSS\Core\OssException;
 use think\Request;
+use Upyun\Upyun;
+use Upyun\Config;
 /**
  * Admin基础逻辑
  */
@@ -118,7 +120,28 @@ class ControllerBase extends LogicBase
                         } catch (\OssException $e) {
                             return [40045,$e->getErrorMsg()];
                         }
-                    }else{
+                    }
+                    // 上传到又拍云
+                    elseif($upload_position=="upyun"){
+                        $listConfig = Core::loadAddonModel("Addon","upyun","controller")->getConfig();
+                        if(empty($listConfig->config)){
+                            return [40045,"请先安装或配置好又拍云"];
+                        }
+                        $config = json_decode($listConfig->config,true)['config'];
+
+                        try{
+                            $serviceConfig = new Config($config['service_name'],$config['operator_name'],$config['operator_pwd']);
+                            $client = new Upyun($serviceConfig);
+
+                            $fh = fopen($tmp_file,"r");
+                            $rsp = $client->write($filename, $fh);
+
+                            $urls[$index]=$config['website']."/".$filename;
+                        }catch(\Exception $e){
+                            return [40045,$e->getMessage()];
+                        }
+                    }
+                    else{
 
                         $info = $object->move(UPLOAD_PATH);
 
@@ -229,6 +252,29 @@ class ControllerBase extends LogicBase
 
                     } catch (\OssException $e) {
                         return ["error"=>DATA_NORMAL,"message"=>$e->getErrorMsg()];
+                    }
+                }
+                // 上传到又拍云
+                elseif($upload_position=="upyun"){
+                    $listConfig = Core::loadAddonModel("Addon","upyun","controller")->getConfig();
+                    if(empty($listConfig->config)){
+                        return ["error"=>DATA_NORMAL,"message"=>"请先安装或配置好又拍云"];
+                    }
+                    $config = json_decode($listConfig->config,true)['config'];
+                    if(empty($config['service_name']) || empty($config['operator_name']) || empty($config['operator_pwd']) || empty($config['website'])){
+                        return ["error"=>DATA_NORMAL,"message"=>"请配置好又拍云后再试"];
+                    }
+                    try{
+                        $serviceConfig = new Config($config['service_name'],$config['operator_name'],$config['operator_pwd']);
+                        $client = new Upyun($serviceConfig);
+
+                        $fh = fopen($tmp_file,"r");
+                        $rsp = $client->write($filename, $fh);
+
+                        $url=$config['website']."/".$filename;
+                        return ['error' => DATA_DISABLE, 'url' => $url , 'img_url'=>$url];
+                    }catch(\Exception $e){
+                        return ["error"=>DATA_NORMAL,"message"=>$e->getMessage()];
                     }
                 }
                 // 存储在本地
