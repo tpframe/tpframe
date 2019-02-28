@@ -9,34 +9,31 @@
  * 不允许对程序代码以任何形式任何目的的再发布。
  * ============================================================================
  */
-namespace app\frontend\logic;
+namespace app\common\logic;
 use \tpfcore\util\Tree;
 use \tpfcore\util\Data;
 use \tpfcore\Core;
 /**
  *  导航逻辑
  */
-class Nav extends FrontendBase
+class Nav extends LogicBase
 {
 	public function getNav(){
-		$listNav=self::getObject(['cid'=>1,"display"=>1],"id,href,label,target");
-		$nav_arr=[];
+		$listNav=self::getObject(['cid'=>1,"display"=>1],"id,href,label,target,parentid");
 		foreach ($listNav as $key => $value) {
-			$nav_arr[$key]['id']=$value['id'];
-			$nav_arr[$key]['label']=$value['label'];
-			$nav_arr[$key]['href']=$value['href'];
-			$nav_arr[$key]['target']=$value['target'];
+			$listNav[$key]=$value->toArray();
 		}
 
 		$categor_arr=[];
-		$listCategory=Core::loadModel("Category",'','logic')->getCategory(['isnav'=>1]);
+		$listCategory=Core::loadModel("Category",'','logic')->getCategory(["where"=>['isnav'=>1],"field"=>"id,url,title,parentid"]);
 		foreach ($listCategory as $key => $value) {
 			$categor_arr[$key]['id']=$value['id'];
 			$categor_arr[$key]['label']=$value['title'];
 			$categor_arr[$key]['href']=$value['url'];
 			$categor_arr[$key]['target']="_self";
+			$categor_arr[$key]['parentid']=$value['parentid'];
 		}
-		$navs=array_merge($nav_arr,$categor_arr);
+		$navs=array_merge(Data::genTree($listNav),Data::genTree($categor_arr));
 		return $navs;
 	}
 }
