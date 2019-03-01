@@ -10,6 +10,7 @@ use tpfcore\storage\AliyunOss;
 use tpfcore\storage\Qiniu;
 use OSS\Core\OssException;
 use think\Request;
+
 use Upyun\Upyun;
 use Upyun\Config;
 /**
@@ -123,10 +124,10 @@ class ControllerBase extends LogicBase
                     }
                     // 上传到又拍云
                     elseif($upload_position=="upyun"){
-                        $listConfig = Core::loadAddonModel("Addon","upyun","controller")->getConfig();
-                        if(empty($listConfig->config)){
-                            return [40045,"请先安装或配置好又拍云"];
-                        }
+                    	$listConfig = Core::loadAddonModel("Addon","upyun","controller")->getConfig();
+                    	if(empty($listConfig->config)){
+                    		return [40045,"请先安装或配置好又拍云"];
+                    	}
                         $config = json_decode($listConfig->config,true)['config'];
 
                         try{
@@ -162,6 +163,8 @@ class ControllerBase extends LogicBase
                         }
                     }
                     $index++;
+                }else{
+                    return [40045,$object->getError()];
                 }
             }
             return [0,"上传成功",$urls];
