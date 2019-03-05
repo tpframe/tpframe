@@ -12,8 +12,8 @@ return [
         'view_path'     =>  '.'.DS.'theme'.DS.'install'.DS,     //设置模板位置
         'tpl_cache'     =>  false
     ],
-    'tpframe_version' => "tpframe_v3.1",
-    'tpframe_release' => "20181208",
+    'tpframe_version' => "tpframe_v3.2",
+    'tpframe_release' => "20190306",
     'agreement'=>'TPFrame软件使用协议
 
 版权所有 ©2017-'.(date("Y")+6).'头泉科技有限公司，保留所有版权
