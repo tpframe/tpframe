@@ -286,6 +286,7 @@ class ModelBase extends Model
                     "where" =>[],
                     "field" =>true,
                     "order" =>"",
+                    "orderRaw"=>"",
                     "paginate"  =>['rows' => null, 'simple' => false, 'config' => []],
                     "join"      =>['join' => null, 'condition' => null, 'type' => 'INNER'],
                     "group"     =>['group' => '', 'having' => ''],
@@ -309,7 +310,7 @@ class ModelBase extends Model
         
         $group['having']    = empty($group['having'])    ? ''      : $group['having'];
         
-        self::$ob_query = $this->where($where)->order($order);
+        !empty($orderRaw)?self::$ob_query = $this->where($where)->orderRaw($orderRaw):self::$ob_query = $this->where($where)->order($order);
 
         if(!empty($join['join'])){
 
