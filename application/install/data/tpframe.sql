@@ -206,11 +206,14 @@ INSERT INTO `tpf_nav_cat` VALUES ('1', '主导航', '1', '主导航');
 -- ----------------------------
 CREATE TABLE IF NOT EXISTS `tpf_posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `short_link` varchar(100) DEFAULT NULL COMMENT '短链接',
   `title` varchar(255) DEFAULT NULL COMMENT '标题',
-  `content` text COMMENT '内容',
+  `abstract` varchar(255) DEFAULT NULL COMMENT '摘要',
+  `content` longtext COMMENT '内容',
   `datetime` varchar(30) DEFAULT NULL COMMENT '添加时间，不可更改，一般不显示给用户',
   `updatetime` varchar(30) DEFAULT NULL COMMENT '更新时间，可更改，一般显示给用户',
   `thumb` varchar(100) DEFAULT NULL COMMENT '缩略图',
+  `tag` varchar(255) DEFAULT NULL COMMENT '标签',
   `source` varchar(255) DEFAULT NULL COMMENT '文章来源',
   `author` varchar(30) DEFAULT NULL COMMENT '作者',
   `view` int(11) DEFAULT '0' COMMENT '浏览量',
@@ -218,12 +221,16 @@ CREATE TABLE IF NOT EXISTS `tpf_posts` (
   `type` tinyint(4) DEFAULT NULL COMMENT '文章类型',
   `ischeck` tinyint(4) DEFAULT '1' COMMENT '是否审核 1已审核，0未审核',
   `iscomment` tinyint(4) DEFAULT '1' COMMENT '是否可评论，1允许，0不允许',
-  `istop` tinyint(4) DEFAULT '0' COMMENT '置顶 1置顶； 0不置顶',
-  `isrecommend` tinyint(4) DEFAULT '0' COMMENT '推荐 1推荐 0不推荐',
-  `isdelete` tinyint(4) DEFAULT '0' COMMENT '是否删除  0 未删除   1已删除',
+  `istop` tinyint(1) DEFAULT '0' COMMENT '置顶 1置顶； 0不置顶',
+  `isrecommend` tinyint(1) DEFAULT '0' COMMENT '推荐 1推荐 0不推荐',
+  `isdelete` tinyint(1) DEFAULT '0' COMMENT '是否删除  0 未删除   -1已删除',
+  `ishandle` tinyint(1) DEFAULT '0' COMMENT '''是否处理 0未处理，1已处理''',
+  `channel` tinyint(4) DEFAULT '1' COMMENT '频道 1文章 2图片 3视频',
   `cateid` int(11) DEFAULT NULL COMMENT '分类id',
   `parentid` int(11) DEFAULT '0' COMMENT '父id',
   `uid` int(11) DEFAULT '0' COMMENT '用户ID',
+  `keywords` varchar(255) DEFAULT NULL,
+  `reply` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
