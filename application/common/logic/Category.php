@@ -25,7 +25,7 @@ class Category extends LogicBase
 		return $this->ids;
 	}
 	public function getChilds(){
-		return \think\Db::query("SELECT b.id,b.title,count(a.cateid) as num FROM ".DB_PREFIX."posts as a  RIGHT JOIN ".DB_PREFIX."category as b ON a.cateid=b.id WHERE b.parentid=1 GROUP BY b.id");
+		return \think\Db::query("SELECT b.id,b.title,count(a.cateid) as num FROM ".DB_PREFIX."posts as a  RIGHT JOIN ".DB_PREFIX."category as b ON a.cateid=b.id WHERE b.parentid=1 and a.channel=1 and a.ischeck=1 and a.isdelete=0 GROUP BY b.id");
 	}
 	public function getTreeCategory($data=[]){
 		$parentid=empty($data['id'])?(empty($data['parentid'])?-1:$data['parentid']):$data['id'];

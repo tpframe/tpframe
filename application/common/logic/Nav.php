@@ -19,7 +19,7 @@ use \tpfcore\Core;
 class Nav extends LogicBase
 {
 	public function getNav(){
-		$listNav=self::getObject(['cid'=>1,"display"=>1],"id,href,label,target,parentid");
+		$listNav = self::getList(["where"=>['cid'=>1,"display"=>1],"order"=>"sort asc","field"=>"id,href,label,target,parentid"]);
 		foreach ($listNav as $key => $value) {
 			$listNav[$key]=$value->toArray();
 		}
