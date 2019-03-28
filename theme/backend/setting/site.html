@@ -75,19 +75,19 @@
 								<div class="control-group">
 									<label class="control-label">SEO标题</label>
 									<div class="controls">
-										<input type="text" name="options[site_seo_title]" value="{$list.options.site_seo_title|default='TPFrame管理框架'}">
+										<input type="text" name="configs[site_seo_title]" value="{empty name=":config('config.site_seo_title')"}TPFrame管理框架{else/}{:config('config.site_seo_title')}{/empty}">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">SEO关键字</label>
 									<div class="controls">
-										<input type="text" name="options[site_seo_keywords]" value="{$list.options.site_seo_keywords|default='TPFrame,php,管理框架,cms,简约风, simplewind,framework'}">
+										<input type="text" name="configs[site_seo_keywords]" value="{empty name=":config('config.site_seo_keywords')"}TPFrame,php,管理框架,cms,简约风, simplewind,framework{else/}{:config('config.site_seo_keywords')}{/empty}">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">SEO描述</label>
 									<div class="controls">
-										<textarea name="options[site_seo_description]" rows="5" cols="57">{$list.options.site_seo_description|default='TPFrame是简约风网络科技发布的一款用于快速开发的内容管理框架'}</textarea>
+										<textarea name="configs[site_seo_description]" rows="5" cols="57">{empty name=":config('config.site_seo_description')"}TPFrame是简约风网络科技发布的一款用于快速开发的内容管理框架{else/}{:config('config.site_seo_description')}{/empty}</textarea>
 									</div>
 								</div>
 							</fieldset>
