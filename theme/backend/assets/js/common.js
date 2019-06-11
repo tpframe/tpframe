@@ -190,15 +190,24 @@ $.fn.serializeObject = function() {
                                 $btn.text(text + '中...').prop('disabled', true).addClass('disabled');
                             },
                             success: function (data, statusText, xhr, $form) {
-
                                 var text = $btn.text();
-
                                 //按钮文案、状态修改
                                 $btn.removeClass('disabled').prop('disabled', false).text(text.replace('中...', '')).parent().find('span').remove();
                                 if (data.code === 0) {
-                                    $('<span class="tips_success">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('slow').delay(1000).fadeOut(function () {
+                                    $('<span class="tips_success">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('slow').delay(1000).fadeOut(function() {
+                                        if(window.parent.frames.length == 1){
+                                            parent.layer.closeAll('iframe');
+                                            parent.location.reload();
+                                        }else{
+                                            if(data.url){
+                                                location.href = data.url;
+                                            }else{
+                                                reloadPage(window);
+                                            }
+                                        }
                                     });
-                                } else if (data.code === 1) {
+                                    
+                                } else{
                                 	var $verify_img=$form.find(".verify_img");
                                 	if($verify_img.length){
                                 		$verify_img.attr("src",$verify_img.attr("src")+"&refresh="+Math.random()); 
@@ -209,15 +218,6 @@ $.fn.serializeObject = function() {
                                 	
                                     $('<span class="tips_error">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('fast');
                                     $btn.removeProp('disabled').removeClass('disabled');
-                                }
-                                if (data.url && data.code === 1) {
-                                    //返回带跳转地址
-                                	window.location.href = data.url;
-                                } else {
-                                	if (data.code === 1) {
-                                		//刷新当前页
-                                        reloadPage(window);
-                                	}
                                 }
                                 
                             },
@@ -263,11 +263,17 @@ $.fn.serializeObject = function() {
                 var text = $btn.text();
                 //按钮文案、状态修改
                 $btn.removeClass('disabled').prop('disabled', false).text(text.replace('中...', '')).parent().find('span').remove();
-                if (data.code === 1) {
+                if (data.code === 0) {
                     $('<span class="tips_success">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('slow').delay(1000).fadeOut(function() {
-                        location.href = data.url;
+                        if(window.parent.frames.length == 1){
+                            parent.layer.closeAll('iframe');
+                            parent.location.reload();
+                        }else{
+                            location.href = data.url;
+                        }
+                        
                     });
-                } else if (data.code === 0) {
+                } else{
                     var $verify_img = $form.find("#captcha");
                     if ($verify_img.length) {
                         $verify_img.attr("src", "/captcha.html?t=" + Math.random());
@@ -426,7 +432,6 @@ $.fn.serializeObject = function() {
                     ok: function () {
                     	
                         $.getJSON(href).done(function (data) {
-                            console.log(data);
                             if (data.code == 1) {
                                 if (data.url) {
                                     location.href = data.url;
@@ -613,8 +618,18 @@ $.fn.serializeObject = function() {
             tabs_nav.tabs('.js-tabs-content > div');
         });
     }
+    $(".layer-edit").click(function(){
+        var url =$(this).data("url"),title=$(this).data("title")==undefined?"内容修改":$(this).data("title");
+        layer.open({
+          type: 2,
+          title: title,
+          shadeClose: true,
+          shade: 0.8,
+          area: ['100%', '100%'],
+          content: url
+        });
+    });
 })();
-
 //重新刷新页面，使用location.reload()有可能导致重新提交
 function reloadPage(win) {
     var location = win.location;

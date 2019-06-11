@@ -72,13 +72,13 @@
             $.post('{:url("User/login")}', { "username": username, "password": pass, "captcha": verify, "t": (new Date()).getTime() },
                 function(data) {
                     if (data.code == 0) {
+                        $("#errTip").show().html(data.msg).fadeOut(1000, function() {
+                            location.href = '{:url("index/index")}';
+                        });
+                    }else{
                         $("#errTip").show().html(data.msg).fadeOut(1000);
                         $("#captcha").attr("src", "/captcha.html?t=" + Math.random());
-                        return;
                     }
-                    $("#errTip").show().html(data.msg).fadeOut(1000, function() {
-                        location.href = '{:url("index/index")}';
-                    });
                 }, "json");
         });
         $(".keydonw").keydown(function(e) {
