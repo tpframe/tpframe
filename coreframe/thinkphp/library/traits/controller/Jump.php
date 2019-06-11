@@ -44,7 +44,7 @@ trait Jump
 
         $type = $this->getResponseType();
         $result = [
-            'code' => 1,
+            'code' => 0,
             'msg'  => $msg,
             'data' => $data,
             'url'  => $url,
@@ -85,7 +85,7 @@ trait Jump
 
         $type = $this->getResponseType();
         $result = [
-            'code' => 0,
+            'code' => -1,
             'msg'  => $msg,
             'data' => $data,
             'url'  => $url,

@@ -18,11 +18,11 @@
 <body>
     <div class="system-message">
         <?php switch ($code) {?>
-            <?php case 1:?>
+            <?php case 0:?>
             <h1>:)</h1>
             <p class="success"><?php echo(strip_tags($msg));?></p>
             <?php break;?>
-            <?php case 0:?>
+            <?php case -1:?>
             <h1>:(</h1>
             <p class="error"><?php echo(strip_tags($msg));?></p>
             <?php break;?>
