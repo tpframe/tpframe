@@ -41,7 +41,7 @@ class AddonBase extends ControllerBase
     /**
      * 插件模板渲染
      */
-    public function addonTemplate($template_name = '',$params=[])
+    public function addonTemplate($template_name = '',$params=[],$replace=["__THEMES__"=>"/theme/backend/assets"])
     {
         
         $class = get_class($this);
@@ -58,7 +58,7 @@ class AddonBase extends ControllerBase
         
         $this->view->engine(['view_path' => $view_path]);
         
-        echo $this->fetch($template_name,$params);
+        echo $this->fetch($template_name,$params,$replace);
     }
     /*
         插件使用说明
