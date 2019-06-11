@@ -302,7 +302,7 @@ class ModelBase extends Model
 
         $paginate['simple'] = empty($paginate['simple']) ? false   : $paginate['simple'];
         
-        $paginate['config'] = empty($paginate['config']) ? []      : $paginate['config'];
+        $paginate['config'] = empty($paginate['config']) ? ['query' => request()->param()]      : $paginate['config'];
         
         $join['condition']  = empty($join['condition'])  ? null    : $join['condition'];
         
