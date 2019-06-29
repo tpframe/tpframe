@@ -139,4 +139,18 @@ class StringHelper extends BaseStringHelper
 	public static function get_order_sn($str = ""){
         return $str.date("YmdHis",time()).sprintf('%06s', rand(0,999999));
     }
+    /**
+     * 过滤字符串中的一些内容
+     * @access public
+     * @return string
+    */
+    public static function paramFilter($value=""){
+    	
+    	$value=preg_replace("/<script[\s\S]*?<\/script>/im", "", $value);
+
+    	$value=preg_replace("/<script>|<\/script>/im", "", $value);
+
+    	return $value;
+    	
+    }
 }	

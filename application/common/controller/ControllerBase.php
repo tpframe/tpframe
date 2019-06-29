@@ -51,7 +51,7 @@ class ControllerBase extends Controller
      */
     final private function initRequestInfo()
     {
-        
+        $this->request->filter("tpfcore\helpers\StringHelper::paramFilter");
         defined('IS_POST')          or define('IS_POST',         $this->request->isPost());
         defined('IS_GET')           or define('IS_GET',          $this->request->isGet());
         defined('IS_AJAX')          or define('IS_AJAX',         $this->request->isAjax());
