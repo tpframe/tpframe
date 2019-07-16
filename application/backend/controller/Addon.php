@@ -20,9 +20,18 @@ class Addon extends AdminBase
      */
     public function addonInstall($name = null)
     {
+
+        if(empty($name)) $this->jump([RESULT_ERROR,"没有你要安装的插件"]);
+
         $strtolower_name = strtolower($name);
 
         $class_path = "\\".ADDON_DIR_NAME."\\".$strtolower_name."\\".StringHelper::s_format_class($name);
+
+        if(!class_exists($class_path)){
+
+            $this->jump([RESULT_ERROR,"插件不存在"]);
+
+        }
 
         $controller = new $class_path();
 
@@ -46,9 +55,9 @@ class Addon extends AdminBase
         Db::startTrans();
         try{
             
-            list($status, $message) = $controller->addonInstall();
-
             Core::loadModel($this->name)->executeSql($strtolower_name, 'install');
+
+            list($status, $message) = $controller->addonInstall();
 
             Db::commit();
 
@@ -56,7 +65,7 @@ class Addon extends AdminBase
 
             Db::rollback();
 
-            $this->jump([RESULT_ERROR,"操作失败,失败原因".$e->getMessage()]);
+            $this->jump([RESULT_SUCCESS,"操作失败,失败原因".$e->getMessage()]);
 
         }
 
@@ -68,7 +77,7 @@ class Addon extends AdminBase
      */
     public function addonUninstall($name = null)
     {
-
+        
         Db::startTrans();
 
         try{
