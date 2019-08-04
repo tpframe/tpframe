@@ -14,6 +14,7 @@ namespace app\common\model;
 
 use think\Model;
 use think\Db;
+use PDO;
 use tpfcore\helpers\StringHelper;
 use tpfcore\web\Cache;
 /*	
@@ -33,6 +34,57 @@ class ModelBase extends Model
     {
         // 当前类名
         $this->class = get_called_class();
+    }
+    /**
+     * 取得数据库的表信息
+     * @access public
+     * @param string $dbName
+     * @return array
+     */
+    final protected function getTables($dbName = '')
+    {
+        $sql    = !empty($dbName) ? 'SHOW TABLES FROM ' . $dbName : 'SHOW TABLES ';
+        $pdo    = Db::query($sql, [], false, true);
+        $result = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $info   = [];
+        foreach ($result as $key => $val) {
+            $info[$key] = current($val);
+        }
+        return $info;
+    }
+    /**
+     * 取得数据表的字段信息
+     * @access public
+     * @param string $tableName
+     * @return array
+     */
+    final protected function getFields($tableName)
+    {
+        list($tableName) = explode(' ', $tableName);
+        if (false === strpos($tableName, '`')) {
+            if (strpos($tableName, '.')) {
+                $tableName = str_replace('.', '`.`', $tableName);
+            }
+            $tableName = '`' . $tableName . '`';
+        }
+        $sql    = 'SHOW COLUMNS FROM ' . $tableName;
+        $pdo    = Db::query($sql, [], false, true);
+        $result = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $info   = [];
+        if ($result) {
+            foreach ($result as $key => $val) {
+                $val                 = array_change_key_case($val);
+                $info[$val['field']] = [
+                    'name'    => $val['field'],
+                    'type'    => $val['type'],
+                    'notnull' => (bool) ('' === $val['null']), // not null is empty, null is yes
+                    'default' => $val['default'],
+                    'primary' => (strtolower($val['key']) == 'pri'),
+                    'autoinc' => (strtolower($val['extra']) == 'auto_increment'),
+                ];
+            }
+        }
+        return $info;
     }
     /**
      * 状态获取器
