@@ -12,7 +12,90 @@ $.fn.serializeObject = function() {
       }
   });
   return o;
-};
+}; 
+/*
+* type              请求的方式  默认为post
+* url               发送请求的地址
+* param             发送请求的参数
+* dataType          返回JSON数据  默认为JSON格式数据
+* callBack          请求的回调函数
+*/
+(function(){
+    function AjaxRequest(opts){
+        this._base_param  = {};
+        this._baseUrl     = "";
+        this.headers      = opts.headers || {};
+        this.type         = opts.type || "post";
+        this.url          = this._baseUrl+opts.url;
+        this.param        = opts.param || {};
+        this.headers      = opts.headers || {};
+        this.async        = opts.async || false;
+        this.dataType     = opts.dataType || "json";
+        this.callBack     = opts.callBack;
+        this.is_original_data = opts.is_original_data || false;
+        this.initParam();
+        this.init();
+    }
+
+    AjaxRequest.prototype = {
+        //参数初始化
+        initParam:function(){
+            Object.assign(this.param,this.param,this._base_param);
+        },
+        //初始化
+        init: function(){
+            this.sendRequest();
+        },
+        //渲染loader
+        showLoader: function(){
+            layer.open({type:3}); 
+        },
+        //隐藏loader
+        hideLoader: function(){
+            layer.closeAll('loading');
+        },
+        //提示消息
+        toast:function(type=1,title="",content=""){
+            layer.open({
+                type:type,
+                title:title,
+                content:content
+            });
+        },
+        //发送请求
+        sendRequest: function(){
+            var self = this;
+            $.ajax({
+                type: this.type,
+                url: this.url,
+                data: this.param,
+                async:this.async,
+                headers:this.headers,
+                dataType: this.dataType,
+                beforeSend: this.showLoader(),
+                success: function(res){
+                    self.hideLoader();
+                    if (typeof res == "object" && res.code==0) {
+                        if(self.callBack){
+                            if (Object.prototype.toString.call(self.callBack) === "[object Function]") {   //Object.prototype.toString.call方法--精确判断对象的类型
+                                self.is_original_data?self.callBack(res):self.callBack(res.data);
+                            }else{
+                                console.log("callBack is not a function");
+                            }
+                        }
+                    }else{
+                        self.toast(0,"出错了",res.msg);
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown){
+                    self.hideLoader();
+                    self.toast(0,"请求出错");
+                }
+            });
+        }
+    };
+    window.AjaxRequest = AjaxRequest;
+})();
 
 ;(function () {
     //全局ajax处理
