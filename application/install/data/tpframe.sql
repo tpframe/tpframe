@@ -350,8 +350,9 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `token` varchar(100) DEFAULT NULL COMMENT '第三方登录标识',
   `login_way` tinyint(4) DEFAULT '0' COMMENT '登录方式  0：账号密码   1：第三方快捷登录',
   `integral` int(11) DEFAULT '0' COMMENT '积分',
-  `qq_login_openid` varchar(32) DEFAULT NULL,
   `money` decimal(4,2) DEFAULT '0.00' COMMENT '余额',
+  `profit` decimal(10,2) DEFAULT '0.00' COMMENT '佣金',
+  `qq_login_openid` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
