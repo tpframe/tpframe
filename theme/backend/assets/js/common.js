@@ -460,17 +460,14 @@ $.fn.serializeObject = function() {
                     },
                     okVal:"确定",
                     ok: function () {
-                    	
                         $.getJSON(href).done(function (data) {
-                            if (data.code == 1) {
+                            if (data.code == 0) {
                                 if (data.url) {
                                     location.href = data.url;
                                 } else {
                                     reloadPage(window);
                                 }
-                            } else if (data.code == 0) {
-                                //art.dialog.alert(data.info);
-                            	//alert(data.info);//暂时处理方案
+                            } else{
                 				art.dialog({   
                 					content: data.msg,
                 					icon: 'warning',  
@@ -513,9 +510,8 @@ $.fn.serializeObject = function() {
                         return true;
                     },
                     ok: function () {
-                    	
                         $.getJSON(href).done(function (data) {
-                            if (data.code == 1) {
+                            if (data.code == 0) {
                                 if (data.url) {
                                     location.href = data.url;
                                 } else {
@@ -529,16 +525,6 @@ $.fn.serializeObject = function() {
     									
     								}); 
                                 }
-                            } else if (data.code == -1) {
-                                //art.dialog.alert(data.info);
-								art.dialog({   
-									content: data.msg,
-									icon: 'warning',
-									ok: function () {   
-										this.title(data.msg);   
-										return true;   
-									}
-								}); 
                             }else{
                                art.dialog({   
                                     content: data.msg,
