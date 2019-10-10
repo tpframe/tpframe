@@ -37,7 +37,7 @@ class AdminBase extends ControllerBase
         $action=strtolower(MODULE_NAME.CONTROLLER_NAME.ACTION_NAME);
 
         $menu=Core::loadModel("Menu","backend","logic")->getMenuArrTree(['display'=>1],true,true);
-        $privs=[];$outPrivs=["Indexmain","Indexindex"];
+        $privs=[];$outPrivs=["backendindexmain","backendindexindex"];
         foreach ($menu as $key => $value) {
             $privs[]=strtolower($value['module'].$value['controller'].$value['action']);
         }
