@@ -49,17 +49,26 @@
                           {eq name='vo.is_install' value='1'}
                               {eq name="vo.config" value="1"}
                               <a class="btn btn-info confirm ajax-get"  href='{:url($vo['name']."/".$vo['name']."/config")}'><i class="fa fa-remove"></i> 配置 </a>
-                              {/eq} 
-                              <a class="btn btn-warning confirm ajax-get js-ajax-dialog-btn"  href="{:url('addonUninstall', array('name' => $vo['name']))}" msg="确定要卸载此插件吗"><i class="fa fa-remove"></i> 卸 载</a>
+                              {/eq}
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-warning">卸载</button>
+                                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name']))}" class="ajax-get js-ajax-dialog-btn">普通卸载</a></li>
+                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name'],'type'=>'release'))}" class="ajax-get js-ajax-dialog-btn">完全卸载</a></li>
+                                </ul>
+                              </div>
                               {notempty name="vo.demo_url"}
-                              <a class="btn btn-default ajax-get"  target="_blank" href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
+                              <a class="btn btn-default ajax-get case-btn"  target="_blank" href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
                               {/notempty}
                               <a class="btn-link confirm ajax-get"  href="{:url($vo['name']."/".$vo['name']."/doc")}">使用说明 </a>
                           {else/}
                               {notempty name="vo.demo_url"}
-                              <a class="btn btn-default ajax-get" target="_blank"  href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
+                              <a class="btn btn-default ajax-get case-btn" target="_blank"  href="{$vo.demo_url}"><i class="fa fa-binoculars"></i>演示</a>
                               {/notempty}
-                              <a class="btn confirm ajax-get js-ajax-dialog-btn"  href="{:url('addonInstall', array('name' => $vo['name']))}" msg="确定要安装此插件吗"><i class="fa fa-refresh"></i> 安 装</a>
+                              <a class="btn btn-success confirm ajax-get js-ajax-dialog-btn"  href="{:url('addonInstall', array('name' => $vo['name']))}" msg="确定要安装此插件吗"><i class="fa fa-refresh"></i> 安 装</a>
                           {/eq}
                       </td>
                     </tr>
