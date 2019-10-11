@@ -462,7 +462,7 @@ $.fn.serializeObject = function() {
                     ok: function () {
                     	
                         $.getJSON(href).done(function (data) {
-                            if (data.code == 1) {
+                            if (data.code == 0) {
                                 if (data.url) {
                                     location.href = data.url;
                                 } else {
