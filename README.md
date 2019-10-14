@@ -1,7 +1,7 @@
 ![](http://www.tpframe.com/data/assets/images/mark_logo.jpg) 
 TPFrame
 ===============
-TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式下做了进一步的开发，对CBD模式做了更深的强化，优化核心，减少依赖，为个人或企业建站提供高效、快速解决的方案，是你快速做在线成品、可自己扩展的首选利器，TPFrame的主要特性：
+TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式下做了进一步的开发，对CBD模式做了更深的强化，优化核心，减少依赖，为个人或企业建站提供高效、快速解决的方案，是你快速做在线成品、是你建设各种系统的首选利器，TPFrame的主要特性：
 
  + 网站目录结构清晰、合理
  + 保留ThinkPHP5所有模式，你可以运用任何ThinkPHP5可用的操作
@@ -16,7 +16,7 @@ TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式�
  + 配置文件可分离
  + 重写的自动验证和完成
  + 简化扩展机制
- + API支持完善
+ + API强化支持，几句代码搞定接口、接口文档问题
  + 命令行访问支持
  + REST支持
  + 引导文件支持
@@ -25,7 +25,13 @@ TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式�
  + 分布式环境支持
  + 更多的社交类库
 
-> TPFrame的运行环境要求PHP5.4以上。
+> TPFrame的运行环境要求PHP5.6以上。
+
+# 扫码在线部分体验
+|TPFrame 微信小程序|TPFrame 微信公众号|TPFrame 百度小程序|
+|:--:|:--:|:--:|
+|<img src="https://cdn.tpframe.com/images/mini_program_ercode.jpg" width=256 height=256 />|<img src="https://cdn.tpframe.com/images/wechat.jpg" width=256 height=256 />|<img src="https://cdn.tpframe.com/images/bd_tcms_ercode.png" width=256 height=256 />|
+|微信扫一扫|微信扫一扫|百度app扫一扫|
 
 ## 标准目录结构
 
@@ -113,9 +119,9 @@ www  WEB部署目录（或者子目录）
 
 ### 网站指示:
 
-[tpframe官网](http://www.tpframe.com)
+[tpframe官网](https://www.tpframe.com)
 
-[tpframe演示网站](http://demo.tpframe.com/backend)
+[tpframe演示网站](http://demo3.tpframe.com/backend)
 
 ### QQ群:
 `TPFrame 官方交流群`:129822766  
@@ -139,6 +145,6 @@ TPFrame遵循Apache2开源协议发布，并提供免费使用。
 
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
 
-版权所有Copyright © 2006-2017 by TPFrame (http://www.tpframe.com)
+版权所有Copyright © 2018-2020 by TPFrame (https://www.tpframe.com)
 
 All rights reserved。
