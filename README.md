@@ -30,7 +30,7 @@ TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式�
 # 扫码在线部分体验
 |TPFrame 微信小程序|TPFrame 微信公众号|TPFrame 百度小程序|
 |:--:|:--:|:--:|
-|<img src="https://cdn.tpframe.com/images/mini_program_ercode.jpg" width=256 height=256 />|<img src="https://cdn.tpframe.com/images/wechat.jpg" width=256 height=256 />|<img src="https://cdn.tpframe.com/images/bd_tcms_ercode.png" width=256 height=256 />|
+|<img src="https://www.tpframe.com/data/assets/images/mini_program_ercode.jpg" width=256 height=256 />|<img src="https://www.tpframe.com/data/assets/images/wechat.jpg" width=256 height=256 />|<img src="https://www.tpframe.com/data/assets/images/bd_tcms_ercode.png" width=256 height=256 />|
 |微信扫一扫|微信扫一扫|百度app扫一扫|
 
 ## 标准目录结构
