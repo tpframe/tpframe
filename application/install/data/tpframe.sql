@@ -327,7 +327,8 @@ INSERT INTO `tpf_slide_cat` VALUES ('1', '首页大图广告', 'banner', '首页
 CREATE TABLE IF NOT EXISTS `tpf_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `pay_password` varchar(64) DEFAULT NULL COMMENT '支付密码',
   `headimg` varchar(255) DEFAULT NULL COMMENT '用户头像',
   `nickname` varchar(30) DEFAULT NULL COMMENT '昵称',
   `gender` smallint(6) DEFAULT '0' COMMENT '性别；0：保密，1：男；2：女',
@@ -362,6 +363,7 @@ CREATE TABLE IF NOT EXISTS `tpf_user_statistics` (
   `total_money` decimal(10,2) DEFAULT '0.00' COMMENT '累计总金额  包括佣金，充值，兑换...所有的收入',
   `total_profit` decimal(10,2) DEFAULT '0.00' COMMENT '累计总佣金',
   `total_cashout` decimal(10,2) DEFAULT '0.00' COMMENT '总成功提现金额',
+  `total_integral` int(11) DEFAULT '0' COMMENT '累计总积分',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='用户统计';
 
