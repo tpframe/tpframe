@@ -279,7 +279,7 @@ $.fn.serializeObject = function() {
                                 if (data.code === 0) {
                                     $('<span class="tips_success">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('slow').delay(1000).fadeOut(function() {
                                         if(window.parent.frames.length == 1){
-                                            parent.layer.closeAll('iframe');
+                                            parent.layer!==undefined && parent.layer.closeAll('iframe');
                                             parent.location.reload();
                                         }else{
                                             if(data.url){
@@ -349,7 +349,7 @@ $.fn.serializeObject = function() {
                 if (data.code === 0) {
                     $('<span class="tips_success">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('slow').delay(1000).fadeOut(function() {
                         if(window.parent.frames.length == 1){
-                            parent.layer.closeAll('iframe');
+                            parent.layer!==undefined && parent.layer.closeAll('iframe');
                             parent.location.reload();
                         }else{
                             location.href = data.url;
