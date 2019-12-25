@@ -10,6 +10,8 @@ namespace app\backend\model;
  */
 class Menu extends AdminBase
 {
+    protected $resultSetType = 'collection';
+    
     protected $insert = ['controller','action'];
     
     protected function setControllerAttr($value)

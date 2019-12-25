@@ -153,4 +153,7 @@ class Menu extends AdminBase
 			return $this->parentids;
 		}
 	}
+	public function saveAllMenu($data){
+        return Core::loadModel($this->name,"backend")->saveAll($data)->toArray();
+    }
 }
