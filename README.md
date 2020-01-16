@@ -27,6 +27,9 @@ TPFrame保持了ThinkPHP5原有的所有特性，在ThinkPHP动力驱动模式�
 
 > TPFrame的运行环境要求PHP5.6以上。
 
+## TPFrame 6.x 版本
+tpframe 6.x (https://gitee.com/37duman/tpframe6)
+
 # 扫码在线部分体验
 |TPFrame 微信小程序|TPFrame 微信公众号|TPFrame 百度小程序|
 |:--:|:--:|:--:|
