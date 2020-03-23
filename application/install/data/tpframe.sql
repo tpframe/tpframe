@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `tpf_category` (
   `sort` smallint(11) DEFAULT '0' COMMENT '排序',
   `url` varchar(255) DEFAULT NULL COMMENT '链接地址',
   `display` tinyint(4) DEFAULT '1' COMMENT '是否显示  0：不显示   1显示',
+  `channel_id` smallint(6) DEFAULT '1' COMMENT '内容模型ID',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
@@ -332,7 +333,8 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `headimg` varchar(255) DEFAULT NULL COMMENT '用户头像',
   `nickname` varchar(30) DEFAULT NULL COMMENT '昵称',
   `gender` smallint(6) DEFAULT '0' COMMENT '性别；0：保密，1：男；2：女',
-  `grade` smallint(6) DEFAULT '0' COMMENT '管理员类型  1管理员 0普通用户',
+  `type` smallint(6) DEFAULT '0' COMMENT '用户类型 0普通用户  1管理员',
+  `grade` smallint(6) DEFAULT '0' COMMENT '用户等级 0普通用户',
   `level` smallint(6) DEFAULT '0' COMMENT '用户等级',
   `parent_id` int(11) DEFAULT '0' COMMENT '上级ID',
   `birthday` varchar(30) DEFAULT NULL COMMENT '生日',
