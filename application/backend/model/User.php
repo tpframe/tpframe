@@ -12,7 +12,7 @@ use \tpfcore\Core;
  */
 class User extends AdminBase
 {
-    protected $insert = ['grade'=>1,'create_time'];
+    protected $insert = ['type'=>1,'create_time'];
     protected function setPasswordAttr($value)
     {
         return '###'.md5($value.DATA_ENCRYPT_KEY);

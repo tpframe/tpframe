@@ -35,8 +35,19 @@ class Index extends AdminBase
     			"剩余空间：" => round((@disk_free_space(".") / (1024 * 1024)), 2) . 'M',
     	);
 
+        $today_unix_timestamp_start = strtotime(date("Y-m-d")." 00:00:00");
+
+        // data count
+        $statistics = array(
+            "no_checked_number"=>Core::loadModel("Statistics")->getUncheckPostsNumber(),
+            "user_number"=>Core::loadModel("Member","backend","logic")->getStatistics(["type"=>0]),
+            "today_user_number"=>Core::loadModel("Member","backend","logic")->getStatistics(["create_time"=>["gt",$today_unix_timestamp_start]]),
+            "order_number"=>Core::loadModel("Statistics")->getOrderNumber(["order_status"=>1]),
+            "shipping_order_number"=>Core::loadModel("Statistics")->getOrderNumber(["order_status"=>1,"shipping_status"=>1]),
+        );
     	return $this->fetch("main",[
-    		"server_info"=>$info
+    		"server_info"=>$info,
+            "statistics"=>$statistics
     	]);
     }
 } 

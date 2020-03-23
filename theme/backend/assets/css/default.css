@@ -7,7 +7,19 @@
  * This is licensed under the GNU LGPL, version 2.1 or later.
  * For details, see: http://creativecommons.org/licenses/LGPL/2.1/
  */
- 
+.input-order{width:30px;}
+.wrap {padding: 20px 20px 70px;}
+.table td {font-size:12px;}
+.flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+.flex-v{-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+.flex-wrap{-webkit-flex-wrap:wrap;-moz-flex-wrap:wrap;-ms-flex-wrap:wrap;-o-flex-wrap:wrap;flex-wrap:wrap;}
+.flex-row-wrap{-webkit-flex-flow:row wrap;-moz-flex-flow:row wrap;-ms-flex-flow:row wrap;-o-flex-flow:row wrap;flex-flow:row wrap;}
+.flex-1{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+.flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+.flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+.flex-pack-justify{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+.flex-pack-around{-webkit-box-pack:justify;-webkit-justify-content:space-around;-ms-flex-pack:justify;justify-content:space-around;}
+
 /* common start */
 body { _margin:0; _height:100%; /*IE6 BUG*/ }
 .status,.ajax-status{cursor: pointer;}
@@ -35,7 +47,6 @@ table.aui_border, table.aui_dialog { border:0; margin:0; border-collapse:collaps
 button.aui_state_highlight { color: #FFF; border: solid 1px #1c6a9e; background: #2288cc; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc'); background: linear-gradient(top, #33bbee, #2288cc); background: -moz-linear-gradient(top, #33bbee, #2288cc); background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#33bbee), to(#2288cc)); text-shadow: -1px -1px 1px #1c6a9e; }
 button.aui_state_highlight:hover { color:#FFF; border-color:#0F3A56; }
 button.aui_state_highlight:active { border-color:#1c6a9e; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc'); background: linear-gradient(top, #33bbee, #2288cc); background: -moz-linear-gradient(top, #33bbee, #2288cc); background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#33bbee), to(#2288cc)); }
-.admin-tips{background-color: #f4f5f9; padding:10px; line-height:24px; font-size:13px; color: #8d8d8d; margin:10px auto; margin-top:0px}
 /* common end */
 
 .aui_inner { background:#FFF; }
@@ -71,3 +82,17 @@ button.aui_state_highlight:active { border-color:#1c6a9e; filter: progid:DXImage
 .green{color: #18bc9c;}
 .explain-tip{border:1px solid #ffbe7a;zoom:1;background-color: #fffced; padding: 8px 10px; line-height: 20px;}
 .margin-top-20{margin-top: 20px;}
+
+/* main */
+.main-box .label{color: #333;font-size: 1.8rem; padding: 0;}
+.main-box .number{font-size: 2rem; margin-top:6px;}
+.main-box .number a{color: #FFF;}
+.main-box .panel-box .ico{width: 20%; text-align: center;font-size: 30px;}
+.main-box .panel-box .item{padding:0 10px; margin-bottom: 10px;}
+.main-box .panel-box .label{color: #FFF;}
+.main-box .panel-box .pack{background-color: #000;border-radius: 10px; padding: 10px; color: #FFF;}
+.main-box .panel-box .item:nth-child(1) .pack{background-color: #ec5351;}
+.main-box .panel-box .item:nth-child(2) .pack{background-color: #3198fe;}
+.main-box .panel-box .item:nth-child(3) .pack{background-color: #f4a425;}
+.main-box .panel-box .item:nth-child(4) .pack{background-color: #1dd2af;}
+

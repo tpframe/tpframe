@@ -41,7 +41,7 @@ class ModelBase extends Model
      * @param string $dbName
      * @return array
      */
-    final protected function getTables($dbName = '')
+    final public function getTables($dbName = '')
     {
         $sql    = !empty($dbName) ? 'SHOW TABLES FROM ' . $dbName : 'SHOW TABLES ';
         $pdo    = Db::query($sql, [], false, true);
@@ -58,7 +58,7 @@ class ModelBase extends Model
      * @param string $tableName
      * @return array
      */
-    final protected function getFields($tableName)
+    final public function getFields($tableName)
     {
         list($tableName) = explode(' ', $tableName);
         if (false === strpos($tableName, '`')) {
@@ -99,14 +99,14 @@ class ModelBase extends Model
     
     /**
      * 保存数据，没有主键就执行添加，有就执行更新
-     * @access protected
+     * @access public
      * @param stirng|array $data 要操作的数据
      * @param string|array $where 操作的条件
      * @param string|array $field 操作的字段列表
      * @param string $sequence 自增序列名
      * @return boolean
      */
-    final protected function saveObject($data = [],$field = true, $where = [], $sequence = null)
+    final public function saveObject($data = [],$field = true, $where = [], $sequence = null)
     {
         
         $pk = $this->getPk();
@@ -116,13 +116,13 @@ class ModelBase extends Model
     
     /**
      * 新增数据,是否返回自增的主键
-     * @access protected
+     * @access public
      * @param stirng|array $data 要操作的数据
      * @param boolean $getLastInsID 返回自增主键   默认返回
      * @param string  $sequence     自增序列名
      * @return boolean
      */
-    final protected function addObject($data = [], $getLastInsID = true, $field = true, $sequence = null)
+    final public function addObject($data = [], $getLastInsID = true, $field = true, $sequence = null)
     {
         $result= $this->allowField($field)->isUpdate(false)->save($data, $where=[], $sequence);
         if($getLastInsID){
@@ -137,12 +137,12 @@ class ModelBase extends Model
     
     /**
      * 更新数据
-     * @access protected
+     * @access public
      * @param stirng|array $data 要操作的数据
      * @param string|array $where 操作的条件
      * @return boolean
      */
-    final protected function updateObject($where = [], $data = [], $field = true, $sequence = null)
+    final public function updateObject($where = [], $data = [], $field = true, $sequence = null)
     {
 
         return $this->allowField($field)->isUpdate(true)->save($data, $where, $sequence);
@@ -151,12 +151,12 @@ class ModelBase extends Model
     
      /**
      * 聚合函数-统计数据
-     * @access protected
+     * @access public
      * @param string|array $where 操作的条件
      * @param stirng $stat_type 统计类型，默认为count，统计条件
      * @return mixed
      */
-    final protected function getStatistics($where = [], $stat_type = 'count', $field = 'id')
+    final public function getStatistics($where = [], $stat_type = 'count', $field = 'id')
     {
         
         return $this->where($where)->$stat_type($field);
@@ -169,7 +169,7 @@ class ModelBase extends Model
      * @param boolean $replace 是否自动识别更新和写入
      * @return array|false
      */
-    final protected function opObjects($data_list = [], $replace = false)
+    final public function opObjects($data_list = [], $replace = false)
     {
         
         return $this->saveAll($data_list, $replace);
@@ -177,71 +177,71 @@ class ModelBase extends Model
     
     /**
      * 设置某个字段值
-     * @access protected
+     * @access public
      * @param array   $where 条件
      * @param string $field 字段名
      * @param string $value 新的值
      * @return boolean
      */
-    final protected function setFieldValue($where = [], $field = '', $value = '')
+    final public function setFieldValue($where = [], $field = '', $value = '')
     {
         return $this->updateObject($where, [$field => $value]);
     }
     
     /**
      * 删除数据（分真实删除与更改字段状态）
-     * @access protected
+     * @access public
      * @param array   $where 条件
      * @param string $is_true 是否真实删除
      * @return boolean
      */
-    final protected function deleteObject($where = [], $is_true = false , $column = null)
+    final public function deleteObject($where = [], $is_true = false , $column = null)
     { 
         return $is_true ? $this->where($where)->delete() : $this->setFieldValue($where, is_null($column)?DATA_STATUS:$column, DATA_DELETE);
     }
     
     /**
      * 得到某个列的数组
-     * @access protected
+     * @access public
      * @param array   $where 条件
      * @param string $field 字段名 多个字段用逗号分隔
      * @param string $key   索引
      * @return array
      */
-    final protected function getColumns($where = [], $field = '', $key = '')
+    final public function getColumns($where = [], $field = '', $key = '')
     {
         return Db::name($this->name)->where($where)->column($field, $key);
     }
     
     /**
      * 得到某个字段的值
-     * @access protected
+     * @access public
      * @param array   $where 条件
      * @param string $field   字段名
      * @param mixed  $default 默认值
      * @param bool   $force   强制转为数字类型
      * @return mixed
      */
-    final protected function getColumnValue($where = [], $field = '', $default = null, $force = false)
+    final public function getColumnValue($where = [], $field = '', $default = null, $force = false)
     {
         return Db::name($this->name)->where($where)->value($field, $default, $force);
     }
     
     /**
     * 查找单条记录
-    * @access protected
+    * @access public
     * @param array   $where 条件
     * @param string $field   字段名
     * @return mixed
     */
-    final protected function getOneObject($where = [], $field = true)
+    final public function getOneObject($where = [], $field = true)
     {
        return $this->where($where)->field($field)->find();
     }
     
     /**
     * 获取数据列表
-    * @access protected
+    * @access public
     * @param array   $where 条件
     * @param string $field   字段名
     * @param string|array $order 排序字段
@@ -255,7 +255,7 @@ class ModelBase extends Model
     * @param mixed $data   数据集
     * @return mixed
     */
-    final protected function getObject($where = [], $field = true, $order = '', $paginate = array('rows' => null, 'simple' => false, 'config' => []), $join = array('join' => null, 'condition' => null, 'type' => 'INNER'), $group = array('group' => '', 'having' => ''), $limit = null, $data = null,$expire=0)
+    final public function getObject($where = [], $field = true, $order = '', $paginate = array('rows' => null, 'simple' => false, 'config' => []), $join = array('join' => null, 'condition' => null, 'type' => 'INNER'), $group = array('group' => '', 'having' => ''), $limit = null, $data = null,$expire=0)
     {
         if(isset($where['page'])) unset($where['page']);
 
@@ -328,11 +328,11 @@ class ModelBase extends Model
 
     /**
     * 获取数据列表，为了更加灵活，采用数组的方式导入参数
-    * @access protected
+    * @access public
     * @param array   $param 参数
     * @return mixed
     */
-    final protected function getList($param=[])
+    final public function getList($param=[])
     {
         $defaultParam=   [
                     "where" =>[],

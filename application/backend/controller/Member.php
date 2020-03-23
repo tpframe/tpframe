@@ -31,7 +31,7 @@ class Member extends AdminBase
 	*/
 	public function index(){
 		return $this->fetch("index",[
-            'list'=>Core::loadModel($this->name)->getUserList(['grade'=>0])
+            'list'=>Core::loadModel($this->name)->getUserList(['type'=>0])
         ]);
 	}
 	/*
@@ -39,7 +39,7 @@ class Member extends AdminBase
 	*/
 	public function admin(){
 		return $this->fetch("admin",[
-            'list'=>Core::loadModel($this->name)->getUserList(['grade'=>1])
+            'list'=>Core::loadModel($this->name)->getUserList(['type'=>1])
         ]);
 	}
 	/*

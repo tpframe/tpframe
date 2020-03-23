@@ -30,7 +30,7 @@ class User extends AdminBase
             return [RESULT_ERROR, $validate->getError(), null];
         }
 
-        $user=self::getOneObject(["username"=>$data['username'],"password"=>'###'.md5($data['password'].DATA_ENCRYPT_KEY),'grade'=>1]);
+        $user=self::getOneObject(["username"=>$data['username'],"password"=>'###'.md5($data['password'].DATA_ENCRYPT_KEY),'type'=>1]);
         if(empty($user)){
         	return [RESULT_ERROR, '用户名或密码错误', url('User/login')];
         }
