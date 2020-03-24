@@ -559,6 +559,73 @@ $.fn.serializeObject = function() {
         });
     }
 
+    if ($('.js-post-ajax-dialog-btn').length) {
+        Wind.use('artDialog', function () {
+            $('.js-post-ajax-dialog-btn').on('click', function (e) {
+                e.preventDefault();
+                var $_this = this,
+                    $this = $($_this),
+                    href = $this.data('href'),
+                    msg = $this.data('msg');
+                href = href?href:$this.attr('href');
+                if(!msg){
+                    msg="您确定要进行此操作吗？";
+                }
+                art.dialog({
+                    title: false,
+                    icon: 'question',
+                    content: msg,
+                    follow: $_this,
+                    close: function () {
+                        $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                        return true;
+                    },
+                    ok: function () {
+                        $.post(href,function(data){
+                            if (data.code == 0) {
+                                if (data.url) {
+                                    location.href = data.url;
+                                } else {
+                                    art.dialog({   
+                                        content: data.msg,
+                                        icon: 'succeed',
+                                        ok: function () {   
+                                            reloadPage(window);
+                                            return true;
+                                        },
+                                        
+                                    }); 
+                                }
+                            } else if (data.code == -1) {
+                                //art.dialog.alert(data.info);
+                                art.dialog({   
+                                    content: data.msg,
+                                    icon: 'warning',
+                                    ok: function () {   
+                                        this.title(data.msg);   
+                                        return true;   
+                                    }
+                                }); 
+                            }else{
+                               art.dialog({   
+                                    content: data.msg,
+                                    icon: 'warning',
+                                    ok: function () {   
+                                        this.title(data.msg);   
+                                        return true;   
+                                    }
+                                });  
+                            }
+                        },"json");
+                    },
+                    cancelVal: '关闭',
+                    cancel: true
+                });
+            });
+
+        });
+    }
+
     if ($('.ajax-handle').length) {
         $('.ajax-handle').on('click', function (e) {
             e.preventDefault();

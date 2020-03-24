@@ -58,8 +58,8 @@
                                   <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name']))}" class="ajax-get js-ajax-dialog-btn">普通卸载</a></li>
-                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name'],'type'=>'release'))}" class="ajax-get js-ajax-dialog-btn">完全卸载</a></li>
+                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name']))}" class="ajax-get js-post-ajax-dialog-btn">普通卸载</a></li>
+                                  <li><a href="{:url('addonUninstall', array('name' => $vo['name'],'type'=>'release'))}" class="ajax-get js-post-ajax-dialog-btn">完全卸载</a></li>
                                 </ul>
                               </div>
                               {notempty name="vo.demo_url"}
