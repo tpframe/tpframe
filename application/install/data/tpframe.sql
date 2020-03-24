@@ -219,6 +219,7 @@ CREATE TABLE IF NOT EXISTS `tpf_posts` (
   `author` varchar(30) DEFAULT 'tpframe' COMMENT '作者',
   `view` int(11) DEFAULT '0' COMMENT '浏览量',
   `likes` int(11) DEFAULT '0' COMMENT '点赞数',
+  `comments_number` int(11) DEFAULT '0' COMMENT '文章评论数',
   `type` tinyint(4) DEFAULT '1' COMMENT '文章类型',
   `ischeck` tinyint(1) DEFAULT '1' COMMENT '是否审核 1已审核，0未审核',
   `iscomment` tinyint(1) DEFAULT '1' COMMENT '是否可评论，1允许，0不允许',
