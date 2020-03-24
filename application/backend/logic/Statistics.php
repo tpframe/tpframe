@@ -15,7 +15,7 @@ class Statistics extends AdminBase
 
     	if($this->checkAddonByName("cms")==0) return 0;
 
-    	return Core::loadAddonModel("Posts","cms","controller")->getStatistics(["ischeck"=>0]);
+    	return Core::loadAddonModel("Posts","cms","controller")->getStatistics(["ischeck"=>0,"isdelete"=>0]);
 
     }
 
