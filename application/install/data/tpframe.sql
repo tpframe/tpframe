@@ -302,9 +302,9 @@ CREATE TABLE IF NOT EXISTS `tpf_slide` (
 -- Records of tpf_slide
 -- ----------------------------
 INSERT INTO `tpf_slide` VALUES 
-('1', '1', '1', '/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0'),
-('2', '1', '2', '/data/uploads/20170713/3dc497387a1d6046560dfe8b43f0a0bc.jpg', '/', '', '', '1', '0'),
-('3', '1', '3', '/data/uploads/20170713/e261eee1c255f8642623f7b70b9b16a3.jpg', '/', '', '', '1', '0');
+('1', '1', '1', 'http://demo.tpframe.com/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0'),
+('2', '1', '2', 'http://demo.tpframe.com/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0'),
+('3', '1', '3', 'http://demo.tpframe.com/data/uploads/20170713/8df6cfdb0a8dbcc2d3ea9e7af9b80759.jpg', '/', '', '', '1', '0');
 
 -- ----------------------------
 -- Table structure for tpf_slide_cat
