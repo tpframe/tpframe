@@ -5,6 +5,7 @@
 			<li class="active"><a href="#A" data-toggle="tab">基本信息</a></li>
 			<li><a href="#C" data-toggle="tab">网站设置</a></li>
 			<li><a href="#B" data-toggle="tab">SEO设置</a></li>
+			<li><a href="#D" data-toggle="tab">客服设置</a></li>
 			<li><a href="#F" data-toggle="tab">附件设置</a></li>
 		</ul>
 		<form class="form-horizontal js-ajax-form" action="" method="post">
@@ -160,9 +161,22 @@
 						<div class="tab-pane" id="D">
 							<fieldset>
 								<div class="control-group">
-									<label class="control-label">开启UCenter</label>
+									<label class="control-label">QQ号</label>
 									<div class="controls">
-										<input type="checkbox" class="js-check" name="options[ucenter_enabled]" value="1" {notempty name="list.options.ucenter_enabled"}checked{/notempty}>
+										<input type="text" name="configs[site_service_qq]" value="{empty name=":config('config.site_service_qq')"}510974211{else/}{:config('config.site_service_qq')}{/empty}" placeholder="请输入QQ号">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">手机号</label>
+									<div class="controls">
+										<input type="text" name="configs[site_service_mobile]" value="{empty name=":config('config.site_service_mobile')"}{else/}{:config('config.site_service_mobile')}{/empty}" placeholder="请输入手机号">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">微信号</label>
+									<div class="controls">
+										<input type="text" name="configs[site_service_wechat]" value="{empty name=":config('config.site_service_wechat')"}{else/}{:config('config.site_service_wechat')}{/empty}" placeholder="请输入微信号">
+
 									</div>
 								</div>
 							</fieldset>
