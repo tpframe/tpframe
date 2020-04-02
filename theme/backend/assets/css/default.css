@@ -96,3 +96,15 @@ button.aui_state_highlight:active { border-color:#1c6a9e; filter: progid:DXImage
 .main-box .panel-box .item:nth-child(3) .pack{background-color: #f4a425;}
 .main-box .panel-box .item:nth-child(4) .pack{background-color: #1dd2af;}
 
+@font-face {font-family: "tpframe";
+  src: url('../fonts/tpframe.eot?t=1578883176495'); /* IE9 */
+  src: url('../fonts/tpframe.eot?t=1578883176495#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOwAAsAAAAAB7wAAANiAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDJIMHATYCJAMMCwgABCAFhG0HNRvMBhEVnFHIfh7Ytor1DVeECUsa+/tL8ktlGBfc7+CBvjPfzGzQ5CQW4G5SALmvSl8W92p8Cw0QQDB2derOJ8gA9cGKt3yP5zhJryvHe+JjeAgNwAG44PaJe6d/WgLzUZjTmrQG7uGfugDjzruAxl6iUYEk6A1jF7TE9RCAgxiyEPUbNtexo2F2E4AYPKBfD+wZM1pDvsCOwFoxVkPMxoJdTpHXgVnB98UXCoQdJBaF2bd13wa9qf2e95PVhP8TdPYIlNM5ATYJFJAFaCC6Vrrbo6JIFgqHatCa061oCORU/v//CRSazmr94YFEgLBi5noBkIaiEt7jKBLjZKi66rUUAFbADkwCTmHygpAQ2IqLtccOn5q0Jdt54UH86vv1p6Ysi1wUukyYpuv+ff3BA2Na6tYcx0UzYV1lo2nJm3eTb1ZZ6TbN0Uu3OlzCHWhW3bg+SL9ftn55MPrlssP+4Uu2hBpXmmw4FOo2HpRvOSTclambVoW4zMEut2Howt2JxnQ3upGtO6BFzKJfz9O4SUiIs5gncuT9eaVh0+KF7qnQhSE8HqEnVTyGjFn8s004Ykla84Qqny4Nqb9rBTVFucNUJ9scyDJlm/jG0fNSD9I8vn7MhBv7OVg/+ved7Ik4GPPdr37C85A/HTrZrXVKo4SkVx2lO6tF6o2mE6ANjU8m7Gq+q8We5gFnNhtLNjeJCD7R5oR+Qd84eWPjMRubXhy/s8XGFgdaBFzY0HrJhiZ0x+yoimQr+K9eKfnzfkPEmaMV3Xyrf7U7NQAe1/kZgmb/NZQE7HhREPCrlB2LNE2NLUpTFI7CiCtaYHsRMijjRn5QIUAAz4d7gyFxCuxcCSGxEQ2FnSRSY7OgtnAqgpVdLThkqic7BWJLYlWADG8Awc8Hko9TUPx8SY39wSLEH1Z+LeHgKnBOp5SaQz1GJWhBv6AxNDrbJocw/4j+1itOqwP+FTk2fsiTLB+vcUSeYkC8+0LEgWMaoAKbYd8TTEwtGkmCyFSmqat6UWJomB3Uw5AikAW0F9AwyMh55cWh8Pkj5N30FG7gVKWvEIua2kEukXUga8PYiXMrl0R3XkEIBziMDEAFnKi3IgRM1a1ayBCJMCA0KaWolOtqSJY3De+3AnAwl1JJoYSG+hDXQ8hiP5sBAAA=') format('woff2'),
+  url('../fonts/tpframe.woff?t=1578883176495') format('woff'),
+  url('../fonts/tpframe.ttf?t=1578883176495') format('truetype'), 			/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('../fonts/tpframe.svg?t=1578883176495#iconfont') format('svg'); 		/* iOS 4.1- */
+}
+
+.tpframeico{display:inline-block;font:normal normal normal 14px/1 FontAwesome,tpframe !important;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.icon-cms:before {content: "\e683";}
+.icon-model:before {content: "\e600";}
