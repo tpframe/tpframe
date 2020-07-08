@@ -9,6 +9,16 @@ CREATE TABLE IF NOT EXISTS `tpf_ad` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `tpf_notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL COMMENT '公告标题',
+  `key` varchar(50) DEFAULT NULL COMMENT '公告标识',
+  `content` varchar(255) DEFAULT NULL COMMENT '公告内容',
+  `datetime` varchar(30) DEFAULT '0' COMMENT '添加时间',
+  `display` tinyint(4) DEFAULT '1' COMMENT '是否显示 0 隐藏 1显示',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
 -- ----------------------------
 -- Table structure for tpf_addon
 -- ----------------------------
@@ -329,6 +339,7 @@ INSERT INTO `tpf_slide_cat` VALUES ('1', '首页大图广告', 'banner', '首页
 CREATE TABLE IF NOT EXISTS `tpf_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
+  `mobile` varchar(11) DEFAULT NULL COMMENT '手机号',
   `password` varchar(64) DEFAULT NULL,
   `pay_password` varchar(64) DEFAULT NULL COMMENT '支付密码',
   `headimg` varchar(255) DEFAULT NULL COMMENT '用户头像',
