@@ -38,7 +38,7 @@ class Index extends ControllerBase {
         $data['os']=PHP_OS;
         $tmp = function_exists('gd_info') ? gd_info() : array();
         $server = $_SERVER["SERVER_SOFTWARE"];
-        $host = (empty($_SERVER["SERVER_ADDR2"]) ? ((!empty($_SERVER["SERVER_HOST"]))?:$_SERVER["SERVER_NAME"]) : $_SERVER["SERVER_ADDR"]);
+        $host = (empty($_SERVER["SERVER_ADDR"]) ? ((!empty($_SERVER["SERVER_HOST"]))?:$_SERVER["SERVER_NAME"]) : $_SERVER["SERVER_ADDR"]);
         $name = $_SERVER["SERVER_NAME"];
         $max_execution_time = ini_get('max_execution_time');
         $allow_reference = (ini_get('allow_call_time_pass_reference') ? '<font color=green>[√]On</font>' : '<font color=red>[×]Off</font>');
@@ -143,6 +143,7 @@ class Index extends ControllerBase {
     }
 
     public function step4(){
+        session('install_sql', null);
         $this->assign("data",json_encode($this->post));
         return $this->fetch(":step4");
     }
