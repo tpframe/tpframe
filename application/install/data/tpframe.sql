@@ -357,7 +357,6 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `nickname` varchar(30) DEFAULT NULL COMMENT '昵称',
   `gender` smallint(6) DEFAULT '0' COMMENT '性别；0：保密，1：男；2：女',
   `type` smallint(6) DEFAULT '0' COMMENT '用户类型 0普通用户  1管理员',
-  `grade` smallint(6) DEFAULT '0' COMMENT '用户等级 0普通用户',
   `level` smallint(6) DEFAULT '0' COMMENT '用户等级',
   `parent_id` int(11) DEFAULT '0' COMMENT '上级ID',
   `birthday` varchar(30) DEFAULT NULL COMMENT '生日',
@@ -378,7 +377,10 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `integral` int(11) DEFAULT '0' COMMENT '积分',
   `money` decimal(4,2) DEFAULT '0.00' COMMENT '余额',
   `profit` decimal(10,2) DEFAULT '0.00' COMMENT '佣金',
+  `id_is_auth` tinyint(1) DEFAULT '0' COMMENT '身份证认证  0否  1是  4拒绝',
+  `is_anchor` tinyint(1) DEFAULT '0' COMMENT ' 是否是主播 0否  1是',
   `qq_login_openid` varchar(32) DEFAULT NULL,
+  `device_id` varchar(100) DEFAULT NULL COMMENT '设备登录标识',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
