@@ -357,6 +357,7 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `nickname` varchar(30) DEFAULT NULL COMMENT '昵称',
   `gender` smallint(6) DEFAULT '0' COMMENT '性别；0：保密，1：男；2：女',
   `type` smallint(6) DEFAULT '0' COMMENT '用户类型 0普通用户  1管理员',
+  `grade` smallint(6) DEFAULT '0' COMMENT '用户等级 0普通用户',
   `level` smallint(6) DEFAULT '0' COMMENT '用户等级',
   `parent_id` int(11) DEFAULT '0' COMMENT '上级ID',
   `birthday` varchar(30) DEFAULT NULL COMMENT '生日',
@@ -377,10 +378,7 @@ CREATE TABLE IF NOT EXISTS `tpf_user` (
   `integral` int(11) DEFAULT '0' COMMENT '积分',
   `money` decimal(4,2) DEFAULT '0.00' COMMENT '余额',
   `profit` decimal(10,2) DEFAULT '0.00' COMMENT '佣金',
-  `id_is_auth` tinyint(1) DEFAULT '0' COMMENT '身份证认证  0否  1是  4拒绝',
-  `is_anchor` tinyint(1) DEFAULT '0' COMMENT ' 是否是主播 0否  1是',
   `qq_login_openid` varchar(32) DEFAULT NULL,
-  `device_id` varchar(100) DEFAULT NULL COMMENT '设备登录标识',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
@@ -391,6 +389,7 @@ CREATE TABLE IF NOT EXISTS `tpf_user_statistics` (
   `total_profit` decimal(10,2) DEFAULT '0.00' COMMENT '累计总佣金',
   `total_cashout` decimal(10,2) DEFAULT '0.00' COMMENT '总成功提现金额',
   `total_integral` int(11) DEFAULT '0' COMMENT '累计总积分',
+  `spread_code` varchar(50) DEFAULT NULL COMMENT '传递因子/码，例如邀请码   由用户id+注册日期+随机数组成',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='用户统计';
 
